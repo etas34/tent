@@ -14,16 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('lang/{locale}', [HomeController::class, 'setlocale']);
+Route::group(['middleware' => 'setlocale'], function() {
 
-Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'auth'],function (){
+    Route::get('/', function () {
+        return view('welcome');
+    });
 
-    Route::get('/', [HomeController::class, 'index'])->name('dashboard');
-    Route::get('/form/create', [HomeController::class, 'form_create'])->name('form.create');
-    Route::get('/form', [HomeController::class, 'form_index'])->name('form.index');
+    Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'auth'],function (){
 
+        Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+        Route::get('/form/create', [HomeController::class, 'form_create'])->name('form.create');
+        Route::get('/form', [HomeController::class, 'form_index'])->name('form.index');
+
+
+    });
 
 });
 
