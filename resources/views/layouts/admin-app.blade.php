@@ -14,7 +14,6 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
 
-
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
@@ -23,7 +22,8 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
 
-
+    <!-- Toastr -->
+    <link src="{{asset('adminlte/plugins/toastr/toastr.css')}}" rel="stylesheet"/>
     <!-- Custom Styles -->
     @stack('styles')
 
@@ -135,10 +135,13 @@
 <script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 
+{{--<script src="{{asset('adminlte/plugins/toastr/toastr.min.js')}}"></script>--}}
+@toastr_css
 
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/dist/js/adminlte.min.js')}}"></script>
-
+@toastr_js
+@toastr_render
 
 <script>
     $(function () {

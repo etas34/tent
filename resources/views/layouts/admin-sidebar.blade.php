@@ -60,6 +60,33 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.category.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                          Categories
+{{--                            <span class="right badge badge-danger">New</span>--}}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.model.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th-list"></i>
+                        <p>
+                          Models
+{{--                            <span class="right badge badge-danger">New</span>--}}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.product.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-cart-plus"></i>
+                        <p>
+                          Products
+{{--                            <span class="right badge badge-danger">New</span>--}}
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
