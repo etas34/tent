@@ -4,7 +4,6 @@
 
 @endpush
 
-
     <div class="row">
         <!-- left column -->
         <div class="col-md-12">
@@ -38,8 +37,43 @@
                             </div>
 
 
-                            <label for="cat_name">Category Name</label>
-                            <input type="text" name="cat_name" value="{{$category->name}}" class="form-control" id="cat_name" placeholder="Enter Category Name">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <!-- Custom Tabs -->
+                                        <div class="card">
+                                            <div class="card-header d-flex p-0">
+                                                <h3 class="card-title p-3">Translate</h3>
+                                                <ul class="nav nav-pills ml-auto p-2">
+                                                    @foreach($langs as $key=>$value)
+                                                        <li class="nav-item"><a class="nav-link @if($key == 'de') active @endif" href="#{{$key}}" data-toggle="tab">{{$value}}</a></li>
+
+                                                    @endforeach
+
+
+                                                </ul>
+                                            </div><!-- /.card-header -->
+                                            <div class="card-body">
+                                                <div class="tab-content">
+                                                    @foreach($langs as $key=>$value)
+                                                        <div class="tab-pane @if($key == 'de') active @endif" id="{{$key}}">
+                                                            <div class="form-group">
+
+                                                                <label for="cat_name">Category Name ({{$value}})</label>
+                                                                <input type="text" name="cat_name[{{$key}}]" value="@if (array_key_exists($key,$category->getTranslations('name'))) {{$category->getTranslations('name')[$key]}} @endif"  class="form-control" id="cat_name" placeholder="Enter Category Name">
+                                                            </div>
+
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                                <!-- /.tab-content -->
+                                            </div><!-- /.card-body -->
+                                        </div>
+                                        <!-- ./card -->
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+
                         </div>
 
 

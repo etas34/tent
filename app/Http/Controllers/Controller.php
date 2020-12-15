@@ -16,16 +16,16 @@ class Controller extends BaseController
     {
         //its just a dummy data object.
         $langs = array(
-            "deutsch"=>"de",
-            "english"=>"en",
-            "română"=>"ro",
-            "magyar"=>"hu",
-            "český"=>"cs",
-            "српски"=>"sr",
-            "hrvatski"=>"hr",
-            "slovenský"=>"sk",
-            "slovenščina"=>"sl",
-            "español"=>"es"
+            "de"=>"deutsch",
+            "en"=>"english",
+            "ro"=>"română",
+            "hu"=>"magyar",
+            "cs"=>"český",
+            "sr"=>"српски",
+            "hr"=>"hrvatski",
+            "sk"=>"slovenský",
+            "sl"=>"slovenščina",
+            "es"=>"español"
         );
 
         // Sharing is caring

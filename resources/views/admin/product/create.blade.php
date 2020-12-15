@@ -106,9 +106,9 @@
                                         <h3 class="card-title p-3">Translate</h3>
                                         <ul class="nav nav-pills ml-auto p-2">
 
-                                            @foreach($langs as $key=>$lang)
-                                            <li class="nav-item"><a class="nav-link @if($key == "deutsch")active @endif" href="#{{$lang}}"
-                                                                    data-toggle="tab">{{$key}}</a></li>
+                                            @foreach($langs as $key=>$value)
+                                            <li class="nav-item"><a class="nav-link @if($key == "de")active @endif" href="#{{$key}}"
+                                                                    data-toggle="tab">{{$value}}</a></li>
                                             @endforeach
 
                                         </ul>
@@ -116,17 +116,17 @@
                                     <div class="card-body">
                                         <div class="tab-content">
 
-                                            @foreach($langs as $key=>$lang)
+                                            @foreach($langs as $key=>$value)
 
-                                            <div class="tab-pane @if($key == "deutsch")active @endif" id="{{$lang}}">
+                                            <div class="tab-pane @if($key == "de")active @endif" id="{{$key}}">
                                                 <div class="row">
                                                     <div class="form-group col-md-12">
-                                                        <label>Description ({{$key}}) </label>
-                                                        <input type="text" name="insulation_{{{$lang}}}" class="form-control">
+                                                        <label>Insulation ({{$value}}) </label>
+                                                        <input type="text" name="insulation[{{$key}}]" class="form-control">
                                                     </div>
                                                     <div class="form-group col-md-12">
-                                                        <label>Product Description ({{$key}})</label>
-                                                        <textarea id="summernote_{{{$lang}}}"  name="description_{{{$lang}}}"
+                                                        <label>Product Description ({{$value}})</label>
+                                                        <textarea id="summernote_{{$key}}"  name="description[{{$key}}]"
                                                        ></textarea>
 
                                                     </div>
@@ -171,7 +171,7 @@
     $(function () {
         // Summernote
         @foreach($langs as $key=>$lang)
-                $("#summernote_{{{$lang}}}").summernote()
+                $("#summernote_{{{$key}}}").summernote()
         @endforeach
         // CodeMirror
 

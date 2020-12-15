@@ -29,12 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-//        $category=new Category();
-//        $category->name= ['en' => 'English 2. kategori', 'fr' => 'French 2. kategori'];
-//        $category->image= 'denemeurl';
-//        $category->save();
 
-//        dd(Category::find(5)->name);
 
 
         return view('admin.category.create');
@@ -48,8 +43,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
+//
+//        $category->image= 'denemeurl';
+//        $category->save();
+
+//        dd(Category::find(5)->name);
+
+
+//        foreach ($request->cat_name as $key=>$item)
+//            echo($key.'=>'.$item."\r\n");
+//        dd();
         $category = new Category();
-        $category->name = $request->cat_name;
+
+        $category->name =$request->cat_name;
 
         if ($request->file('image')) {
             $request->validate([
@@ -107,6 +114,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+
         $category->name = $request->cat_name;
 
         if ($request->file('image')) {
@@ -135,7 +143,7 @@ class CategoryController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.category.index');
+        return back();
     }
 
     /**

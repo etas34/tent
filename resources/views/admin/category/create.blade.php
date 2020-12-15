@@ -23,7 +23,16 @@
 
 
 
+                        <div class="form-group">
+                            <label for="exampleInputFile">Category Image</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
+                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
 
+                            </div>
+                        </div>
 
 
 
@@ -32,18 +41,28 @@
                                     <!-- Custom Tabs -->
                                     <div class="card">
                                         <div class="card-header d-flex p-0">
-                                            <h3 class="card-title p-3">Tabs</h3>
+                                            <h3 class="card-title p-3">Translate</h3>
                                             <ul class="nav nav-pills ml-auto p-2">
-                                                <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Tab 1</a></li>
+                                                @foreach($langs as $key=>$value)
+                                                    <li class="nav-item"><a class="nav-link @if($key == 'de') active @endif" href="#{{$key}}" data-toggle="tab">{{$value}}</a></li>
 
+                                                @endforeach
 
                                             </ul>
                                         </div><!-- /.card-header -->
                                         <div class="card-body">
                                             <div class="tab-content">
-                                                <div class="tab-pane active" id="tab_1">
+                                                @foreach($langs as $key=>$value)
+                                                <div class="tab-pane @if($key == 'de') active @endif" id="{{$key}}">
+                                                    <div class="form-group">
+
+                                                        <label for="cat_name">Category Name ({{$value}})</label>
+                                                        <input type="text" name="cat_name[{{$key}}]"  class="form-control" id="cat_name" placeholder="Enter Category Name">
+                                                    </div>
 
                                                 </div>
+                                                @endforeach
+
                                             </div>
                                             <!-- /.tab-content -->
                                         </div><!-- /.card-body -->
@@ -55,22 +74,8 @@
                             <!-- /.row -->
 
 
-                        <div class="form-group">
 
-                            <label for="cat_name">Category Name</label>
-                            <input type="text" name="cat_name"  class="form-control" id="cat_name" placeholder="Enter Category Name">
-                        </div>
 
-                        <div class="form-group">
-                            <label for="exampleInputFile">Category Image</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                </div>
-
-                            </div>
-                        </div>
 
 
                     </div>

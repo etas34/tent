@@ -93,7 +93,7 @@ class TypeController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.model.index');
+        return back();
     }
 
     /**
