@@ -30,6 +30,8 @@ class CategoryController extends Controller
     public function create()
     {
 
+//        dd(Category::find(5)->name->fr);
+//        dd(Category::find(5)->getTranslations('name')['en']);
 
 
         return view('admin.category.create');
@@ -44,6 +46,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
+//        dd($request->cat_name);
 //
 //        $category->image= 'denemeurl';
 //        $category->save();

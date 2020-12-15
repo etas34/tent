@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('lang/{locale}', [HomeController::class, 'setlocale']);
 Route::group(['middleware' => 'setlocale'], function() {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', [MainController::class, 'index'])->name('home');
+
 
     Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'auth'],function (){
 

@@ -26,8 +26,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
 
-    <!-- Toastr -->
-    <link src="{{asset('adminlte/plugins/toastr/toastr.css')}}" rel="stylesheet"/>
+    @toastr_css
     <!-- Custom Styles -->
     @stack('styles')
 
@@ -143,8 +142,7 @@
 
 <script src="{{asset('adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
 
-{{--<script src="{{asset('adminlte/plugins/toastr/toastr.min.js')}}"></script>--}}
-@toastr_css
+
 
 <!-- AdminLTE App -->
 <script src="{{asset('adminlte/dist/js/adminlte.min.js')}}"></script>
