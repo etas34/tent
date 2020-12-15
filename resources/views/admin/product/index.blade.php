@@ -21,7 +21,7 @@
                         <tr>
                             <th>Product Image</th>
                             <th>Product Category</th>
-                            <th>Product Model/Name</th>
+                            <th>Product Model</th>
                             <th>Edit</th>
                             <th>Delete</th>
 

@@ -18,7 +18,45 @@
                 <form action="{{route('admin.category.store')}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
+
+
+
+
+
+
+
+
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- Custom Tabs -->
+                                    <div class="card">
+                                        <div class="card-header d-flex p-0">
+                                            <h3 class="card-title p-3">Tabs</h3>
+                                            <ul class="nav nav-pills ml-auto p-2">
+                                                <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Tab 1</a></li>
+
+
+                                            </ul>
+                                        </div><!-- /.card-header -->
+                                        <div class="card-body">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab_1">
+
+                                                </div>
+                                            </div>
+                                            <!-- /.tab-content -->
+                                        </div><!-- /.card-body -->
+                                    </div>
+                                    <!-- ./card -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+
+
                         <div class="form-group">
+
                             <label for="cat_name">Category Name</label>
                             <input type="text" name="cat_name"  class="form-control" id="cat_name" placeholder="Enter Category Name">
                         </div>
@@ -39,7 +77,7 @@
                     <!-- /.card-body -->
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary float-right">Kaydet</button>
+                        <button type="submit" class="btn btn-primary float-right">Submit</button>
                     </div>
                 </form>
             </div>

@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -27,6 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+
         return view('admin.product.create');
     }
 
@@ -100,6 +103,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+
+
         return view('admin.product.edit',compact('product'));
     }
 

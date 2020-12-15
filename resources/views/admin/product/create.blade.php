@@ -20,6 +20,16 @@
                     {{csrf_field()}}
                     <div class="card-body">
                         <div class="form-group">
+                            <div class="form-group">
+                                <label for="exampleInputFile">Product Image</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+
+                                </div>
+                            </div>
                             <label>Choose a Category</label>
                             <select name="category_id" class="form-control">
                                 @foreach(\App\Models\Category::where('status',1)->get() as $value )
@@ -59,10 +69,6 @@
 
 
                             <div class="form-group col-md-6">
-                                <label>Insulation </label>
-                                <input type="text" name="insulation" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
                                 <label>Door (m) </label>
                                 <input type="number" name="door" class="form-control">
                             </div>
@@ -89,24 +95,60 @@
                             </div>
 
 
-                            <div class="form-group col-md-12">
-                                <label>Product Description</label>
-                                <textarea rows="5" name="description" class="form-control"></textarea>
-                            </div>
-
-
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputFile">Product Image</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+
+
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Custom Tabs -->
+                                <div class="card">
+                                    <div class="card-header d-flex p-0">
+                                        <h3 class="card-title p-3">Translate</h3>
+                                        <ul class="nav nav-pills ml-auto p-2">
+
+                                            @foreach($langs as $key=>$lang)
+                                            <li class="nav-item"><a class="nav-link @if($key == "deutsch")active @endif" href="#{{$lang}}"
+                                                                    data-toggle="tab">{{$key}}</a></li>
+                                            @endforeach
+
+                                        </ul>
+                                    </div><!-- /.card-header -->
+                                    <div class="card-body">
+                                        <div class="tab-content">
+
+                                            @foreach($langs as $key=>$lang)
+
+                                            <div class="tab-pane @if($key == "deutsch")active @endif" id="{{$lang}}">
+                                                <div class="row">
+                                                    <div class="form-group col-md-12">
+                                                        <label>Description ({{$key}}) </label>
+                                                        <input type="text" name="insulation_{{{$lang}}}" class="form-control">
+                                                    </div>
+                                                    <div class="form-group col-md-12">
+                                                        <label>Product Description ({{$key}})</label>
+                                                        <textarea id="summernote_{{{$lang}}}"  name="description_{{{$lang}}}"
+                                                       ></textarea>
+
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            @endforeach
+
+
+
+
+
+                                        </div>
+                                        <!-- /.tab-content -->
+                                    </div><!-- /.card-body -->
                                 </div>
-
+                                <!-- ./card -->
                             </div>
+                            <!-- /.col -->
                         </div>
-
 
                     </div>
                     <!-- /.card-body -->
@@ -116,6 +158,7 @@
                     </div>
                 </form>
             </div>
+
             <!-- /.card -->
 
         </div>
@@ -124,7 +167,16 @@
 
     @push('scripts')
 
+<script>
+    $(function () {
+        // Summernote
+        @foreach($langs as $key=>$lang)
+                $("#summernote_{{{$lang}}}").summernote()
+        @endforeach
+        // CodeMirror
 
+    })
+</script>
     @endpush
 </x-admin-app>
 

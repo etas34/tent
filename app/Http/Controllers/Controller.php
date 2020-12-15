@@ -15,7 +15,7 @@ class Controller extends BaseController
     public function __construct()
     {
         //its just a dummy data object.
-        $lang = array(
+        $langs = array(
             "deutsch"=>"de",
             "english"=>"en",
             "română"=>"ro",
@@ -29,6 +29,6 @@ class Controller extends BaseController
         );
 
         // Sharing is caring
-        View::share('lang', $lang);
+        View::share('langs', $langs);
     }
 }
