@@ -29,8 +29,9 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $categories=Category::where('status',1)->get();
 
-        return view('admin.product.create');
+        return view('admin.product.create',compact('categories'));
     }
 
     /**

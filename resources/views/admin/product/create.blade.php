@@ -31,18 +31,17 @@
                                 </div>
                             </div>
                             <label>Choose a Category</label>
-                            <select name="category_id" class="form-control">
-                                @foreach(\App\Models\Category::where('status',1)->get() as $value )
+                            <select name="category_id" id="category" class="form-control" required>
+                                <option value="" disabled selected>Select a Category</option>
+                                @foreach($categories as $key=>$value )
                                     <option value="{{$value->id}}">{{$value->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Choose a Model</label>
-                            <select name="type_id" class="form-control">
-                                @foreach(\App\Models\Type::where('status',1)->get() as $value )
-                                    <option value="{{$value->id}}">{{$value->category->name}}>>{{$value->name}}</option>
-                                @endforeach
+                            <select name="type_id" id="type" class="form-control" required>
+                                <option value="" disabled selected>Select a Model</option>
                             </select>
                         </div>
                         <div class="row">
@@ -173,7 +172,46 @@
         @foreach($langs as $key=>$lang)
                 $("#summernote_{{{$key}}}").summernote()
         @endforeach
-        // CodeMirror
+
+        $.ajaxSetup({
+
+            headers: {
+
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+            }
+
+        });
+
+
+        $('#category').on('change',function (e) {
+            var cat_id=e.target.value;
+            var locale = '{{ config('app.locale') }}';
+            $.ajax({
+
+                type: 'POST',
+                url: '{{ route('admin.category.getsubcat')}}',
+
+                data: {cat_id: cat_id},
+                dataType: 'json',
+
+                success: function (result) {
+
+                    $('#type').empty();
+                    $.each(result,function (index,subcat) {
+
+                        // console.log(locale)
+                        // console.log(subcat.name[locale])
+
+                        $('#type').append('<option value="'+subcat.id+'">'+subcat.name[locale]+'</option>')
+                    });
+
+
+                }
+
+            });
+
+        })
 
     })
 </script>

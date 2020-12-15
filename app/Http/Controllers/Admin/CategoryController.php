@@ -30,7 +30,6 @@ class CategoryController extends Controller
     public function create()
     {
 
-//        dd(Category::find(5)->name->fr);
 //        dd(Category::find(5)->getTranslations('name')['en']);
 
 
@@ -176,4 +175,14 @@ class CategoryController extends Controller
 
         return redirect()->route('admin.category.index');
     }
+
+    public function getsubcat(Request $request)
+    {
+        $sub_cat=Category::find($request->cat_id)->type;
+
+
+        return response()->json($sub_cat);
+    }
+
+
 }

@@ -37,6 +37,7 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::get('/destroy/{category}', [CategoryController::class, 'destroy'])->name('destroy');
             Route::post('/edit/{category}', [CategoryController::class, 'update'])->name('update');
             Route::post('/create', [CategoryController::class, 'store'])->name('store');
+            Route::post('/getsubcat', [CategoryController::class, 'getsubcat'])->name('getsubcat');
         });
         Route::group(['prefix'=>'model','as'=>'model.','middleware'=>'auth'],function (){
             Route::get('/', [TypeController::class, 'index'])->name('index');
