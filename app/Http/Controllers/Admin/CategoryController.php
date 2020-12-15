@@ -29,6 +29,14 @@ class CategoryController extends Controller
      */
     public function create()
     {
+//        $category=new Category();
+//        $category->name= ['en' => 'English 2. kategori', 'fr' => 'French 2. kategori'];
+//        $category->image= 'denemeurl';
+//        $category->save();
+
+//        dd(Category::find(5)->name);
+
+
         return view('admin.category.create');
     }
 
