@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <label>Choose a Category</label>
                             <select name="cat_id" class="form-control">
-                                @foreach(\App\Models\Category::where('status',1)->get() as $value )
+                                @foreach($category as $value )
                                     <option value="{{$value->id}}">{{$value->name}}</option>
                                 @endforeach
                             </select>

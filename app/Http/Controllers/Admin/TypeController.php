@@ -29,7 +29,8 @@ class TypeController extends Controller
      */
     public function create()
     {
-        return view('admin.model.create');
+        $category = Category::where('status',1)->get();
+        return view('admin.model.create',compact('category'));
     }
 
     /**
@@ -71,7 +72,8 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        return view('admin.model.edit',compact('type'));
+        $category = Category::where('status',1)->get();
+        return view('admin.model.edit',compact('type','category'));
 
     }
 
