@@ -139,15 +139,26 @@
                                 <li>
                                     <a href="blog.html">Blog</a>
                                 </li>
-                                <li>
-                                    <a href="#0">Buy Template</a>
-                                </li>
+{{--                                <li>--}}
+{{--                                    <a href="#0">Buy Template</a>--}}
+{{--                                </li>--}}
+
+
                             </ul>
                         </div>
                         <!--/main-menu -->
                     </nav>
-                    <div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right">
-                        <a class="phone_top" href="tel://9438843343"><strong><span>Need Help?</span>+94 423-23-221</strong></a>
+                    <div style="top: 19px !important;" class="col-xl-3  col-lg-2 d-lg-flex align-items-center justify-content-end text-right styled-select lang-selector">
+
+                            <select onchange="location = this.value;">
+                                @foreach($langs as $key=>$value)
+                                    <option
+                                        @if( \Illuminate\Support\Facades\App::currentLocale() == $key) selected @endif
+                                        value="lang/{{$key}}">{{$value}}</option>
+                                @endforeach
+                            </select>
+
+
                     </div>
                 </div>
                 <!-- /row -->
@@ -173,56 +184,18 @@
 									</span>
                                     <div id="menu">
                                         <ul>
-                                            <li><span><a href="#0">Collections</a></span>
+                                            @foreach($category as $key=>$value)
+                                            <li><span><a href="#0">{{$value->name}}</a></span>
                                                 <ul>
-                                                    <li><a href="listing-grid-1-full.html">Trending</a></li>
-                                                    <li><a href="listing-grid-2-full.html">Life style</a></li>
-                                                    <li><a href="listing-grid-3.html">Running</a></li>
-                                                    <li><a href="listing-grid-4-sidebar-left.html">Training</a></li>
-                                                    <li><a href="listing-grid-5-sidebar-right.html">View all Collections</a></li>
+                                                    @foreach($value->type as $type)
+                                                        @if($type->status != 0)
+                                                            <li><a href="listing-grid-1-full.html">{{$type->name}}</a></li>
+                                                        @endif
+                                                    @endforeach
                                                 </ul>
                                             </li>
-                                            <li><span><a href="#">Men</a></span>
-                                                <ul>
-                                                    <li><a href="listing-grid-6-sidebar-left.html">Offers</a></li>
-                                                    <li><a href="listing-grid-7-sidebar-right.html">Shoes</a></li>
-                                                    <li><a href="listing-row-1-sidebar-left.html">Clothing</a></li>
-                                                    <li><a href="listing-row-3-sidebar-left.html">Accessories</a></li>
-                                                    <li><a href="listing-row-4-sidebar-extended.html">Equipment</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><span><a href="#">Women</a></span>
-                                                <ul>
-                                                    <li><a href="listing-grid-1-full.html">Best Sellers</a></li>
-                                                    <li><a href="listing-grid-2-full.html">Clothing</a></li>
-                                                    <li><a href="listing-grid-3.html">Accessories</a></li>
-                                                    <li><a href="listing-grid-4-sidebar-left.html">Shoes</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><span><a href="#">Boys</a></span>
-                                                <ul>
-                                                    <li><a href="listing-grid-6-sidebar-left.html">Easy On Shoes</a></li>
-                                                    <li><a href="listing-grid-7-sidebar-right.html">Clothing</a></li>
-                                                    <li><a href="listing-row-3-sidebar-left.html">Must Have</a></li>
-                                                    <li><a href="listing-row-4-sidebar-extended.html">All Boys</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><span><a href="#">Girls</a></span>
-                                                <ul>
-                                                    <li><a href="listing-grid-1-full.html">New Releases</a></li>
-                                                    <li><a href="listing-grid-2-full.html">Clothing</a></li>
-                                                    <li><a href="listing-grid-3.html">Sale</a></li>
-                                                    <li><a href="listing-grid-4-sidebar-left.html">Best Sellers</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><span><a href="#">Customize</a></span>
-                                                <ul>
-                                                    <li><a href="listing-row-1-sidebar-left.html">For Men</a></li>
-                                                    <li><a href="listing-row-2-sidebar-right.html">For Women</a></li>
-                                                    <li><a href="listing-row-4-sidebar-extended.html">For Boys</a></li>
-                                                    <li><a href="listing-grid-1-full.html">For Girls</a></li>
-                                                </ul>
-                                            </li>
+                                           @endforeach
+
                                         </ul>
                                     </div>
                                 </li>
@@ -231,86 +204,15 @@
                     </div>
                     <div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
                         <div class="custom-search-input">
-                            <input type="text" placeholder="Search over 10.000 products">
+                            <input type="text" placeholder="Search over {{$product->count()}} products">
                             <button type="submit"><i class="header-icon_search_custom"></i></button>
                         </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-2 col-md-3">
-                        <ul class="top_tools">
-                            <li>
-                                <div class="dropdown dropdown-cart">
-                                    <a href="cart.html" class="cart_bt"><strong>2</strong></a>
-                                    <div class="dropdown-menu">
-                                        <ul>
-                                            <li>
-                                                <a href="product-detail-1.html">
-                                                    <figure><img src="{{ asset('assets/img/products/product_placeholder_square_small.jpg') }}" data-src="{{ asset('assets/img/products/shoes/thumb/1.jpg') }}" alt="" width="50" height="50" class="lazy"></figure>
-                                                    <strong><span>1x Armor Air x Fear</span>$90.00</strong>
-                                                </a>
-                                                <a href="#0" class="action"><i class="ti-trash"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="product-detail-1.html">
-                                                    <figure><img src="{{ asset('assets/img/products/product_placeholder_square_small.jpg') }}" data-src="{{ asset('assets/img/products/shoes/thumb/2.jpg') }}" alt="" width="50" height="50" class="lazy"></figure>
-                                                    <strong><span>1x Armor Okwahn II</span>$110.00</strong>
-                                                </a>
-                                                <a href="0" class="action"><i class="ti-trash"></i></a>
-                                            </li>
-                                        </ul>
-                                        <div class="total_drop">
-                                            <div class="clearfix"><strong>Total</strong><span>$200.00</span></div>
-                                            <a href="cart.html" class="btn_1 outline">View Cart</a><a href="checkout.html" class="btn_1">Checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /dropdown-cart-->
-                            </li>
-                            <li>
-                                <a href="#0" class="wishlist"><span>Wishlist</span></a>
-                            </li>
-                            <li>
-                                <div class="dropdown dropdown-access">
-                                    <a href="account.html" class="access_link"><span>Account</span></a>
-                                    <div class="dropdown-menu">
-                                        <a href="account.html" class="btn_1">Sign In or Sign Up</a>
-                                        <ul>
-                                            <li>
-                                                <a href="track-order.html"><i class="ti-truck"></i>Track your Order</a>
-                                            </li>
-                                            <li>
-                                                <a href="account.html"><i class="ti-package"></i>My Orders</a>
-                                            </li>
-                                            <li>
-                                                <a href="account.html"><i class="ti-user"></i>My Profile</a>
-                                            </li>
-                                            <li>
-                                                <a href="help.html"><i class="ti-help-alt"></i>Help and Faq</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- /dropdown-access-->
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="btn_search_mob"><span>Search</span></a>
-                            </li>
-                            <li>
-                                <a href="#menu" class="btn_cat_mob">
-                                    <div class="hamburger hamburger--spin" id="hamburger">
-                                        <div class="hamburger-box">
-                                            <div class="hamburger-inner"></div>
-                                        </div>
-                                    </div>
-                                    Categories
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
                 <!-- /row -->
             </div>
             <div class="search_mob_wp">
-                <input type="text" class="form-control" placeholder="Search over 10.000 products">
+                <input type="text" class="form-control" placeholder="Search over  {{$product->count()}} products">
                 <input type="submit" class="btn_1 full-width" value="Search">
             </div>
             <!-- /search_mobile -->

@@ -14,27 +14,33 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.category.update',$category)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
+                <form action="{{route('admin.slider.update',$slider)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
                         <div class="form-group">
-                            @if($category->image)
+                            @if($slider->image)
                                 <div class="form-group">
                                     <label for="file">Selected Image:</label>
-                                   <div id="file"> <img src="{{asset("storage/images/cat_images/$category->image")}}" width="300"  alt="..."></div>
+                                   <div id="file"> <img src="{{asset("storage/images/slider_images/$slider->image")}}" width="300"  alt="..."></div>
                                 </div>
                             @endif
 
-                            <div class="form-group">
-                                <label for="exampleInputFile">Image (600 X 400)</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
-                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                    </div>
 
+
+
+
+
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Slider Image (1450 X 750)</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
+                                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
+
 
 
                                 <div class="row">
@@ -49,7 +55,6 @@
 
                                                     @endforeach
 
-
                                                 </ul>
                                             </div><!-- /.card-header -->
                                             <div class="card-body">
@@ -58,12 +63,18 @@
                                                         <div class="tab-pane @if($key == 'de') active @endif" id="{{$key}}">
                                                             <div class="form-group">
 
-                                                                <label for="cat_name">Category Name ({{$value}})</label>
-                                                                <input type="text" name="cat_name[{{$key}}]" value="@if (array_key_exists($key,$category->getTranslations('name'))) {{$category->getTranslations('name')[$key]}} @endif"  class="form-control" id="cat_name" placeholder="Enter Category Name">
+                                                                <label for="header">Header ({{$value}})</label>
+                                                                <input type="text" name="header[{{$key}}]"  value="@if (array_key_exists($key,$slider->getTranslations('header'))) {{$slider->getTranslations('header')[$key]}} @endif" class="form-control" id="header" placeholder="Enter Header">
+                                                            </div>
+                                                            <div class="form-group">
+
+                                                                <label for="description">Description ({{$value}})</label>
+                                                                <input type="text" name="description[{{$key}}]"  value="@if (array_key_exists($key,$slider->getTranslations('description'))) {{$slider->getTranslations('description')[$key]}} @endif" class="form-control" id="description" placeholder="Enter Description">
                                                             </div>
 
                                                         </div>
                                                     @endforeach
+
                                                 </div>
                                                 <!-- /.tab-content -->
                                             </div><!-- /.card-body -->
@@ -73,6 +84,9 @@
                                     <!-- /.col -->
                                 </div>
                                 <!-- /.row -->
+
+
+
 
                         </div>
 

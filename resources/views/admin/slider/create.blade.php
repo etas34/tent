@@ -15,7 +15,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.category.store')}}" method="post" autocomplete="off"  enctype="multipart/form-data">
+                <form action="{{route('admin.slider.store')}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
 
@@ -24,11 +24,11 @@
 
 
                         <div class="form-group">
-                            <label for="exampleInputFile">Category Image (600 X 400)</label>
+                            <label for="exampleInputFile">Slider Image</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    <label class="custom-file-label" for="exampleInputFile">Choose Image (1450 X 750)</label>
                                 </div>
 
                             </div>
@@ -56,8 +56,13 @@
                                                 <div class="tab-pane @if($key == 'de') active @endif" id="{{$key}}">
                                                     <div class="form-group">
 
-                                                        <label for="cat_name">Category Name ({{$value}})</label>
-                                                        <input type="text" name="cat_name[{{$key}}]"  class="form-control" id="cat_name" placeholder="Enter Category Name">
+                                                        <label for="header">Header ({{$value}})</label>
+                                                        <input type="text" name="header[{{$key}}]"  class="form-control" id="header" placeholder="Enter Header">
+                                                    </div>
+                                                    <div class="form-group">
+
+                                                        <label for="description">Description ({{$value}})</label>
+                                                        <input type="text" name="description[{{$key}}]"  class="form-control" id="description" placeholder="Enter Description">
                                                     </div>
 
                                                 </div>

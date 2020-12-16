@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Type;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
-use phpDocumentor\Reflection\Type;
 
 class CategoryController extends Controller
 {
@@ -31,7 +31,7 @@ class CategoryController extends Controller
     {
 
 //        dd(Category::find(5)->getTranslations('name')['en']);
-
+//        dd(Type::where('status',1)->where('category_id',3)->get());
 
         return view('admin.category.create');
     }
@@ -178,7 +178,7 @@ class CategoryController extends Controller
 
     public function getsubcat(Request $request)
     {
-        $sub_cat=Category::find($request->cat_id)->type;
+        $sub_cat=Type::where('status',1)->where('category_id',$request->cat_id)->get();
 
 
         return response()->json($sub_cat);

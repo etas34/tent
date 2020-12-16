@@ -20,7 +20,6 @@
                     {{csrf_field()}}
                     <div class="card-body">
                         <div class="form-group">
-                            <div class="form-group">
                                 <label for="exampleInputFile">Product Image</label>
                                 <div class="input-group">
                                     <div class="custom-file">
@@ -29,7 +28,9 @@
                                     </div>
 
                                 </div>
-                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label>Choose a Category</label>
                             <select name="category_id" id="category" class="form-control" required>
                                 <option value="" disabled selected>Select a Category</option>

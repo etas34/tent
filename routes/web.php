@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,14 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::post('/edit/{category}', [CategoryController::class, 'update'])->name('update');
             Route::post('/create', [CategoryController::class, 'store'])->name('store');
             Route::post('/getsubcat', [CategoryController::class, 'getsubcat'])->name('getsubcat');
+        });
+        Route::group(['prefix'=>'slider','as'=>'slider.','middleware'=>'auth'],function (){
+            Route::get('/', [SliderController::class, 'index'])->name('index');
+            Route::get('/create', [SliderController::class, 'create'])->name('create');
+            Route::get('/edit/{slider}', [SliderController::class, 'edit'])->name('edit');
+            Route::get('/destroy/{slider}', [SliderController::class, 'destroy'])->name('destroy');
+            Route::post('/edit/{slider}', [SliderController::class, 'update'])->name('update');
+            Route::post('/create', [SliderController::class, 'store'])->name('store');
         });
         Route::group(['prefix'=>'model','as'=>'model.','middleware'=>'auth'],function (){
             Route::get('/', [TypeController::class, 'index'])->name('index');

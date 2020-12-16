@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -105,8 +106,11 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
 
+        $categories=Category::where('status',1)->get();
+        $type=Type::where('status',1)->get();
 
-        return view('admin.product.edit',compact('product'));
+
+        return view('admin.product.edit',compact('product','categories','type'));
     }
 
     /**
