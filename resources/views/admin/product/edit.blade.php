@@ -187,7 +187,9 @@
                 $(function () {
                     // Summernote
                     @foreach($langs as $key=>$lang)
-                    $("#summernote_{{{$key}}}").summernote()
+                    $("#summernote_{{{$key}}}").summernote({
+                        height:300
+                    })
                     @endforeach
 
                     $.ajaxSetup({
