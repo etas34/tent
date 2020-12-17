@@ -23,6 +23,12 @@ Route::get('lang/{locale}', [HomeController::class, 'setlocale']);
 Route::group(['middleware' => 'setlocale'], function() {
 
     Route::get('/', [MainController::class, 'index'])->name('home');
+    Route::get('/help', [MainController::class, 'help'])->name('help');
+    Route::get('/search', [MainController::class, 'search'])->name('search');
+    Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+    Route::get('/about', [MainController::class, 'about'])->name('about');
+    Route::get('/products', [MainController::class, 'products'])->name('frontpage.products');
+    Route::get('/product/detail/{product}', [MainController::class, 'productdetail'])->name('frontpage.productdetail');
 
 
     Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'auth'],function (){

@@ -24,6 +24,15 @@
     <link href="{{ asset('assets/css/home_1.css') }}" rel="stylesheet">
 
 
+    <link href="{{ asset('assets/css/listing.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('assets/css/product_page.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('assets/css/faq.css')}}" rel="stylesheet">
+
+    <link href="{{ asset('assets/css/about.css')}}" rel="stylesheet">
+
+
     @stack('styles')
 
 
@@ -40,7 +49,7 @@
                 <div class="row small-gutters">
                     <div class="col-xl-3 col-lg-3 d-lg-flex align-items-center">
                         <div id="logo">
-                            <a href="index.html"><img src="{{ asset('assets/img/logo.svg') }}" alt="" width="100" height="35"></a>
+                            <a href="{{route('home')}}"><img src="{{ asset('assets/img/logo.svg') }}" alt="" width="100" height="35"></a>
                         </div>
                     </div>
                     <nav class="col-xl-6 col-lg-7">
@@ -54,14 +63,14 @@
                         <!-- Mobile menu button -->
                         <div class="main-menu">
                             <div id="header_menu">
-                                <a href="index.html"><img src="{{ asset('assets/img/logo_black.svg') }}" alt="" width="100" height="35"></a>
+                                <a href="{{route('home')}}"><img src="{{ asset('assets/img/logo_black.svg') }}" alt="" width="100" height="35"></a>
                                 <a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
                             </div>
                             <ul>
                                 <li class="submenu">
                                     <a href="javascript:void(0);" class="show-submenu">Home</a>
                                     <ul>
-                                        <li><a href="index.html">Slider</a></li>
+                                        <li><a href="{{route('home')}}">Slider</a></li>
                                         <li><a href="index-2.html">Video Background</a></li>
                                         <li><a href="index-3.html">Vertical Slider</a></li>
                                         <li><a href="index-4.html">GDPR Cookie Bar</a></li>
@@ -111,7 +120,7 @@
                                             <div class="col-lg-3 d-xl-block d-lg-block d-md-none d-sm-none d-none">
                                                 <div class="banner_menu">
                                                     <a href="#0">
-                                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="img/banner_menu.jpg" width="400" height="550" alt="" class="img-fluid lazy">
+                                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" data-src="{{asset('assets/img/banner_menu.jpg')}}" width="400" height="550" alt="" class="img-fluid lazy">
                                                     </a>
                                                 </div>
                                             </div>
@@ -204,8 +213,12 @@
                     </div>
                     <div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
                         <div class="custom-search-input">
-                            <input type="text" placeholder="Search over {{$product->count()}} products">
-                            <button type="submit"><i class="header-icon_search_custom"></i></button>
+                            <form type="get" action="{{route('search')}}">
+
+                                <input type="text" name="search_query" placeholder="Search over {{$product->count()}} products">
+                                <button type="submit"><i class="header-icon_search_custom"></i></button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -233,12 +246,12 @@
                     <h3 data-target="#collapse_1">Quick Links</h3>
                     <div class="collapse dont-collapse-sm links" id="collapse_1">
                         <ul>
-                            <li><a href="about.html">About us</a></li>
+                            <li><a href="{{route('about')}}">About us</a></li>
                             <li><a href="help.html">Faq</a></li>
-                            <li><a href="help.html">Help</a></li>
+                            <li><a href="{{route('help')}}">Help</a></li>
                             <li><a href="account.html">My account</a></li>
                             <li><a href="blog.html">Blog</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="{{route('contact')}}">Contacts</a></li>
                         </ul>
                     </div>
                 </div>
@@ -333,6 +346,12 @@
 
 <!-- SPECIFIC SCRIPTS -->
 <script src="{{asset('assets/js/carousel-home.min.js')}}"></script>
+<script src="{{asset('assets/js/sticky_sidebar.min.js')}}"></script>
+<script src="{{asset('assets/js/specific_listing.js')}}"></script>
+
+<script src="{{asset('assets/js/common_scripts.min.js')}}"></script>
+
+
 
 @stack('scripts')
 </body>

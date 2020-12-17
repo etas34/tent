@@ -44,7 +44,7 @@
                             <label>Choose a Model</label>
                             <select name="type_id" id="type" class="form-control" required>
 
-                                <option value="{{$product->model_id}}" disabled selected>{{$type->find($product->type_id)['name']}}</option>
+                                <option value="{{$product->model_id}}"  selected>{{$type->find($product->type_id)['name']}}</option>
 
                             </select>
                         </div>
