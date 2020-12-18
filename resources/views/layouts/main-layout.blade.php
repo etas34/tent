@@ -349,8 +349,6 @@
 <script src="{{asset('assets/js/sticky_sidebar.min.js')}}"></script>
 <script src="{{asset('assets/js/specific_listing.js')}}"></script>
 
-<script src="{{asset('assets/js/common_scripts.min.js')}}"></script>
-
 
 
 @stack('scripts')
