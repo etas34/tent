@@ -35,7 +35,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::where('status', 1)->get();
-        $insulation = Insulation::all();
+        $insulation = Insulation::where('status', 1)->get();
         return view('admin.product.create', compact('categories',
             'insulation'));
     }
@@ -113,7 +113,7 @@ class ProductController extends Controller
 
         $categories = Category::where('status', 1)->get();
         $type = Type::where('status', 1)->get();
-        $insulation = Insulation::all();
+        $insulation = Insulation::where('status', 1)->get();
 
 
         return view('admin.product.edit', compact('product', 'categories', 'type', 'insulation'));

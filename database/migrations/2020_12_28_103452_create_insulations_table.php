@@ -16,6 +16,7 @@ class CreateInsulationsTable extends Migration
         Schema::create('insulations', function (Blueprint $table) {
             $table->id();
             $table->text('name');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class InsulationController extends Controller
      */
     public function index()
     {
-        $insulation = Insulation::all();
+        $insulation = Insulation::where('status', 1)->get();
         return view('admin.insulation.index', compact('insulation'));
     }
 
@@ -96,11 +96,12 @@ class InsulationController extends Controller
      */
     public function destroy(Insulation $insulation)
     {
-//        $saved = $insulation->delete();
-//        if ($saved)
-//            toastr()->success('Record Is Successfully Deleted');
-//        else
-//            toastr()->error('Something\'s went wrong!');
-//        return redirect()->route('admin.insulation.index');
+       $insulation->status = 0;
+        $saved = $insulation->save();
+        if ($saved)
+            toastr()->success('Record Is Successfully Deleted');
+        else
+            toastr()->error('Something\'s went wrong!');
+        return redirect()->route('admin.insulation.index');
     }
 }
