@@ -30,22 +30,34 @@
                                 </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="row">
+                        <div class="form-group col-md-6">
                             <label>Choose a Category</label>
                             <select name="category_id" id="category" class="form-control" required>
                                 <option value="" disabled selected>Select a Category</option>
-                                @foreach($categories as $key=>$value )
+                            @foreach($categories as $key=>$value )
                                     <option value="{{$value->id}}">{{$value->name}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+
+                        <div class="form-group col-md-6">
                             <label>Choose a Model</label>
                             <select name="type_id" id="type" class="form-control" required>
                                 <option value="" disabled selected>Select a Model</option>
                             </select>
                         </div>
-                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label>Choose a Insulation</label>
+                                <select name="ins_id" id="type" class="form-control" >
+                                    @foreach($insulation as $key=>$value)
+                                        <option value="">No Insulation</option>
+                                        <option value="{{$value->id}}">{{ $value->name}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
 
 
                             <div class="form-group col-md-6">
@@ -120,10 +132,6 @@
 
                                             <div class="tab-pane @if($key == "de")active @endif" id="{{$key}}">
                                                 <div class="row">
-                                                    <div class="form-group col-md-12">
-                                                        <label>Insulation ({{$value}}) </label>
-                                                        <input type="text" name="insulation[{{$key}}]" class="form-control">
-                                                    </div>
                                                     <div class="form-group col-md-12">
                                                         <label>Product Description ({{$value}})</label>
                                                         <textarea id="summernote_{{$key}}"  name="description[{{$key}}]"

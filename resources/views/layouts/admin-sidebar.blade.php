@@ -79,6 +79,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.insulation.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-circle"></i>
+                        <p>
+                            Insulations
+{{--                            <span class="right badge badge-danger">New</span>--}}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('admin.product.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-cart-plus"></i>
                         <p>

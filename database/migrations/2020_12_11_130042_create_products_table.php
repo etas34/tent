@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('width')->nullable();
             $table->string('length')->nullable();
             $table->decimal('price_m2',8,2)->nullable();
-            $table->text('insulation')->nullable();
+            $table->integer('insulation_id')->nullable();
             $table->string('door')->nullable();
             $table->string('steep_height')->nullable();
             $table->string('height_middle')->nullable();

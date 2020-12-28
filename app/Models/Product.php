@@ -16,6 +16,10 @@ class Product extends Model
     {
         return $this->belongsTo(Type::class);
     }
+    public function insulation()
+    {
+        return $this->belongsTo(Insulation::class,'insulation_id');
+    }
     public function category()
     {
         return $this->belongsTo(Category::class);

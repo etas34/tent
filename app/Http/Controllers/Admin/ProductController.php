@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Insulation;
 use App\Models\Product;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -15,24 +16,28 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
         $product = Product::all();
-        return view('admin.product.index', compact('product'));
+
+        return view('admin.product.index', compact(
+            'product'
+        ));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
-        $categories=Category::where('status',1)->get();
-
-        return view('admin.product.create',compact('categories'));
+        $categories = Category::where('status', 1)->get();
+        $insulation = Insulation::all();
+        return view('admin.product.create', compact('categories',
+            'insulation'));
     }
 
     /**
@@ -51,7 +56,7 @@ class ProductController extends Controller
         $product->length = $request->length;
         $product->price = $request->price;
         $product->price_m2 = $request->price_m2;
-        $product->insulation = $request->insulation;
+        $product->insulation_id = $request->ins_id;
         $product->door = $request->door;
         $product->steep_height = $request->steep_height;
         $product->height_middle = $request->height_middle;
@@ -106,11 +111,12 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
 
-        $categories=Category::where('status',1)->get();
-        $type=Type::where('status',1)->get();
+        $categories = Category::where('status', 1)->get();
+        $type = Type::where('status', 1)->get();
+        $insulation = Insulation::all();
 
 
-        return view('admin.product.edit',compact('product','categories','type'));
+        return view('admin.product.edit', compact('product', 'categories', 'type', 'insulation'));
     }
 
     /**
@@ -128,7 +134,8 @@ class ProductController extends Controller
         $product->length = $request->length;
         $product->price = $request->price;
         $product->price_m2 = $request->price_m2;
-        $product->insulation = $request->insulation;
+        $product->insulation_id = $request->ins_id;
+
         $product->door = $request->door;
         $product->steep_height = $request->steep_height;
         $product->height_middle = $request->height_middle;

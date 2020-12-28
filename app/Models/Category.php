@@ -15,6 +15,7 @@ class Category extends Model
     public $translatable = ['name'];
     /**
      * Get the comments for the blog post.
+     *
      */
     public function type()
     {

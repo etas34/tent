@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\InsulationController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TypeController;
@@ -61,6 +62,14 @@ Route::group(['middleware' => 'setlocale'], function() {
             Route::get('/destroy/{type}', [TypeController::class, 'destroy'])->name('destroy');
             Route::post('/edit/{type}', [TypeController::class, 'update'])->name('update');
             Route::post('/create', [TypeController::class, 'store'])->name('store');
+        });
+        Route::group(['prefix'=>'insulation','as'=>'insulation.','middleware'=>'auth'],function (){
+            Route::get('/', [InsulationController::class, 'index'])->name('index');
+            Route::get('/create', [InsulationController::class, 'create'])->name('create');
+            Route::get('/edit/{insulation}', [InsulationController::class, 'edit'])->name('edit');
+            Route::get('/destroy/{insulation}', [InsulationController::class, 'destroy'])->name('destroy');
+            Route::post('/edit/{insulation}', [InsulationController::class, 'update'])->name('update');
+            Route::post('/create', [InsulationController::class, 'store'])->name('store');
         });
         Route::group(['prefix'=>'product','as'=>'product.','middleware'=>'auth'],function (){
             Route::get('/', [ProductController::class, 'index'])->name('index');
