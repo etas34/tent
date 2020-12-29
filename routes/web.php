@@ -31,6 +31,8 @@ Route::group(['middleware' => 'setlocale'], function() {
     Route::get('/products', [MainController::class, 'products'])->name('frontpage.products');
     Route::get('/product/detail/{product}', [MainController::class, 'productdetail'])->name('frontpage.productdetail');
 
+    Route::get('/products/filter', [MainController::class, 'products']);
+    Route::post('/products/filter', [MainController::class, 'filtre'])->name('filtre');
 
     Route::group(['prefix'=>'admin','as'=>'admin.','middleware'=>'auth'],function (){
 

@@ -51,184 +51,92 @@
             <div class="container margin_30">
 
                 <div class="row">
-                    <aside class="col-lg-3" id="sidebar_fixed">
-                        <div class="filter_col">
-                            <div class="inner_bt"><a href="#" class="open_filters"><i class="ti-close"></i></a></div>
-                            <div class="filter_type version_2">
-                                <h4><a href="#filter_1" data-toggle="collapse" class="opened">Categories</a></h4>
-                                <div class="collapse show" id="filter_1">
-                                    <ul>
-                                        @foreach($category as $key=>$value)
-                                        <li>
-                                            <label class="container_check">{{$value->name}} <small>{{$value->product->count()}}</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        @endforeach
+                    <aside class="col-lg-3" id="sidebar_fixed" >
 
-                                    </ul>
+                        <div class="filter_col">
+
+                            <h6>Categories</h6>
+                            <div class="row" >
+                                <div class="col-md-12 form-group">
+                                    <div class="custom-select-form">
+                                        <select class="wide add_bottom_15 filter-item" id="category">
+                                            <option value="0" selected>All</option>
+                                            @foreach($category as $key=>$value)
+                                                <option value="{{$value->id}}">{{$value->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
-                                <!-- /filter_type -->
+                            </div>
+
+
+                            <h6>Models</h6>
+                            <div class="row">
+                                <div class="col-md-12 form-group" id="model">
+                                    @include('frontpage.models')
+                                </div>
                             </div>
                             <!-- /filter_type -->
                             <div class="filter_type version_2">
-                                <h4><a href="#filter_2" data-toggle="collapse" class="opened">Color</a></h4>
-                                <div class="collapse show" id="filter_2">
-                                    <ul>
-                                        <li>
-                                            <label class="container_check">Blue <small>06</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="container_check">Red <small>12</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="container_check">Orange <small>17</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="container_check">Black <small>43</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
+                                <h4><a href="#filter_3" data-toggle="collapse" class="opened">Width</a></h4>
+                                <div class="collapse show" id="filter_3">
+                                    <ul id="result_widths">
+
+                                        @include('frontpage.widths')
                                     </ul>
                                 </div>
                             </div>
                             <!-- /filter_type -->
                             <div class="filter_type version_2">
-                                <h4><a href="#filter_3" data-toggle="collapse" class="closed">Brands</a></h4>
-                                <div class="collapse" id="filter_3">
-                                    <ul>
-                                        <li>
-                                            <label class="container_check">Adidas <small>11</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="container_check">Nike <small>08</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="container_check">Vans <small>05</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="container_check">Puma <small>18</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
+                                <h4><a href="#filter_4" data-toggle="collapse" class="opened">Length</a></h4>
+                                <div class="collapse show" id="filter_4">
+                                    <ul id="result_lengths">
+
+                                        @include('frontpage.lengths')
                                     </ul>
                                 </div>
                             </div>
+
+
+                            <h6 class="ins_group">Insulation</h6>
+                            <div class="row ins_group" >
+                                <div class="col-md-12 form-group">
+
+                                    @include('frontpage.insulations')
+
+                                </div>
+                            </div>
+
                             <!-- /filter_type -->
-                            <div class="filter_type version_2">
-                                <h4><a href="#filter_4" data-toggle="collapse" class="closed">Price</a></h4>
-                                <div class="collapse" id="filter_4">
-                                    <ul>
-                                        <li>
-                                            <label class="container_check">$0 — $50<small>11</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="container_check">$50 — $100<small>08</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="container_check">$100 — $150<small>05</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="container_check">$150 — $200<small>18</small>
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </li>
+                            <div class="filter_type version_2 ins_group">
+                                <h4><a href="#filter_5" data-toggle="collapse" class="opened">Door</a></h4>
+                                <div class="collapse show" id="filter_5">
+                                    <ul id="result_doors">
+
+                                        @include('frontpage.doors')
                                     </ul>
                                 </div>
                             </div>
+
+
                             <!-- /filter_type -->
-                            <div class="buttons">
-                                <a href="#0" class="btn_1">Filter</a> <a href="#0" class="btn_1 gray">Reset</a>
-                            </div>
+{{--                            <div class="buttons">--}}
+{{--                                <a href="#0" class="btn_1">Filter</a> <a href="#0" class="btn_1 gray">Reset</a>--}}
+{{--                            </div>--}}
                         </div>
+
                     </aside>
                     <!-- /col -->
 
                     <div class="col-lg-9">
 
-                        <div class="row small-gutters">
+                        <div class="row small-gutters"  id="result">
 
-                            @foreach($product as $key=>$value)
-                            <div class="col-6 col-md-4">
-                                <div class="grid_item">
-{{--                                    <span class="ribbon hot">Hot</span>--}}
-                                    <figure>
-                                        <a href="{{route('frontpage.productdetail',$value)}}">
-                                            <img class="img-fluid lazy" height="400" width="400" src="{{ asset('assets/img/products/product_placeholder_square_medium.jpg') }}" data-src="{{asset("storage/images/prds_images/$value->image")}}" alt="">
-                                        </a>
-                                    </figure>
-                                    <a href="product-detail-1.html">
-                                        <h3>{{$value->type['name']}}</h3>
-                                    </a>
-                                    <div class="price_box">
-                                        <span class="new_price">{{$value->price}}€</span>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a></li>
-                                        <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a></li>
-                                        <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
-                                    </ul>
-                                </div>
-                                <!-- /grid_item -->
-                            </div>
-                            <!-- /col -->
-                            @endforeach
-                        </div>
-                    @if($product->count() <= 0)
-                     <div align="center"> <h3>  {{'No products found'}}</h3></div> {{-- Veritabanında hiç Ürün yoksa ya da aranan sorgu bulunamadıysa yazılacak mesaj, lütfen çevirin--}}
-                    @endif
-                        <!-- /row -->
-{{--                        {{$product->links()}}--}}
-                        <div class="pagination__wrapper">
-                            {{ $product->links() }}
-{{--                            <ul class="pagination">--}}
+                        @include('frontpage.items')
 
-{{--                                <li>--}}
-{{--                                    <a href="#0" class="active">1</a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#0">2</a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#0">3</a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#0">4</a>--}}
-{{--                                </li>--}}
-{{--                                <li><a href="#0" class="next" title="next page">&#10095;</a></li>--}}
-{{--                            </ul>--}}
                         </div>
+
+
                     </div>
                     <!-- /col -->
                 </div>
@@ -241,8 +149,108 @@
 
 
 
+@push('scripts')
+
+<script>
+var xhr = new XMLHttpRequest();
+function filtre(page){
+    var csrf = "{{ csrf_token() }}";
+    // var search = $("#search").val();
+    var category_id;
+    var type_id;
+    var insulation_id;
+    var widths = [];
+    var lengths = [];
+    var doors = [];
+    // var colors = [];
+    // var offers = [];
+    // var price = $("#amount").val();
+    // var sorting = $("#sorting").val();
+    // var direction = $("#direction").val();
+    // var qty = $("#qty").val();
+    // var categoryName = [];
+    // var typeName = [];
+    // var brandName = [];
+    // var colorName = [];
+    // var offerName = [];
+
+    category_id=$("#category").val();
+    type_id=$("#modelselectbox").val();
+    insulation_id=$("#insulationselectbox").val();
+
+    $(".cb_width:checked").each(function(){
+        widths.push($(this).val());
+    });
+    $(".cb_length:checked").each(function(){
+        lengths.push($(this).val());
+    });
+
+    $(".cb_door:checked").each(function(){
+        doors.push($(this).val());
+    });
+    if(xhr !== 'undefined'){
+        xhr.abort(); //stop existing ajax request if new request has been sent to server
+    }
+    xhr = $.ajax({
+        url: '{{route('filtre')}}',
+        data: {_token:csrf,category_id:category_id,type_id:type_id,insulation_id:insulation_id,widths:widths,lengths:lengths,doors:doors,page:page},
+        type: 'post',
+        beforeSend:function(){
+            $("#result").html('<img src="{{ asset('assets/img/spinner.gif') }}" alt=""/>')
+        }
+    }).done(function(e){
+        // console.log(e)
+
+        $("#result").html($(e.view_products));
+        $("#model").html($(e.view_models));
+        $("#result_widths").html($(e.view_widths));
+        $("#result_lengths").html($(e.view_lengths));
+        $("#result_doors").html($(e.view_doors));
+
+        // Jquery select
+        $('.custom-select-form select').niceSelect();
+        $('.custom-select-form select').niceSelect('update');
+        //pagination(e['rows'],e['qty'],e['active']);
+        //window.history.pushState('page2', 'Title', this.url); // still in test
+    });
+}
+</script>
+
+<script>
+    $("#category").on("change",function(){
+        var secili_id=$(this).val();
+        if(secili_id==1)
+        {
+            $('.ins_group').show();
+
+        }
+        else{
+            $('#insulationselectbox').val('0');
+            $('.ins_group').hide();
+        }
+        filtre();
+    });
 
 
+    $(document).on('click', '.cb_width', function(){
+        filtre();
+    });
+    $(document).on('click', '.cb_length', function(){
+        filtre();
+    });
+    $(document).on('change', '#modelselectbox', function(){
+        filtre();
+    });
+   $(document).on('change', '#insulationselectbox', function(){
+        filtre();
+    });
+
+    $(document).on('click', '.cb_door', function(){
+        filtre();
+    });
+</script>
+
+@endpush
 
 @push('scripts')
         <script src="{{asset('assets/js/sticky_sidebar.min.js')}}"></script>

@@ -27,7 +27,7 @@
                             <label for="exampleInputFile">Category Image (600 X 400)</label>
                             <div class="input-group">
                                 <div class="custom-file">
-                                    <input  type="file" name="image" accept="image/*" class="custom-file-input" id="exampleInputFile">
+                                    <input  type="file" name="image" required accept="image/*" class="custom-file-input" id="exampleInputFile">
                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
 
