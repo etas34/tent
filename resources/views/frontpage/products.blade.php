@@ -244,6 +244,10 @@
 
 
 
+@push('scripts')
+        <script src="{{asset('assets/js/sticky_sidebar.min.js')}}"></script>
+        <script src="{{asset('assets/js/specific_listing.js')}}"></script>
 
+    @endpush
 </x-main-layout>
 

@@ -33,6 +33,7 @@
     <link href="{{ asset('assets/css/about.css')}}" rel="stylesheet">
 
 
+
     @stack('styles')
 
 
@@ -306,12 +307,16 @@
                     <ul class="footer-selector clearfix">
                         <li>
                             <div class="styled-select lang-selector">
-                                <select>
-                                    <option value="English" selected>English</option>
-                                    <option value="French">French</option>
-                                    <option value="Spanish">Spanish</option>
-                                    <option value="Russian">Russian</option>
-                                </select>
+
+                                    <select onchange="location = this.value;">
+                                        @foreach($langs as $key=>$value)
+                                            <option
+                                                @if( \Illuminate\Support\Facades\App::currentLocale() == $key) selected @endif
+                                            value="lang/{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+
+
                             </div>
                         </li>
                         <li>
@@ -345,10 +350,7 @@
 <script src="{{asset('assets/js/main.js')}}"></script>
 
 <!-- SPECIFIC SCRIPTS -->
-<script src="{{asset('assets/js/carousel-home.min.js')}}"></script>
-<script src="{{asset('assets/js/sticky_sidebar.min.js')}}"></script>
-<script src="{{asset('assets/js/specific_listing.js')}}"></script>
-
+{{--<script src="{{asset('assets/js/carousel-home.min.js')}}"></script>--}}
 
 
 @stack('scripts')

@@ -22,7 +22,7 @@
                 <div class="col-lg-8">
                     <div class="owl-carousel owl-theme prod_pics magnific-gallery">
                         <div class="item">
-                            <a href="{{asset("storage/images/prds_images/$product->image")}}" title="Photo title" data-effect="mfp-zoom-in"><img src="{{asset("storage/images/prds_images/$product->image")}}" alt=""></a>
+                            <a href="{{asset("storage/images/prds_images/$product->image")}}" title="{{$product->type['name']}}" data-effect="mfp-zoom-in"><img class="img-fluid" src="{{asset("storage/images/prds_images/$product->image")}}" alt=""></a>
                         </div>
                         <!-- /item -->
 {{--                        <div class="item">--}}
@@ -154,10 +154,12 @@
                                                 <td><strong>Price/m²</strong></td>
                                                 <td>{{$product->price_m2}} €</td>
                                                 </tr>
-                                                <tr>
-                                                <td><strong>Insulation</strong></td>
-                                                <td>{{$product->insulation}}</td>
+                                                @if($product->insulation)
+                                                    <tr>
+                                               <td><strong>Insulation</strong></td>
+                                                <td>{{$product->insulation->name}}</td>
                                                 </tr>
+                                                    @endif
                                                 <tr>
                                                 <td><strong>Door</strong></td>
                                                 <td>{{$product->door}} m</td>

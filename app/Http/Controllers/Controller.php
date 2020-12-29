@@ -12,20 +12,22 @@ use Illuminate\Support\Facades\View;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
     public function __construct()
     {
         //its just a dummy data object.
         $langs = array(
-            "de"=>"deutsch",
-            "en"=>"english",
-            "ro"=>"română",
-            "hu"=>"magyar",
-            "cs"=>"český",
-            "sr"=>"српски",
-            "hr"=>"hrvatski",
-            "sk"=>"slovenský",
-            "sl"=>"slovenščina",
-            "es"=>"español"
+            "de" => "deutsch",
+            "en" => "english",
+            "hu" => "magyar",
+            "sk" => "slovenský",
+            "sl" => "slovenščina",
+            "sr" => "српски",
+            "ro" => "română",
+            "hr" => "hrvatski",
+            "cs" => "český",
+            "es" => "español",
+            "nl" => "nederlands",
         );
 
         // Sharing is caring
