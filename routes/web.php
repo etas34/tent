@@ -19,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/reset', function(){
+    Artisan::call('config:cache');
+
+    Artisan::call('cache:clear');
+
+});
 
 Route::get('lang/{locale}', [HomeController::class, 'setlocale']);
 Route::group(['middleware' => 'setlocale'], function() {
