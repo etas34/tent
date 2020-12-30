@@ -51,7 +51,9 @@ class SliderController extends Controller
 
             $imageName = time() . '.' . $request->image->extension();
 
-            $request->image->storeAs('/public/images/slider_images', $imageName);
+//            $request->image->storeAs('/public/images/slider_images', $imageName);
+            $request->file('image')->move(public_path('storage/images/slider_images/'), $imageName);
+
             $slider->image = $imageName;
 
         }
@@ -103,8 +105,8 @@ class SliderController extends Controller
     {
 
         if ($request->file('image')) {
-            if ($slider->image and file_exists(storage_path("app\\public\\images\\prds_images\\$slider->image")))
-                unlink(storage_path("app\\public\\images\\prds_images\\$slider->image"));
+            if ($slider->image and file_exists(public_path("storage\\images\\slider_images\\$slider->image")))
+                unlink(public_path("storage\\images\\slider_images\\$slider->image"));
             $request->validate([
 
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -114,8 +116,9 @@ class SliderController extends Controller
 
             $imageName = time() . '.' . $request->image->extension();
 
-            $request->image->storeAs('/public/images/slider_images', $imageName);
+            $request->file('image')->move(public_path('storage/images/slider_images/'), $imageName);
             $slider->image = $imageName;
+
 
         }
 
@@ -140,8 +143,9 @@ class SliderController extends Controller
      */
     public function destroy(Slider $slider)
     {
-        if ($slider->image and file_exists(storage_path("app\\public\\images\\slider_images\\$slider->image")))
-            unlink(storage_path("app\\public\\images\\prds_images\\$slider->image"));
+
+        if ($slider->image and file_exists(public_path("storage\\images\\slider_images\\$slider->image")))
+            unlink(public_path("storage\\images\\slider_images\\$slider->image"));
         $saved = $slider->delete();
 
         if ($saved)

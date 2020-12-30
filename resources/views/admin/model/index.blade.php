@@ -31,7 +31,7 @@
                         @foreach($type as $key=>$value)
                         <tr>
 
-                           <td>{{$value->name}} ---> {{$value->id}}</td>
+                           <td>{{$value->name}}</td>
                            <td>{{$value->category->name}}</td>
 
                             <td><a href="{{route('admin.model.edit',$value)}}"><span class="badge bg-warning p-2">Edit</span></a></td>

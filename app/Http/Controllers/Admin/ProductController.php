@@ -74,8 +74,8 @@ class ProductController extends Controller
 
 
             $imageName = time() . '.' . $request->image->extension();
-
-            $request->image->storeAs('/public/images/prds_images', $imageName);
+            $request->file('image')->move(public_path('storage/images/prds_images/'), $imageName);
+//            $request->image->storeAs('/public/images/prds_images', $imageName);
             $product->image = $imageName;
 
         }
@@ -146,8 +146,8 @@ class ProductController extends Controller
 
         if ($request->file('image')) {
 
-            if ($product->image and file_exists(storage_path("app\\public\\images\\prds_images\\$product->image")))
-                unlink(storage_path("app\\public\\images\\prds_images\\$product->image"));
+            if ($product->image and file_exists(public_path("storage\\images\\prds_images\\$product->image")))
+                unlink(public_path("storage\\images\\prds_images\\$product->image"));
             $request->validate([
 
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -157,7 +157,9 @@ class ProductController extends Controller
 
             $imageName = time() . '.' . $request->image->extension();
 
-            $request->image->storeAs('/public/images/prds_images', $imageName);
+//            $request->image->storeAs('/public/images/prds_images', $imageName);
+            $request->file('image')->move(public_path('storage/images/prds_images/'), $imageName);
+
             $product->image = $imageName;
 
         }
@@ -181,8 +183,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if ($product->image and file_exists(storage_path("app\\public\\images\\prds_images\\$product->image")))
-            unlink(storage_path("app\\public\\images\\prds_images\\$product->image"));
+        if ($product->image and file_exists(public_path("storage\\images\\prds_images\\$product->image")))
+            unlink(public_path("storage\\images\\prds_images\\$product->image"));
         $saved = $product->delete();
 
         if ($saved)
