@@ -15,7 +15,8 @@ class MainController extends Controller
     {
         $category = Category::where('status', 1)->take(3)->get();
         $slider = Slider::all();
-        return view('index', compact('category', 'slider'));
+        $product = Product::wherein('id',[1,2,3,4,5,6])->paginate(99);
+        return view('index', compact('category', 'slider','product'));
     }
 
     public function products()
@@ -23,12 +24,13 @@ class MainController extends Controller
         $category = Category::where('status', 1)->get();
         $model = Type::where('status', 1)->get();
         $insulation = Insulation::where('status', 1)->get();
-        $product = Product::paginate(3);
+        $product = Product::paginate(9);
         $width=Product::where('width','!=',null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
         $length=Product::where('length','!=',null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
         $door=Product::where('door','!=',null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
 
         return view('frontpage.products', compact('category', 'product','model','width','length','insulation','door'));
+
     }
 
     public function productdetail(Product $product)
@@ -52,14 +54,8 @@ class MainController extends Controller
 
     public function search(Request $request)
     {
-//       $search_text = $_GET['query'];
-//       dd();
-//        foreach ($request->query as $item)
-//            echo $request->query[0];
-        $category = Category::where('status', 1)->take(3)->get();
         $SEARCH_TEXT = $request->search_query;
         $type = Type::where('status', 1)->where('name', 'LIKE', '%' . $SEARCH_TEXT . '%')->get();
-//       dd($type->product);
 
         $types_id_array=array();
 
@@ -69,9 +65,15 @@ class MainController extends Controller
         }
 
         $product=Product::whereIn('type_id',$types_id_array)->paginate(9);
-//        dd($product);
+        $category = Category::where('status', 1)->get();
+        $model = Type::where('status', 1)->get();
+        $insulation = Insulation::where('status', 1)->get();
+        $width=Product::where('width','!=',null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
+        $length=Product::where('length','!=',null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
+        $door=Product::where('door','!=',null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
 
-        return view('frontpage.products', compact('category', 'product'));
+        return view('frontpage.products', compact('category', 'product','model','width','length','insulation','door'));
+
 
 
     }
@@ -150,7 +152,7 @@ class MainController extends Controller
         $length=$length->where('length','!=',null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
         $door=$door->where('door','!=',null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
 
-        $product=$product->paginate(3);
+        $product=$product->paginate(9);
         $model=$model->get();
         $model_id=$request->type_id;
         $insulation=$insulation->get();
