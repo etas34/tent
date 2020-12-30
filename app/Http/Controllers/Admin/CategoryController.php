@@ -164,7 +164,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
 
-        if ($category->image and file_exists(storage_path("storage\\images\\cat_images\\$category->image")))
+        if ($category->image and file_exists(public_path("storage\\images\\cat_images\\$category->image")))
             unlink(public_path("storage\\images\\cat_images\\$category->image"));
         $category->status = 0;
         $type = $category->type;
