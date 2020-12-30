@@ -16,10 +16,10 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table class="table table-striped">
+                    <table id="example" class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Product Image</th>
+{{--                            <th>Product Image</th>--}}
                             <th>Product Category</th>
                             <th>Product Model</th>
                             <th>Edit</th>
@@ -32,7 +32,7 @@
                         @foreach($product as $key=>$value)
                         <tr>
 
-                            <td><img src="{{asset("storage/images/prds_images/$value->image")}}" height="100px" width="100px"></td>
+{{--                            <td><img src="{{asset("storage/images/prds_images/$value->image")}}" height="100px" width="100px"></td>--}}
                             <td>{{$value->category->name}}</td>
                             <td>{{$value->type->name}}</td>
 
@@ -62,7 +62,14 @@
 
 
     @push('scripts')
-
+        <script>
+            $(function () {
+                $('#example').DataTable({
+                    "responsive":true,"lengthChange":false, "autoWidth":false,
+                    "buttons":["copy","csv","excel","print","colvis"]
+                }).buttons().container().appendTo('#example_wrapper .col-md-6:eq(0)')
+            })
+        </script>
 
     @endpush
 </x-admin-app>

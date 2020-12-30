@@ -18,10 +18,10 @@ class CreateProductsTable extends Migration
             $table->integer('category_id');
             $table->integer('type_id');
             $table->string('image')->nullable();
-            $table->decimal('price',8,2)->nullable();
+            $table->string('price')->nullable();
             $table->string('width')->nullable();
             $table->string('length')->nullable();
-            $table->decimal('price_m2',8,2)->nullable();
+            $table->string('price_m2')->nullable();
             $table->integer('insulation_id')->nullable();
             $table->string('door')->nullable();
             $table->string('steep_height')->nullable();

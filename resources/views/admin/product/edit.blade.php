@@ -72,54 +72,54 @@
 
                             <div class="form-group col-md-6">
                                 <label>Width (m)</label>
-                                <input type="number" name="width" value="{{$product->width}}" class="form-control">
+                                <input type="text" name="width" value="{{$product->width}}" class="form-control">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Length (m)</label>
-                                <input type="number" name="length" value="{{$product->length}}" class="form-control">
+                                <input type="text" name="length" value="{{$product->length}}" class="form-control">
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label>Price (€)</label>
-                                <input type="number" name="price" value="{{$product->price}}" step="0.01"
+                                <input type="text" name="price" value="{{$product->price}}" step="0.01"
                                        class="form-control">
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label>Price m<sup>2</sup> /€</label>
-                                <input type="number" name="price_m2" value="{{$product->price_m2}}" step="0.01"
+                                <input type="text" name="price_m2" value="{{$product->price_m2}}" step="0.01"
                                        class="form-control">
                             </div>
 
 
                             <div class="form-group col-md-6">
                                 <label>Door (m) </label>
-                                <input type="number" name="door" value="{{$product->door}}" class="form-control">
+                                <input type="text" name="door" value="{{$product->door}}" class="form-control">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Step Height </label>
-                                <input type="number" name="steep_height" value="{{$product->steep_height}}" step="0.01"
+                                <input type="text" name="steep_height" value="{{$product->steep_height}}" step="0.01"
                                        class="form-control">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Height middle area </label>
-                                <input type="number" name="height_middle" value="{{$product->height_middle}}"
+                                <input type="text" name="height_middle" value="{{$product->height_middle}}"
                                        step="0.01" class="form-control">
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label>Square Meters m<sup>2</sup></label>
-                                <input type="number" name="square_meters" value="{{$product->square_meters}}"
+                                <input type="text" name="square_meters" value="{{$product->square_meters}}"
                                        step="0.01" class="form-control">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Foot Height (m)</label>
-                                <input type="number" name="foot_height" value="{{$product->foot_height}}"
+                                <input type="text" name="foot_height" value="{{$product->foot_height}}"
                                        class="form-control">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Foot Count</label>
-                                <input type="number" name="foot_count" value="{{$product->foot_count}}"
+                                <input type="text" name="foot_count" value="{{$product->foot_count}}"
                                        class="form-control">
                             </div>
 

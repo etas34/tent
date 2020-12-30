@@ -4,11 +4,11 @@
             <div class="grid_item">
                 {{--                                    <span class="ribbon hot">Hot</span>--}}
                 <figure>
-                    <a href="#">
+                    <a href="{{route('frontpage.productdetail',$value)}}">
                         <img class="img-fluid lazy" height="400" width="400" src="{{asset("storage/images/prds_images/$value->image")}}" data-src="{{asset("storage/images/prds_images/$value->image")}}" alt="">
                     </a>
                 </figure>
-                <a href="product-detail-1.html">
+                <a href="{{route('frontpage.productdetail',$value)}}">
                     <h3>{{$value->type['name']}}</h3>
                 </a>
                 <div class="price_box">
