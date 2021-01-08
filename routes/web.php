@@ -25,9 +25,12 @@ Route::get('/reset', function(){
     Artisan::call('cache:clear');
 
 });
-
-Route::get('lang/{locale}', [HomeController::class, 'setlocale']);
-Route::group(['middleware' => 'setlocale'], function() {
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
+Route::get('/{locale}', [HomeController::class, 'setlocale']);
+Route::group(['prefix' => '{locale}',
+    'where' => ['locale' => '[a-zA-Z]{2}'],'middleware' => 'setlocale'], function() {
 
     Route::get('/', [MainController::class, 'index'])->name('home');
     Route::get('/help', [MainController::class, 'help'])->name('help');
