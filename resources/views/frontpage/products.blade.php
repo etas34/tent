@@ -13,7 +13,7 @@
                                 <li>Page active</li>
                             </ul>
                         </div>
-                        <h1>Selected Category</h1>
+                        <h1>{{$category->name}}</h1>
                     </div>
                 </div>
                 <img src="{{ asset('assets/img/bg_cat_shoes.jpg') }}" class="img-fluid" alt="">
@@ -68,20 +68,20 @@
                             <div class="filter_type version_2">
                                 <h4><a href="#filter_3" data-toggle="collapse" class="opened">Width</a></h4>
                                 <div class="collapse show" id="filter_3">
-                                    <ul id="result_widths">
+                                    <div class="row" id="result_widths">
 
                                         @include('frontpage.widths')
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /filter_type -->
                             <div class="filter_type version_2">
                                 <h4><a href="#filter_4" data-toggle="collapse" class="opened">Length</a></h4>
                                 <div class="collapse show" id="filter_4">
-                                    <ul id="result_lengths">
+                                    <div class="row" id="result_lengths">
 
                                         @include('frontpage.lengths')
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
 
@@ -99,10 +99,10 @@
                             <div class="filter_type version_2 ins_group">
                                 <h4><a href="#filter_5" data-toggle="collapse" class="opened">Door</a></h4>
                                 <div class="collapse show" id="filter_5">
-                                    <ul id="result_doors">
+                                    <div class="row" id="result_doors">
 
                                         @include('frontpage.doors')
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
 
@@ -202,7 +202,7 @@ function filtre(page){
         //window.history.pushState('page2', 'Title', this.url); // still in test
     });
 
-    if(category_id===1)
+    if(category_id==1)
     {
         $('.ins_group').show();
 

@@ -21,6 +21,7 @@ class MainController extends Controller
 
     public function products(Category $category)
     {
+
         $model = Type::where('category_id',$category->id)->where('status', 1)->get();
         $insulation = Insulation::where('status', 1)->get();
         $product = Product::where('category_id',$category->id)->where('category_id',$category->id)->paginate(9);
@@ -99,6 +100,7 @@ class MainController extends Controller
             $width=$width->where('category_id',$request->category_id);
             $length=$length->where('category_id',$request->category_id);
             $door=$door->where('category_id',$request->category_id);
+            $model=$model->where('products.category_id',$request->category_id);
         }
 
         if ($request->type_id !=0)
