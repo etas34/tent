@@ -68,14 +68,9 @@
                                 <a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
                             </div>
                             <ul>
-                                <li class="submenu">
-                                    <a href="javascript:void(0);" class="show-submenu">Home</a>
-                                    <ul>
-                                        <li><a href="{{route('home', app()->getLocale())}}">Slider</a></li>
-                                        <li><a href="index-2.html">Video Background</a></li>
-                                        <li><a href="index-3.html">Vertical Slider</a></li>
-                                        <li><a href="index-4.html">GDPR Cookie Bar</a></li>
-                                    </ul>
+                                <li>
+                                    <a href="{{route('home', app()->getLocale())}}" class="show-submenu">Home</a>
+
                                 </li>
 
                                 <li class="submenu">
@@ -166,8 +161,8 @@
                         <!--/main-menu -->
                     </nav>
                     <div style="top: 19px !important;" class="col-xl-3  col-lg-2 d-lg-flex align-items-center justify-content-end text-right styled-select lang-selector">
-
-                            <select onchange="location = this.value;">
+{{--                        onchange="alert(location = this.value)"--}}
+                            <select id="location" >
                                 @foreach($langs as $key=>$value)
                                     <option
                                         @if( \Illuminate\Support\Facades\App::currentLocale() == $key) selected @endif
@@ -370,6 +365,15 @@
         var page = url.split('page=')[1];
         window.history.pushState("", "", url);
         filtre(page);
+    })
+    $(()=>{
+        $('#location').on('change',  () => {
+            let selectVal = $("#location option:selected").val();
+            let lKey = location.toString().split('/')[3]
+            let replacedUri = location.toString().replace(lKey,selectVal);
+            location = replacedUri
+                  // :(
+        });
     })
 </script>
 
