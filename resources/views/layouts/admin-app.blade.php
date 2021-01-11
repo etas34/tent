@@ -44,7 +44,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('admin.dashboard') }}" class="nav-link">Anasayfa</a>
+                <a href="{{ route('admin.dashboard', app()->getLocale()) }}" class="nav-link">Anasayfa</a>
             </li>
         </ul>
 
@@ -71,10 +71,10 @@
                     <li class="user-footer">
                         <a href="#" class="btn btn-default btn-flat">Profile</a>
 
-                        <a href="{{route('logout')}}" class="btn btn-default btn-flat float-right"
+                        <a href="{{route('logout', app()->getLocale())}}" class="btn btn-default btn-flat float-right"
                                onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">Sign out</a>
-                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                        <form id="logout-form" method="POST" action="{{ route('logout', app()->getLocale()) }}">
                             @csrf
 
                         </form>

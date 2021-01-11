@@ -77,6 +77,15 @@
                                         <li><a href="index-4.html">GDPR Cookie Bar</a></li>
                                     </ul>
                                 </li>
+
+                                <li class="submenu">
+                                    <a href="javascript:void(0);" class="show-submenu">Category</a>
+                                    <ul>
+                                        @foreach($category as $key=>$value)
+                                            <li><a href="{{route('frontpage.products',[app()->getLocale(), $value])}}">{{$value->name}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
 {{--                                <li class="megamenu submenu">--}}
 {{--                                    <a href="javascript:void(0);" class="show-submenu-mega">Pages</a>--}}
 {{--                                    <div class="menu-wrapper">--}}
@@ -146,9 +155,7 @@
 {{--                                        <li><a href="modal-newsletter.html">Modal Newsletter</a></li>--}}
 {{--                                    </ul>--}}
 {{--                                </li>--}}
-                                <li>
-                                    <a href="{{route('frontpage.products', app()->getLocale())}}">Products</a>
-                                </li>
+
 {{--                                <li>--}}
 {{--                                    <a href="#0">Buy Template</a>--}}
 {{--                                </li>--}}

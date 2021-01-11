@@ -1,7 +1,7 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('admin.dashboard') }}" class="brand-link">
+    <a href="{{ route('admin.dashboard', app()->getLocale()) }}" class="brand-link">
         <img src="{{ asset('adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Yönetim</span>
@@ -61,7 +61,7 @@
 {{--                    </a>--}}
 {{--                </li>--}}
                 <li class="nav-item">
-                    <a href="{{route('admin.category.index')}}" class="nav-link">
+                    <a href="{{route('admin.category.index', app()->getLocale())}}" class="nav-link">
                         <i class="nav-icon fas fa-list"></i>
                         <p>
                           Categories
@@ -70,7 +70,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.model.index')}}" class="nav-link">
+                    <a href="{{route('admin.model.index', app()->getLocale())}}" class="nav-link">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
                           Models
@@ -79,7 +79,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.insulation.index')}}" class="nav-link">
+                    <a href="{{route('admin.insulation.index', app()->getLocale())}}" class="nav-link">
                         <i class="nav-icon fas fa-circle"></i>
                         <p>
                             Insulations
@@ -88,7 +88,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.product.index')}}" class="nav-link">
+                    <a href="{{route('admin.product.index', app()->getLocale())}}" class="nav-link">
                         <i class="nav-icon fas fa-cart-plus"></i>
                         <p>
                           Products
@@ -97,7 +97,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('admin.slider.index')}}" class="nav-link">
+                    <a href="{{route('admin.slider.index', app()->getLocale())}}" class="nav-link">
                         <i class="nav-icon fas fa-sliders-h"></i>
                         <p>
                           Sliders

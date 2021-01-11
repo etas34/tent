@@ -15,7 +15,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.insulation.update',$insulation)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
+                <form action="{{route('admin.insulation.update',[app()->getLocale(),$insulation])}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
 

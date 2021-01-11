@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.category.update',$category)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
+                <form action="{{route('admin.category.update',[app()->getLocale(),$category])}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
                         <div class="form-group">

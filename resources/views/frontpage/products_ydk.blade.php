@@ -55,7 +55,19 @@
 
                         <div class="filter_col">
 
-                            <input type="hidden" id="category_id" value="{{$category->id}}">
+                            <h6>Categories</h6>
+                            <div class="row" >
+                                <div class="col-md-12 form-group">
+                                    <div class="custom-select-form">
+                                        <select class="wide add_bottom_15 filter-item" id="category">
+                                            <option value="0" selected>All</option>
+                                            @foreach($category as $key=>$value)
+                                                <option value="{{$value->id}}">{{$value->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
 
                             <h6>Models</h6>
@@ -162,7 +174,7 @@ function filtre(page){
     // var colorName = [];
     // var offerName = [];
 
-    category_id=$("#category_id").val();
+    category_id=$("#category").val();
     type_id=$("#modelselectbox").val();
     insulation_id=$("#insulationselectbox").val();
 
@@ -201,22 +213,13 @@ function filtre(page){
         //pagination(e['rows'],e['qty'],e['active']);
         //window.history.pushState('page2', 'Title', this.url); // still in test
     });
-
-    if(category_id===1)
-    {
-        $('.ins_group').show();
-
-    }
-    else{
-        $('#insulationselectbox').val('0');
-        $('.ins_group').hide();
-    }
 }
 </script>
 
 <script>
-    $(document).ready(function(){
-        if($("#category_id").val()==1)
+    $("#category").on("change",function(){
+        var secili_id=$(this).val();
+        if(secili_id==1)
         {
             $('.ins_group').show();
 
@@ -225,6 +228,7 @@ function filtre(page){
             $('#insulationselectbox').val('0');
             $('.ins_group').hide();
         }
+        filtre();
     });
 
 

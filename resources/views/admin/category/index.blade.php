@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title"></h3>
-                    <a href="{{route('admin.category.create')}}" class="btn btn-primary active" style="float: right !important;">Add New
+                    <a href="{{route('admin.category.create', app()->getLocale())}}" class="btn btn-primary active" style="float: right !important;">Add New
                         Category</a>
                 </div>
                 <!-- /.card-header -->

@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.slider.update',$slider)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
+                <form action="{{route('admin.slider.update',[app()->getLocale(),$slider])}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
                         <div class="form-group">

@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Products</h3>
-                    <a href="{{route('admin.product.create')}}" class="btn btn-primary active" style="float: right !important;">Add New
+                    <a href="{{route('admin.product.create', app()->getLocale())}}" class="btn btn-primary active" style="float: right !important;">Add New
                         product</a>
                 </div>
                 <!-- /.card-header -->

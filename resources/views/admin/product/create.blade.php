@@ -15,7 +15,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.product.store')}}" method="post" autocomplete="off"
+                <form action="{{route('admin.product.store', app()->getLocale())}}" method="post" autocomplete="off"
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
