@@ -368,10 +368,9 @@
     })
     $(()=>{
         $('#location').on('change',  () => {
-            let selectVal = $("#location option:selected").val();
+            let selectVal = $("#location option:selected").val()
             let lKey = location.toString().split('/')[3]
-            let replacedUri = location.toString().replace(lKey,selectVal);
-            location = replacedUri
+            location = location.toString().replace(lKey,selectVal)
                   // :(
         });
     })
