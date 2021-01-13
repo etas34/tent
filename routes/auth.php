@@ -10,9 +10,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect(app()->getLocale());
-});
+
 Route::group(['prefix' => '{locale}',
     'where' => ['locale' => '[a-zA-Z]{2}'],'middleware' => 'setlocale'], function() {
     Route::get('/register', [RegisteredUserController::class, 'create'])

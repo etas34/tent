@@ -32,8 +32,8 @@
 
                            <td>{{$value->name}} </td>
 
-                            <td><a href="{{route('admin.insulation.edit',$value)}}"><span class="badge bg-warning p-2">Edit</span></a></td>
-                            <td><a href="{{route('admin.insulation.destroy',$value)}}" onclick="return confirm('Are you sure you want to delete this record?')"><span class="badge bg-danger p-2">Delete</span></a></td>
+                            <td><a href="{{route('admin.insulation.edit',[app()->getLocale(), $value])}}"><span class="badge bg-warning p-2">Edit</span></a></td>
+                            <td><a href="{{route('admin.insulation.destroy',[app()->getLocale(), $value])}}" onclick="return confirm('Are you sure you want to delete this record?')"><span class="badge bg-danger p-2">Delete</span></a></td>
 
                         </tr>
                         @endforeach

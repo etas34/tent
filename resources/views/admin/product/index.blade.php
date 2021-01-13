@@ -36,8 +36,8 @@
                             <td>{{$value->category->name}}</td>
                             <td>{{$value->type->name}}</td>
 
-                            <td><a href="{{route('admin.product.edit',$value)}}"><span class="badge bg-warning p-2">Edit</span></a></td>
-                            <td><a href="{{route('admin.product.destroy',$value)}}" onclick="return confirm('Are you sure you want to delete this record?')"><span class="badge bg-danger p-2">Delete</span></a></td>
+                            <td><a href="{{route('admin.product.edit',[app()->getLocale(), $value])}}"><span class="badge bg-warning p-2">Edit</span></a></td>
+                            <td><a href="{{route('admin.product.destroy',[app()->getLocale(), $value])}}" onclick="return confirm('Are you sure you want to delete this record?')"><span class="badge bg-danger p-2">Delete</span></a></td>
 
                         </tr>
                         @endforeach

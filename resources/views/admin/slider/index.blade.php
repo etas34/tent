@@ -36,8 +36,8 @@
                             <td>{{$value->header}}</td>
                             <td>{{$value->description}}</td>
 
-                            <td><a href="{{route('admin.slider.edit',$value)}}"><span class="badge bg-warning p-2">Edit</span></a></td>
-                            <td><a href="{{route('admin.slider.destroy',$value)}}" onclick="return confirm('If you delete this record you gonna  Are you sure you want to delete this record?')"><span class="badge bg-danger p-2">Delete</span></a></td>
+                            <td><a href="{{route('admin.slider.edit',[app()->getLocale(), $value])}}"><span class="badge bg-warning p-2">Edit</span></a></td>
+                            <td><a href="{{route('admin.slider.destroy',[app()->getLocale(), $value])}}" onclick="return confirm('If you delete this record you gonna  Are you sure you want to delete this record?')"><span class="badge bg-danger p-2">Delete</span></a></td>
 
                         </tr>
                         @endforeach
