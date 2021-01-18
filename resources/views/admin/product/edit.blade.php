@@ -228,7 +228,7 @@
                     $.ajax({
 
                         type: 'POST',
-                        url: '{{ route('admin.category.getsubcat')}}',
+                        url: '{{ route('admin.category.getsubcat',app()->getLocale())}}',
 
                         data: {cat_id: cat_id},
                         dataType: 'json',
