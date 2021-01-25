@@ -24,6 +24,7 @@ Route::get('/reset', function(){
 
     Artisan::call('cache:clear');
 
+
 });
 Route::get('/', function () {
     return redirect(app()->getLocale());
@@ -95,6 +96,8 @@ Route::group(['prefix' => '{locale}',
 
 
 });
+Route::get('/deneme',[MainController::class,'deneme']);
+
 
 
 require __DIR__.'/auth.php';

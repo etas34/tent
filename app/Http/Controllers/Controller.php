@@ -32,5 +32,7 @@ class Controller extends BaseController
 
         // Sharing is caring
         View::share('langs', $langs);
+
+
     }
 }

@@ -8,6 +8,7 @@ use App\Models\Type;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class CategoryController extends Controller
 {
@@ -74,7 +75,7 @@ class CategoryController extends Controller
 //                $belge->image = url('/public/images') . "/" . $fileName;
 
             $imageName = time() . '.' . $request->image->extension();
-            $request->file('image')->move(public_path('storage/images/cat_images/'), $imageName);
+            $request->file('image')->move(URL::to('storage/images/cat_images/'), $imageName);
 //            $request->image->storeAs('/public/', );
 //            dd(Storage::disk('public')->put($imageName,$request->image));
             $category->image = $imageName;
@@ -127,8 +128,8 @@ class CategoryController extends Controller
 
         if ($request->file('image')) {
 
-            if ($category->image and file_exists(public_path("storage\\images\\cat_images\\$category->image")))
-                unlink(public_path("storage\\images\\cat_images\\$category->image"));
+            if ($category->image and file_exists(asset("public\\storage\\images\\cat_images\\$category->image")))
+                unlink(asset("public\\storage\\images\\cat_images\\$category->image"));
 
             $request->validate([
 
@@ -138,7 +139,7 @@ class CategoryController extends Controller
 
 
             $imageName = time() . '.' . $request->image->extension();
-            $request->file('image')->move(public_path('storage/images/cat_images/'), $imageName);
+            $request->file('image')->move(asset('public/storage/images/cat_images/'), $imageName);
 //            Storage::disk('public')->put($imageName,$request->image);
 //            $request->image->storeAs('/public/storage/images/cat_images', $imageName);
             $category->image = $imageName;
@@ -164,8 +165,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
 
-        if ($category->image and file_exists(public_path("storage\\images\\cat_images\\$category->image")))
-            unlink(public_path("storage\\images\\cat_images\\$category->image"));
+        if ($category->image and file_exists(asset("public\\storage\\images\\cat_images\\$category->image")))
+            unlink(asset("public\\storage\\images\\cat_images\\$category->image"));
         $category->status = 0;
         $type = $category->type;
         foreach ($type as $types){

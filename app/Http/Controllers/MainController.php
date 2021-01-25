@@ -8,9 +8,13 @@ use App\Models\Product;
 use App\Models\Slider;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class MainController extends Controller
 {
+    public function deneme(){
+
+    }
     public function index()
     {
         $category = Category::where('status', 1)->take(3)->get();
