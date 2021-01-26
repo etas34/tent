@@ -35,10 +35,11 @@ Route::group(['prefix' => '{locale}',
 
     Route::get('/', [MainController::class, 'index'])->name('home');
     Route::get('/help', [MainController::class, 'help'])->name('help');
-    Route::get('/search', [MainController::class, 'search'])->name('search');
+    Route::get('/search/{text}', [MainController::class, 'search'])->name('search');
     Route::get('/contact', [MainController::class, 'contact'])->name('contact');
     Route::get('/about', [MainController::class, 'about'])->name('about');
     Route::get('/products/{category}', [MainController::class, 'products'])->name('frontpage.products');
+    Route::get('/products/{category}/{type}', [MainController::class, 'productsmodel'])->name('frontpage.productsmodel');
     Route::get('/product/detail/{product}', [MainController::class, 'productdetail'])->name('frontpage.productdetail');
 
     Route::get('/products/filter', [MainController::class, 'products']);

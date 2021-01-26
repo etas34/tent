@@ -197,11 +197,11 @@
                                     <div id="menu">
                                         <ul>
                                             @foreach($category as $key=>$value)
-                                            <li><span><a href="#0">{{$value->name}}</a></span>
+                                            <li><span><a href="{{route('frontpage.products',[app()->getLocale(),$value])}}">{{$value->name}}</a></span>
                                                 <ul>
                                                     @foreach($value->type as $type)
                                                         @if($type->status != 0)
-                                                            <li><a href="listing-grid-1-full.html">{{$type->name}}</a></li>
+                                                            <li><a href="{{url(app()->getLocale().'/products/'.$value->id."/".$type->id)}}">{{$type->name}}</a></li>
                                                         @endif
                                                     @endforeach
                                                 </ul>
@@ -216,11 +216,10 @@
                     </div>
                     <div class="col-xl-6 col-lg-7 col-md-6 d-none d-md-block">
                         <div class="custom-search-input">
-                            <form type="get" action="{{route('search', app()->getLocale())}}">
 
-                                <input type="text" name="search_query" placeholder="Search over {{$product->count()}} products">
-                                <button type="submit"><i class="header-icon_search_custom"></i></button>
-                            </form>
+                            <input type="text" id="searchinput" placeholder="Search over {{$product->count()}} products">
+                            <button type="submit" onclick="searchFunc();"><i class="header-icon_search_custom"></i></button>
+
 
                         </div>
                     </div>
@@ -358,19 +357,20 @@
 
 
 <script>
-    $(document).on('click','.pagination a',function(e){
-        e.preventDefault();
-        var url = $(this).attr('href');
-        var page = url.split('page=')[1];
-        window.history.pushState("", "", url);
-        filtre(page);
-    })
+
+    function searchFunc(){
+        var text=$('#searchinput').val();
+        var locate = "{{ config('app.locale')}}";
+        // window.location='http://www.example.com';
+        var url="{{URL::to(app()->getLocale(),'search')}}"+"/"+text;
+        window.location.href = url;
+    }
     $(()=>{
         $('#location').on('change',  () => {
             let selectVal = $("#location option:selected").val()
             let lKey = location.toString().split('/')[3]
             location = location.toString().replace(lKey,selectVal)
-                  // :(
+
         });
     })
 </script>

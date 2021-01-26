@@ -13,7 +13,7 @@
                                 <li>Page active</li>
                             </ul>
                         </div>
-                        <h1>{{$category->name}}</h1>
+                        <h1>{{$category->name ?? ''}}</h1>
                     </div>
                 </div>
                 <img src="{{ asset('assets/img/bg_cat_shoes.jpg') }}" class="img-fluid" alt="">
@@ -132,6 +132,13 @@
 @push('scripts')
 
 <script>
+    $(document).on('click','.pagination a',function(e){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var page = url.split('page=')[1];
+        window.history.pushState("", "", url);
+        filtre(page);
+    });
 var xhr = new XMLHttpRequest();
 function filtre(page){
     var csrf = "{{ csrf_token() }}";

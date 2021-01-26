@@ -41,6 +41,21 @@ class MainController extends Controller
 
     }
 
+    public function productsmodel(Category $category, Type $type)
+    {
+
+        $secili_model=$type;
+        $model = Type::where('category_id',$category->id)->where('status', 1)->get();
+        $insulation = Insulation::where('status', 1)->get();
+        $product = Product::where('category_id',$category->id)->where('type_id',$type->id)->where('category_id',$category->id)->paginate(9);
+        $width=Product::where('category_id',$category->id)->where('width','!=',null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
+        $length=Product::where('category_id',$category->id)->where('length','!=',null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
+        $door=Product::where('category_id',$category->id)->where('door','!=',null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
+
+        return view('frontpage.products', compact('category', 'product','model','width','length','insulation','door','secili_model'));
+
+    }
+
     public function productdetail(Product $product)
     {
         return view('frontpage.productdetail', compact('product'));
@@ -60,9 +75,9 @@ class MainController extends Controller
         return view('contact');
     }
 
-    public function search(Request $request)
+    public function search($text)
     {
-        $SEARCH_TEXT = $request->search_query;
+        $SEARCH_TEXT = $text;
         $type = Type::where('status', 1)->where('name', 'LIKE', '%' . $SEARCH_TEXT . '%')->get();
 
         $types_id_array=array();
@@ -73,14 +88,8 @@ class MainController extends Controller
         }
 
         $product=Product::whereIn('type_id',$types_id_array)->paginate(9);
-        $category = Category::where('status', 1)->get();
-        $model = Type::where('status', 1)->get();
-        $insulation = Insulation::where('status', 1)->get();
-        $width=Product::where('width','!=',null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
-        $length=Product::where('length','!=',null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
-        $door=Product::where('door','!=',null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
 
-        return view('frontpage.products', compact('category', 'product','model','width','length','insulation','door'));
+        return view('frontpage.productsSearch', compact('product'));
 
 
 
