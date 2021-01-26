@@ -238,6 +238,69 @@
 
 
 {{$slot}}
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="size-modal" id="size-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="title" class="modal-title">
+
+                        Fachwerkbinder-Fünfeck 7-8-10-12-13m
+
+
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="ti-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 >Specifications</h5>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped">
+                            <tbody>
+
+
+                            <tr>
+                                <td><strong>Price</strong></td>
+                                <td id="price">null</td>
+                            </tr>
+                            <td><strong>Width</strong></td>
+                            <td id="width">null</td>
+
+                            <tr>
+                                <td><strong>Length</strong></td>
+                                <td id="length">null</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Door</strong></td>
+                                <td id="door">null</td>
+                            </tr>
+
+
+
+                            </tbody>
+                        </table>
+                        <!-- /table-responsive -->
+                    </div>
+                    <form class="py-4">
+                        <h5>Contact Us</h5>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="text-center form-group">
+                            <input type="submit" value="Get Info" class="btn_1 full-width">
+                        </div>
+                    </form>
+
+                    <!-- /table -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Main Footer -->
@@ -358,6 +421,39 @@
 
 <script>
 
+    //ajax
+    $(document).on("click", ".getInfo", function () {
+        var id = $(this).data('id');
+        console.log(`api/getInfo/${id}`)
+        $('#title').text($(this).data('category'))
+        $.get({
+            type: "GET",
+            url: `{{URL::to('/')}}/api/getInfo/${id}`,
+            cache:false,
+
+            success: (response)=>{
+                console.log(response.category.name["{{App::getLocale()}}"])
+                $('#price').text(response.product.price + ' €')
+                $('#width').text(response.product.width + ' m')
+                $('#length').text(response.product.length + ' m')
+                $('#door').text(response.product.door + ' m')
+
+
+            },
+
+
+        });
+
+
+        // As pointed out in comments,
+        // it is unnecessary to have to manually call the modal.
+        // $('#addBookDialog').modal('show');
+    });
+    $('#searchinput').keypress(function (e) {
+        if (e.which === 13) {
+            searchFunc()
+        }
+    });
     function searchFunc(){
         var text=$('#searchinput').val();
         var locate = "{{ config('app.locale')}}";
