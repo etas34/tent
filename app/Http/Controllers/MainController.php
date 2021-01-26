@@ -17,7 +17,11 @@ class MainController extends Controller
     }
     public function index()
     {
-        $category = Category::where('status', 1)->take(3)->get();
+        $category = Category::where('status', 1)
+            ->whereNotNull('sira')
+            ->orderBy('sira','asc')
+            ->take(6)
+            ->get();
         $slider = Slider::all();
         $product = Product::wherein('id',[1,2,3,4,5,6])->paginate(99);
         return view('index', compact('category', 'slider','product'));

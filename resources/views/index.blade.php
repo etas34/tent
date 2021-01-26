@@ -115,6 +115,7 @@
                 </li>
             @endforeach
         </ul>
+
         <!--/banners_grid -->
 
         <div class="container margin_60_35">
@@ -153,17 +154,112 @@
 
 
     </main>
-    @push('scripts')
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="size-modal" id="size-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="title" class="modal-title">
+
+                        Fachwerkbinder-Fünfeck 7-8-10-12-13m
+
+
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="ti-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body py-5">
+                        <h3 >Specifications</h3>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped">
+                                <tbody>
+
+
+                                <tr>
+                                    <td><strong>Price</strong></td>
+                                    <td id="price">null</td>
+                                </tr>
+                                <td><strong>Width</strong></td>
+                                <td id="width">null</td>
+
+                                <tr>
+                                    <td><strong>Length</strong></td>
+                                    <td id="length">null</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Door</strong></td>
+                                    <td id="door">null</td>
+                                </tr>
+
+
+
+                                </tbody>
+                            </table>
+                        <!-- /table-responsive -->
+                    </div>
+                    <form class="py-4">
+                        <h3>Contact Us</h3>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" >
+                        </div>
+                         <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="text-center form-group">
+                            <input type="submit" value="Get Info" class="btn_1 full-width">
+                        </div>
+                    </form>
+
+                    <!-- /table -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+@push('scripts')
 
         <script src="{{asset('assets/js/carousel-home.min.js')}}"></script>
         <script src="{{asset('assets/js/jquery.cookiebar.js')}}"></script>
 
         <script>
+            //ajax
+            $(document).on("click", ".getInfo", function () {
+                var id = $(this).data('id');
+                $('#title').text($(this).data('category'))
+                $.get({
+                    type: "GET",
+                    url: `api/getInfo/${id}`,
+                    cache:false,
+
+                    success: (response)=>{
+                        console.log(response.category.name["{{App::getLocale()}}"])
+                        $('#price').text(response.product.price + ' €')
+                        $('#width').text(response.product.width + ' m')
+                        $('#length').text(response.product.length + ' m')
+                        $('#door').text(response.product.door + ' m')
+
+
+                    },
+
+
+                });
+
+
+                // As pointed out in comments,
+                // it is unnecessary to have to manually call the modal.
+                // $('#addBookDialog').modal('show');
+            });
+
             $(document).ready(function () {
                 // 'use strict';
                 $.cookieBar({
                     fixed: true
                 });
+
+
+
             });
         </script>
 

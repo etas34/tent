@@ -61,6 +61,7 @@ class CategoryController extends Controller
         $category = new Category();
 
         $category->name =$request->cat_name;
+        $category->sira = $request->sira;
 
         if ($request->file('image')) {
             $request->validate([
@@ -89,7 +90,7 @@ class CategoryController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route( 'admin.category.index', app()->getLocale());
     }
 
     /**
@@ -125,6 +126,8 @@ class CategoryController extends Controller
     {
 
         $category->name = $request->cat_name;
+
+        $category->sira = $request->sira;
 
         if ($request->file('image')) {
 
@@ -181,7 +184,7 @@ class CategoryController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index' , app()->getLocale());
     }
 
     public function getsubcat(Request $request)

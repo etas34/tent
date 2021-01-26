@@ -33,6 +33,20 @@
 
                             </div>
                         </div>
+                  <div class="form-group">
+                            <label for="rank">Homepage rank place</label>
+                            <div class="input-group">
+
+                                    <select class="form-control" name="sira">
+                                       @for($i = 1 ; $i <= \App\Models\Category::count() ; $i++ )
+                                        <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
+                                    </select>
+
+                                </div>
+
+                            </div>
+
 
 
 

@@ -45,7 +45,7 @@ class InsulationController extends Controller
             toastr()->success('Record Is Successfully Updated');
         else
             toastr()->error('Something\'s went wrong!');
-        return redirect()->route('admin.insulation.index');
+        return redirect()->route('admin.insulation.index' , app()->getLocale());
     }
 
     /**
@@ -85,7 +85,7 @@ class InsulationController extends Controller
             toastr()->success('Record Is Successfully Updated');
         else
             toastr()->error('Something\'s went wrong!');
-        return redirect()->route('admin.insulation.index');
+        return redirect()->route('admin.insulation.index' , app()->getLocale());
     }
 
     /**
@@ -102,6 +102,6 @@ class InsulationController extends Controller
             toastr()->success('Record Is Successfully Deleted');
         else
             toastr()->error('Something\'s went wrong!');
-        return redirect()->route('admin.insulation.index');
+        return redirect()->route('admin.insulation.index' , app()->getLocale());
     }
 }

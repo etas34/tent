@@ -88,7 +88,7 @@ class ProductController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index' , app()->getLocale());
     }
 
     /**
@@ -172,7 +172,7 @@ class ProductController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index' , app()->getLocale());
     }
 
     /**
@@ -192,7 +192,18 @@ class ProductController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index' , app()->getLocale());
 
+    }
+
+
+    public function getInfo (Product $product)
+    {
+        $data = [
+            'category' => $product->category,
+            'product' => $product
+
+        ];
+        return response()->json($data,200);
     }
 }

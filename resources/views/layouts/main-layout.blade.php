@@ -307,20 +307,19 @@
             <div class="row add_bottom_25">
                 <div class="col-lg-6">
                     <ul class="footer-selector clearfix">
-                        <li>
-                            <div class="styled-select lang-selector">
+{{--                        <li>--}}
+{{--                            <div class="styled-select lang-selector">--}}
+{{--                                <select id="location" >--}}
+{{--                                    @foreach($langs as $key=>$value)--}}
+{{--                                        <option--}}
+{{--                                            @if( \Illuminate\Support\Facades\App::currentLocale() == $key) selected @endif--}}
+{{--                                        value="{{$key}}">{{$value}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
 
-                                    <select onchange="location = this.value;">
-                                        @foreach($langs as $key=>$value)
-                                            <option
-                                                @if( \Illuminate\Support\Facades\App::currentLocale() == $key) selected @endif
-                                            value="lang/{{$key}}">{{$value}}</option>
-                                        @endforeach
-                                    </select>
 
-
-                            </div>
-                        </li>
+{{--                            </div>--}}
+{{--                        </li>--}}
                         <li>
                             <div class="styled-select currency-selector">
                                 <select>

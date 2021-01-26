@@ -35,6 +35,21 @@
 
                                 </div>
                             </div>
+                                <div class="form-group">
+                                    <label for="rank">Homepage rank place</label>
+                                    <div class="input-group">
+
+                                        <select class="form-control" name="sira">
+                                            <option value="">Choose</option>
+                                            @for($i = 1 ; $i <= \App\Models\Category::count() ; $i++ )
+                                                <option @if($category->sira == $i) selected @endif value="{{ $i }}">{{ $i }}</option>
+
+                                            @endfor
+                                        </select>
+
+                                    </div>
+
+                                </div>
 
 
                                 <div class="row">

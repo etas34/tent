@@ -68,7 +68,7 @@ class SliderController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.slider.index');
+        return redirect()->route('admin.slider.index' , app()->getLocale());
 
     }
 
@@ -153,6 +153,6 @@ class SliderController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.slider.index');
+        return redirect()->route('admin.slider.index' , app()->getLocale());
     }
 }
