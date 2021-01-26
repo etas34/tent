@@ -18,8 +18,7 @@ class MainController extends Controller
     public function index()
     {
         $category = Category::where('status', 1)
-            ->whereNotNull('sira')
-            ->orderBy('sira','asc')
+            ->orderByRaw('ISNULL(sira), sira ASC')
             ->take(6)
             ->get();
         $slider = Slider::all();
