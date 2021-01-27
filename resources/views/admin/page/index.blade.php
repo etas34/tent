@@ -21,6 +21,7 @@
                         <tr>
 {{--                            <th>Product Image</th>--}}
                             <th>Header</th>
+                            <th>Visibility</th>
                             <th>Edit</th>
                             <th>Delete</th>
 
@@ -30,9 +31,9 @@
                         <tbody>
                         @foreach($page as $key=>$value)
                         <tr>
-
 {{--                            <td><img src="{{asset("storage/images/prds_images/$value->image")}}" height="100px" width="100px"></td>--}}
                             <td>{{$value->header}}</td>
+                            <td>{{$value->visibility == 1 ? 'Yes' : 'No' }}</td>
 
                             <td><a href="{{route('admin.page.edit',[app()->getLocale(), $value])}}"><span class="badge bg-warning p-2">Edit</span></a></td>
                             <td><a href="{{route('admin.page.destroy',[app()->getLocale(), $value])}}" onclick="return confirm('Are you sure you want to delete this record?')"><span class="badge bg-danger p-2">Delete</span></a></td>
