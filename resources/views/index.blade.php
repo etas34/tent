@@ -14,10 +14,10 @@
                                 <div class="row justify-content-center justify-content-md-end">
                                     <div class="col-lg-6 static">
                                         <div class="slide-text text-right white">
-                                            <h2 class="owl-slide-animated owl-slide-title">{{$value->header}}</h2>
-                                            <p class="owl-slide-animated owl-slide-subtitle">
-                                                {{$value->description}}
-                                            </p>
+{{--                                            <h2 class="owl-slide-animated owl-slide-title">{{$value->header}}</h2>--}}
+{{--                                            <p class="owl-slide-animated owl-slide-subtitle">--}}
+{{--                                                {{$value->description}}--}}
+{{--                                            </p>--}}
                                             <div class="owl-slide-animated owl-slide-cta"><a class="btn_1"
                                                                                              href="listing-grid-1-full.html"
                                                                                              role="button">Shop Now</a>

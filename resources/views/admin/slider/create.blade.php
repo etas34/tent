@@ -22,20 +22,6 @@
 
 
 
-
-                        <div class="form-group">
-                            <label for="exampleInputFile">Slider Image</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" name="image" accept="image/*" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose Image (1450 X 750)</label>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
                             <div class="row">
                                 <div class="col-12">
                                     <!-- Custom Tabs -->
@@ -54,15 +40,18 @@
                                             <div class="tab-content">
                                                 @foreach($langs as $key=>$value)
                                                 <div class="tab-pane @if($key == 'de') active @endif" id="{{$key}}">
-                                                    <div class="form-group">
 
-                                                        <label for="header">Header ({{$value}})</label>
-                                                        <input type="text" name="header[{{$key}}]"  class="form-control" id="header" placeholder="Enter Header">
-                                                    </div>
-                                                    <div class="form-group">
 
-                                                        <label for="description">Description ({{$value}})</label>
-                                                        <input type="text" name="description[{{$key}}]"  class="form-control" id="description" placeholder="Enter Description">
+
+                                                    <div class="form-group">
+                                                        <label for="exampleInputFile">Slider Image ({{$value}})</label>
+                                                        <div class="input-group">
+                                                            <div class="custom-file">
+                                                                <input type="file" name="image[{{$key}}]" accept="image/*" class="custom-file-input" id="exampleInputFile">
+                                                                <label class="custom-file-label" for="exampleInputFile">Choose Image (1450 X 750)</label>
+                                                            </div>
+
+                                                        </div>
                                                     </div>
 
                                                 </div>

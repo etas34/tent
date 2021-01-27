@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class Slider extends Model
+class Page extends Model
 {
+
     use HasTranslations;
-    public $translatable = ['image'];
+
+    public $translatable = ['header', 'content'];
     use HasFactory;
 }

@@ -81,6 +81,15 @@
                                         @endforeach
                                     </ul>
                                 </li>
+                                @foreach($page as $key=>$value)
+                                    <li>
+                                        <a href="{{route('page',[app()->getLocale(), $value])}}" class="show-submenu">{{$value->header}}</a>
+
+                                    </li>
+                                @endforeach
+
+
+
 {{--                                <li class="megamenu submenu">--}}
 {{--                                    <a href="javascript:void(0);" class="show-submenu-mega">Pages</a>--}}
 {{--                                    <div class="menu-wrapper">--}}

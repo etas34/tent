@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\InsulationController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TypeController;
@@ -38,6 +39,7 @@ Route::group(['prefix' => '{locale}',
     Route::get('/search/{text}', [MainController::class, 'search'])->name('search');
     Route::get('/contact', [MainController::class, 'contact'])->name('contact');
     Route::get('/about', [MainController::class, 'about'])->name('about');
+    Route::get('/page/{page}', [MainController::class, 'page'])->name('page');
     Route::get('/products/{category}', [MainController::class, 'products'])->name('frontpage.products');
     Route::get('/products/{category}/{type}', [MainController::class, 'productsmodel'])->name('frontpage.productsmodel');
     Route::get('/product/detail/{product}', [MainController::class, 'productdetail'])->name('frontpage.productdetail');
@@ -91,6 +93,15 @@ Route::group(['prefix' => '{locale}',
             Route::get('/destroy/{product}', [ProductController::class, 'destroy'])->name('destroy');
             Route::post('/edit/{product}', [ProductController::class, 'update'])->name('update');
             Route::post('/create', [ProductController::class, 'store'])->name('store');
+        });
+
+        Route::group(['prefix'=>'page','as'=>'page.','middleware'=>'auth'],function (){
+            Route::get('/', [PageController::class, 'index'])->name('index');
+            Route::get('/create', [PageController::class, 'create'])->name('create');
+            Route::get('/edit/{page}', [PageController::class, 'edit'])->name('edit');
+            Route::get('/destroy/{page}', [PageController::class, 'destroy'])->name('destroy');
+            Route::post('/edit/{page}', [PageController::class, 'update'])->name('update');
+            Route::post('/create', [PageController::class, 'store'])->name('store');
         });
 
     });

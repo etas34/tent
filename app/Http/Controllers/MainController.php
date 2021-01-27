@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Insulation;
+use App\Models\Page;
 use App\Models\Product;
 use App\Models\Slider;
 use App\Models\Type;
@@ -12,46 +13,49 @@ use Illuminate\Support\Facades\Artisan;
 
 class MainController extends Controller
 {
-    public function deneme(){
+    public function deneme()
+    {
 
     }
+
     public function index()
     {
         $category = Category::where('status', 1)
             ->orderByRaw('ISNULL(sira), sira ASC')
             ->take(6)
             ->get();
-        $slider = Slider::all();
-        $product = Product::wherein('id',[1,2,3,4,5,6])->paginate(99);
-        return view('index', compact('category', 'slider','product'));
+        $slider = Slider::orderBy('id','asc')
+            ->get();
+        $product = Product::wherein('id', [1, 2, 3, 4, 5, 6])->paginate(99);
+        return view('index', compact('category', 'slider', 'product'));
     }
 
     public function products(Category $category)
     {
 
-        $model = Type::where('category_id',$category->id)->where('status', 1)->get();
+        $model = Type::where('category_id', $category->id)->where('status', 1)->get();
         $insulation = Insulation::where('status', 1)->get();
-        $product = Product::where('category_id',$category->id)->where('category_id',$category->id)->paginate(9);
-        $width=Product::where('category_id',$category->id)->where('width','!=',null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
-        $length=Product::where('category_id',$category->id)->where('length','!=',null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
-        $door=Product::where('category_id',$category->id)->where('door','!=',null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
+        $product = Product::where('category_id', $category->id)->where('category_id', $category->id)->paginate(9);
+        $width = Product::where('category_id', $category->id)->where('width', '!=', null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
+        $length = Product::where('category_id', $category->id)->where('length', '!=', null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
+        $door = Product::where('category_id', $category->id)->where('door', '!=', null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
 
-        return view('frontpage.products', compact('category', 'product','model','width','length','insulation','door'));
+        return view('frontpage.products', compact('category', 'product', 'model', 'width', 'length', 'insulation', 'door'));
 
     }
 
     public function productsmodel(Category $category, Type $type)
     {
 
-        $secili_model=$type;
-        $model = Type::where('category_id',$category->id)->where('status', 1)->get();
+        $secili_model = $type;
+        $model = Type::where('category_id', $category->id)->where('status', 1)->get();
         $insulation = Insulation::where('status', 1)->get();
-        $product = Product::where('category_id',$category->id)->where('type_id',$type->id)->where('category_id',$category->id)->paginate(9);
-        $width=Product::where('category_id',$category->id)->where('width','!=',null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
-        $length=Product::where('category_id',$category->id)->where('length','!=',null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
-        $door=Product::where('category_id',$category->id)->where('door','!=',null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
+        $product = Product::where('category_id', $category->id)->where('type_id', $type->id)->where('category_id', $category->id)->paginate(9);
+        $width = Product::where('category_id', $category->id)->where('width', '!=', null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
+        $length = Product::where('category_id', $category->id)->where('length', '!=', null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
+        $door = Product::where('category_id', $category->id)->where('door', '!=', null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
 
-        return view('frontpage.products', compact('category', 'product','model','width','length','insulation','door','secili_model'));
+        return view('frontpage.products', compact('category', 'product', 'model', 'width', 'length', 'insulation', 'door', 'secili_model'));
 
     }
 
@@ -69,6 +73,13 @@ class MainController extends Controller
     {
         return view('about');
     }
+
+    public function page(Page $page)
+    {
+        $compact = compact('page');
+        return view('page',$compact);
+    }
+
     public function contact()
     {
         return view('contact');
@@ -79,17 +90,15 @@ class MainController extends Controller
         $SEARCH_TEXT = $text;
         $type = Type::where('status', 1)->where('name', 'LIKE', '%' . $SEARCH_TEXT . '%')->get();
 
-        $types_id_array=array();
+        $types_id_array = array();
 
-        foreach ($type as $key=>$value)
-        {
-            $types_id_array[]=$value->id;
+        foreach ($type as $key => $value) {
+            $types_id_array[] = $value->id;
         }
 
-        $product=Product::whereIn('type_id',$types_id_array)->paginate(9);
+        $product = Product::whereIn('type_id', $types_id_array)->paginate(9);
 
         return view('frontpage.productsSearch', compact('product'));
-
 
 
     }
@@ -98,102 +107,96 @@ class MainController extends Controller
     public function filtre(Request $request)
     {
 
-        $model=Type::query();
-        $model=$model->where('status','=',1);
-        $model=$model->join('products','types.id','products.type_id');
+        $model = Type::query();
+        $model = $model->where('status', '=', 1);
+        $model = $model->join('products', 'types.id', 'products.type_id');
 
 
-        $product=Product::query();
-        $width=Product::query();
-        $length=Product::query();
-        $door=Product::query();
-        $insulation=Product::query()->join('insulations','products.insulation_id','insulations.id')
-                    ->where('insulations.status',1);
+        $product = Product::query();
+        $width = Product::query();
+        $length = Product::query();
+        $door = Product::query();
+        $insulation = Product::query()->join('insulations', 'products.insulation_id', 'insulations.id')
+            ->where('insulations.status', 1);
 
-          if ($request->category_id !=0)
-        {
-            $product=$product->where('category_id',$request->category_id);
-            $width=$width->where('category_id',$request->category_id);
-            $length=$length->where('category_id',$request->category_id);
-            $door=$door->where('category_id',$request->category_id);
-            $model=$model->where('products.category_id',$request->category_id);
+        if ($request->category_id != 0) {
+            $product = $product->where('category_id', $request->category_id);
+            $width = $width->where('category_id', $request->category_id);
+            $length = $length->where('category_id', $request->category_id);
+            $door = $door->where('category_id', $request->category_id);
+            $model = $model->where('products.category_id', $request->category_id);
         }
 
-        if ($request->type_id !=0)
-        {
-            $product=$product->where('type_id',$request->type_id);
-            $width=$width->where('type_id',$request->type_id);
-            $length=$length->where('type_id',$request->type_id);
-            $door=$door->where('type_id',$request->type_id);
-            $model=$model->where('type_id',$request->type_id);
-            $insulation=$insulation->where('type_id',$request->type_id);
+        if ($request->type_id != 0) {
+            $product = $product->where('type_id', $request->type_id);
+            $width = $width->where('type_id', $request->type_id);
+            $length = $length->where('type_id', $request->type_id);
+            $door = $door->where('type_id', $request->type_id);
+            $model = $model->where('type_id', $request->type_id);
+            $insulation = $insulation->where('type_id', $request->type_id);
         }
 
-        if ($request->insulation_id !=0)
-        {
-            $product=$product->where('insulation_id',$request->insulation_id);
-            $width=$width->where('insulation_id',$request->insulation_id);
-            $length=$length->where('insulation_id',$request->insulation_id);
-            $door=$door->where('insulation_id',$request->insulation_id);
-            $model=$model->where('insulation_id',$request->insulation_id);
-            $insulation=$insulation->where('insulation_id',$request->insulation_id);
+        if ($request->insulation_id != 0) {
+            $product = $product->where('insulation_id', $request->insulation_id);
+            $width = $width->where('insulation_id', $request->insulation_id);
+            $length = $length->where('insulation_id', $request->insulation_id);
+            $door = $door->where('insulation_id', $request->insulation_id);
+            $model = $model->where('insulation_id', $request->insulation_id);
+            $insulation = $insulation->where('insulation_id', $request->insulation_id);
         }
-        $width_id=null;
-        $length_id=null;
-        $door_id=null;
-        if($request->has('widths')){
-            $product=$product->whereIn('width',$request->widths);
-            $width=$width->whereIn('width',$request->widths);
-            $length=$length->whereIn('width',$request->widths);
-            $door=$door->whereIn('width',$request->widths);
-            $model=$model->whereIn('width',$request->widths);
-            $insulation=$insulation->whereIn('width',$request->widths);
-            $width_id=$request->widths;
-        }
-
-        if($request->has('lengths')){
-            $product=$product->whereIn('length',$request->lengths);
-            $width=$width->whereIn('length',$request->lengths);
-            $length=$length->whereIn('length',$request->lengths);
-            $door=$door->whereIn('length',$request->lengths);
-            $model=$model->whereIn('length',$request->lengths);
-            $insulation=$insulation->whereIn('length',$request->lengths);
-            $length_id=$request->lengths;
-        }
-        if($request->has('doors')){
-            $product=$product->whereIn('door',$request->doors);
-            $width=$width->whereIn('door',$request->doors);
-            $length=$length->whereIn('door',$request->doors);
-            $door=$door->whereIn('door',$request->doors);
-            $model=$model->whereIn('door',$request->doors);
-            $insulation=$insulation->whereIn('door',$request->doors);
-            $door_id=$request->doors;
+        $width_id = null;
+        $length_id = null;
+        $door_id = null;
+        if ($request->has('widths')) {
+            $product = $product->whereIn('width', $request->widths);
+            $width = $width->whereIn('width', $request->widths);
+            $length = $length->whereIn('width', $request->widths);
+            $door = $door->whereIn('width', $request->widths);
+            $model = $model->whereIn('width', $request->widths);
+            $insulation = $insulation->whereIn('width', $request->widths);
+            $width_id = $request->widths;
         }
 
-        $width=$width->where('width','!=',null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
-        $length=$length->where('length','!=',null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
-        $door=$door->where('door','!=',null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
-        $model=$model->select('types.*')->distinct('types.name')->get();
+        if ($request->has('lengths')) {
+            $product = $product->whereIn('length', $request->lengths);
+            $width = $width->whereIn('length', $request->lengths);
+            $length = $length->whereIn('length', $request->lengths);
+            $door = $door->whereIn('length', $request->lengths);
+            $model = $model->whereIn('length', $request->lengths);
+            $insulation = $insulation->whereIn('length', $request->lengths);
+            $length_id = $request->lengths;
+        }
+        if ($request->has('doors')) {
+            $product = $product->whereIn('door', $request->doors);
+            $width = $width->whereIn('door', $request->doors);
+            $length = $length->whereIn('door', $request->doors);
+            $door = $door->whereIn('door', $request->doors);
+            $model = $model->whereIn('door', $request->doors);
+            $insulation = $insulation->whereIn('door', $request->doors);
+            $door_id = $request->doors;
+        }
 
-        $product=$product->paginate(9);
-        $model_id=$request->type_id;
-        $insulation=$insulation->get();
-        $insulation_id=$request->insulation_id;
+        $width = $width->where('width', '!=', null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
+        $length = $length->where('length', '!=', null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
+        $door = $door->where('door', '!=', null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
+        $model = $model->select('types.*')->distinct('types.name')->get();
 
-
+        $product = $product->paginate(9);
+        $model_id = $request->type_id;
+        $insulation = $insulation->get();
+        $insulation_id = $request->insulation_id;
 
 
 //        return view('frontpage.items', compact( 'product'))->render();
         return response()->json([
-            'view_products' => view('frontpage.items', compact( 'product'))->render(),
-            'view_models' => view('frontpage.models', compact( 'model','model_id'))->render(),
-            'view_widths' => view('frontpage.widths', compact( 'width','width_id'))->render(),
-            'view_lengths' => view('frontpage.lengths', compact( 'length','length_id'))->render(),
-            'view_insulations' => view('frontpage.insulations', compact( 'insulation','insulation_id'))->render(),
-            'view_doors' => view('frontpage.doors', compact( 'door','door_id'))->render()
+            'view_products' => view('frontpage.items', compact('product'))->render(),
+            'view_models' => view('frontpage.models', compact('model', 'model_id'))->render(),
+            'view_widths' => view('frontpage.widths', compact('width', 'width_id'))->render(),
+            'view_lengths' => view('frontpage.lengths', compact('length', 'length_id'))->render(),
+            'view_insulations' => view('frontpage.insulations', compact('insulation', 'insulation_id'))->render(),
+            'view_doors' => view('frontpage.doors', compact('door', 'door_id'))->render()
         ]);
     }
-
 
 
 }

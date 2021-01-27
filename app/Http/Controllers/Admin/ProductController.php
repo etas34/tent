@@ -191,7 +191,6 @@ class ProductController extends Controller
             toastr()->success('The record was deleted.');
         else
             toastr()->error('Oops! Something\'s Went Wrong');
-
         return redirect()->route('admin.product.index' , app()->getLocale());
 
     }

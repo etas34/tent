@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Product;
 use Illuminate\View\Component;
 
@@ -26,8 +27,10 @@ class MainLayout extends Component
     public function render()
     {
         $category = Category::where('status',1)->get();
+        $page = Page::where('visibility',1)
+            ->get();
 
         $product = Product::all();
-        return view('layouts.main-layout',compact('category','product'));
+        return view('layouts.main-layout',compact('category','product','page'));
     }
 }

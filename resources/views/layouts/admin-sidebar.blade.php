@@ -60,6 +60,28 @@
 {{--                        </p>--}}
 {{--                    </a>--}}
 {{--                </li>--}}
+
+
+                <li class="nav-item">
+                    <a href="{{route('admin.slider.index', app()->getLocale())}}" class="nav-link">
+                        <i class="nav-icon fas fa-sliders-h"></i>
+                        <p>
+                            Sliders
+                            {{--                            <span class="right badge badge-danger">New</span>--}}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.page.index', app()->getLocale())}}" class="nav-link">
+                        <i class="nav-icon fas fa-paperclip"></i>
+                        <p>
+                            Pages
+                            {{--                            <span class="right badge badge-danger">New</span>--}}
+                        </p>
+                    </a>
+                </li>
+
+
                 <li class="nav-item">
                     <a href="{{route('admin.category.index', app()->getLocale())}}" class="nav-link">
                         <i class="nav-icon fas fa-list"></i>
@@ -92,15 +114,6 @@
                         <i class="nav-icon fas fa-cart-plus"></i>
                         <p>
                           Products
-{{--                            <span class="right badge badge-danger">New</span>--}}
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{route('admin.slider.index', app()->getLocale())}}" class="nav-link">
-                        <i class="nav-icon fas fa-sliders-h"></i>
-                        <p>
-                          Sliders
 {{--                            <span class="right badge badge-danger">New</span>--}}
                         </p>
                     </a>
