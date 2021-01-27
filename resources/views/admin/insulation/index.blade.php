@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">DataTable with default features</h3>
-                    <a href="{{route('admin.insulation.create')}}" class="btn btn-primary active" style="float: right !important;">Add New
+                    <a href="{{route('admin.insulation.create',app()->getLocale())}}" class="btn btn-primary active" style="float: right !important;">Add New
                         insulation</a>
                 </div>
                 <!-- /.card-header -->
