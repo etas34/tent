@@ -39,7 +39,7 @@
                             <a href="listing-row-1-sidebar-left.html"><i class="ti-view-list"></i></a>
                         </li>
                         <li>
-                            <a data-toggle="collapse" href="#filters" role="button" aria-expanded="false" aria-controls="filters">
+                            <a data-toggle="filter_col" href="#filters" role="button" aria-expanded="false" aria-controls="filters">
                                 <i class="ti-filter"></i><span>Filters</span>
                             </a>
                         </li>
