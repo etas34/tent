@@ -34,7 +34,11 @@
                                 </select>
                             </div>
                         </li>
-
+                        <li>
+                            <a href="#0" class="open_filters">
+                                <i class="ti-filter"></i><span>Filters</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -49,6 +53,7 @@
 
                             <input type="hidden" id="category_id" value="{{$category->id}}">
 
+                            <div class="inner_bt"><a href="#" class="open_filters"><i class="ti-close"></i></a></div>
 
                             <h6>Models</h6>
                             <div class="row">
@@ -100,9 +105,9 @@
 
 
                             <!-- /filter_type -->
-{{--                            <div class="buttons">--}}
-{{--                                <a href="#0" class="btn_1">Filter</a> <a href="#0" class="btn_1 gray">Reset</a>--}}
-{{--                            </div>--}}
+                            <div class="buttons">
+                                <a href="#0" class="btn_1 open_filters">Filter</a>
+                            </div>
                         </div>
 
                     </aside>
