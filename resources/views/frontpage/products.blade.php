@@ -34,15 +34,7 @@
                                 </select>
                             </div>
                         </li>
-                        <li>
-                            <a href="#0"><i class="ti-view-grid"></i></a>
-                            <a href="listing-row-1-sidebar-left.html"><i class="ti-view-list"></i></a>
-                        </li>
-                        <li>
-                            <a data-toggle="filter_col" href="#filters" role="button" aria-expanded="false" aria-controls="filters">
-                                <i class="ti-filter"></i><span>Filters</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -138,11 +130,8 @@
 
 
 @push('scripts')
-    <!-- SPECIFIC SCRIPTS -->
-        <script src="{{asset('assets/js/sticky_sidebar.min.js')}}"></script>
-        <script src="{{asset('assets/js/specific_listing.js')}}"></script>
 
-        <script>
+<script>
     $(document).on('click','.pagination a',function(e){
         e.preventDefault();
         var url = $(this).attr('href');
