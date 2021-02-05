@@ -27,6 +27,7 @@ class CreateProductsTable extends Migration
             $table->string('steep_height')->nullable();
             $table->string('height_middle')->nullable();
             $table->string('square_meters')->nullable();
+            $table->string('diameter')->nullable();
             $table->string('foot_height')->nullable();
             $table->string('foot_count')->nullable();
             $table->text('description')->nullable();
