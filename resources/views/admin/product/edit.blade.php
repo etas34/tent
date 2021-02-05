@@ -122,6 +122,11 @@
                                 <input type="text" name="foot_count" value="{{$product->foot_count}}"
                                        class="form-control">
                             </div>
+                            <div class="form-group col-md-6">
+                                <label>Diameter</label>
+                                <input type="text" name="diameter" value="{{$product->diameter}}"
+                                       class="form-control">
+                            </div>
 
 
                         </div>

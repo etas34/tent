@@ -105,6 +105,10 @@
                                 <label>Foot Count</label>
                                 <input type="text" name="foot_count" class="form-control">
                             </div>
+                            <div class="form-group col-md-6">
+                                <label>Diameter</label>
+                                <input type="text" name="diameter" class="form-control">
+                            </div>
 
 
                         </div>

@@ -382,11 +382,45 @@
                             <td><strong>Length</strong></td>
                             <td id="length">null</td>
                         </tr>
+
+                        <tr>
+                            <td><strong>Price/m²</strong></td>
+                            <td id="pricem2">null</td>
+                        </tr>
+
                         <tr>
                             <td><strong>Door</strong></td>
                             <td id="door">null</td>
                         </tr>
+                        <tr>
+                            <td><strong>Insulation</strong></td>
+                            <td id="insulation">null</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Steep height</strong></td>
+                            <td id="steepH">null</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Height middle area</strong></td>
+                            <td id="heigthMA">null</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Square meters</strong></td>
+                            <td id="squareM">null</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Foot height</strong></td>
+                            <td id="footH">null</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Foot count</strong></td>
+                            <td id="footC">null</td>
+                        </tr>
 
+                        <tr>
+                            <td><strong>Diameter</strong></td>
+                            <td id="diameter">null</td>
+                        </tr>
 
 
                         </tbody>
@@ -433,6 +467,7 @@
     //ajax
     $(document).on("click", ".getInfo", function () {
         var id = $(this).data('id');
+
         console.log(`api/getInfo/${id}`)
         $('#title').text($(this).data('category'))
         $.get({
@@ -441,11 +476,20 @@
             cache:false,
 
             success: (response)=>{
+                console.log(response)
                 console.log(response.category.name["{{App::getLocale()}}"])
                 $('#price').text(response.product.price + ' €')
                 $('#width').text(response.product.width + ' m')
                 $('#length').text(response.product.length + ' m')
                 $('#door').text(response.product.door + ' m')
+                $('#pricem2').text(response.product.price_m2 + ' m')
+                $('#insulation').text(response.insulation )
+                $('#steepH').text(response.product.steep_height + ' m')
+                $('#heigthMA').text(response.product.height_middle + ' m')
+                $('#squareM').text(response.product.square_meters + ' m²')
+                $('#footH').text(response.product.foot_height + ' m')
+                $('#footC').text(response.product.foot_count)
+                $('#diameter').text(response.product.diameter)
 
 
             },

@@ -64,6 +64,7 @@ class ProductController extends Controller
         $product->foot_height = $request->foot_height;
         $product->foot_count = $request->foot_count;
         $product->description = $request->description;
+        $product->diameter = $request->diameter;
 
         if ($request->file('image')) {
             $request->validate([
@@ -143,6 +144,7 @@ class ProductController extends Controller
         $product->foot_height = $request->foot_height;
         $product->foot_count = $request->foot_count;
         $product->description = $request->description;
+        $product->diameter = $request->diameter;
 
         if ($request->file('image')) {
 
@@ -200,7 +202,8 @@ class ProductController extends Controller
     {
         $data = [
             'category' => $product->category,
-            'product' => $product
+            'product' => $product,
+            'insulation' => $product->insulation->name
 
         ];
         return response()->json($data,200);
