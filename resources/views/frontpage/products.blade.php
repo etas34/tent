@@ -84,6 +84,18 @@
                             </div>
 
 
+                            <!-- /filter_type -->
+                            <div class="filter_type version_2 diameter_show">
+                                <h4><a href="#filter_4" data-toggle="collapse" class="opened">Diameter</a></h4>
+                                <div class="collapse show" id="filter_4">
+                                    <div class="row" id="result_diameters">
+
+                                        @include('frontpage.diameters')
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <h6 class="ins_group">Insulation</h6>
                             <div class="row ins_group" >
                                 <div class="col-md-12 form-group">
@@ -154,6 +166,7 @@ function filtre(page){
     var insulation_id;
     var widths = [];
     var lengths = [];
+    var diameters = [];
     var doors = [];
     // var colors = [];
     // var offers = [];
@@ -178,6 +191,9 @@ function filtre(page){
         lengths.push($(this).val());
     });
 
+    $(".cb_diameter:checked").each(function(){
+        diameters.push($(this).val());
+    });
     $(".cb_door:checked").each(function(){
         doors.push($(this).val());
     });
@@ -186,7 +202,7 @@ function filtre(page){
     }
     xhr = $.ajax({
         url: '{{route('filtre', app()->getLocale())}}',
-        data: {_token:csrf,category_id:category_id,type_id:type_id,insulation_id:insulation_id,widths:widths,lengths:lengths,doors:doors,page:page},
+        data: {_token:csrf,category_id:category_id,type_id:type_id,insulation_id:insulation_id,widths:widths,lengths:lengths,diameters:diameters,doors:doors,page:page},
         type: 'post',
         beforeSend:function(){
             $("#result").html('<img src="{{ asset('assets/img/spinner.gif') }}" alt=""/>')
@@ -198,6 +214,7 @@ function filtre(page){
         $("#model").html($(e.view_models));
         $("#result_widths").html($(e.view_widths));
         $("#result_lengths").html($(e.view_lengths));
+        $("#result_diameters").html($(e.view_diameters));
         $("#result_doors").html($(e.view_doors));
 
         // Jquery select
@@ -210,11 +227,19 @@ function filtre(page){
     if(category_id==1)
     {
         $('.ins_group').show();
+        $('.diameter_show').hide();
 
+    }
+    else if(category_id==2)
+    {
+        $('.ins_group').hide();
+        $('.diameter_show').show();
+        $('#insulationselectbox').val('0');
     }
     else{
         $('#insulationselectbox').val('0');
         $('.ins_group').hide();
+        $('.diameter_show').hide();
     }
 }
 </script>
@@ -224,6 +249,14 @@ function filtre(page){
         if($("#category_id").val()==1)
         {
             $('.ins_group').show();
+            $('.diameter_show').hide();
+
+        }
+        else if($("#category_id").val()==2)
+        {
+            $('.ins_group').hide();
+            $('.diameter_show').show();
+            $('#insulationselectbox').val('0');
 
         }
         else{
@@ -237,6 +270,10 @@ function filtre(page){
         filtre();
     });
     $(document).on('click', '.cb_length', function(){
+        filtre();
+    });
+
+    $(document).on('click', '.cb_diameter', function(){
         filtre();
     });
     $(document).on('change', '#modelselectbox', function(){

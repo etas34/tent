@@ -37,10 +37,11 @@ class MainController extends Controller
         $insulation = Insulation::where('status', 1)->get();
         $product = Product::where('category_id', $category->id)->where('category_id', $category->id)->paginate(9);
         $width = Product::where('category_id', $category->id)->where('width', '!=', null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
+        $diameter = Product::where('category_id', $category->id)->where('diameter', '!=', null)->select('diameter')->distinct('diameter')->orderByRaw('diameter+0 asc')->get();
         $length = Product::where('category_id', $category->id)->where('length', '!=', null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
         $door = Product::where('category_id', $category->id)->where('door', '!=', null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
 
-        return view('frontpage.products', compact('category', 'product', 'model', 'width', 'length', 'insulation', 'door'));
+        return view('frontpage.products', compact('category', 'product', 'model', 'width','diameter', 'length', 'insulation', 'door'));
 
     }
 
@@ -115,6 +116,7 @@ class MainController extends Controller
         $product = Product::query();
         $width = Product::query();
         $length = Product::query();
+        $diameter = Product::query();
         $door = Product::query();
         $insulation = Product::query()->join('insulations', 'products.insulation_id', 'insulations.id')
             ->where('insulations.status', 1);
@@ -123,6 +125,7 @@ class MainController extends Controller
             $product = $product->where('category_id', $request->category_id);
             $width = $width->where('category_id', $request->category_id);
             $length = $length->where('category_id', $request->category_id);
+            $diameter = $diameter->where('category_id', $request->category_id);
             $door = $door->where('category_id', $request->category_id);
             $model = $model->where('products.category_id', $request->category_id);
         }
@@ -131,6 +134,7 @@ class MainController extends Controller
             $product = $product->where('type_id', $request->type_id);
             $width = $width->where('type_id', $request->type_id);
             $length = $length->where('type_id', $request->type_id);
+            $diameter = $diameter->where('type_id', $request->type_id);
             $door = $door->where('type_id', $request->type_id);
             $model = $model->where('type_id', $request->type_id);
             $insulation = $insulation->where('type_id', $request->type_id);
@@ -140,17 +144,20 @@ class MainController extends Controller
             $product = $product->where('insulation_id', $request->insulation_id);
             $width = $width->where('insulation_id', $request->insulation_id);
             $length = $length->where('insulation_id', $request->insulation_id);
+            $diameter = $diameter->where('insulation_id', $request->insulation_id);
             $door = $door->where('insulation_id', $request->insulation_id);
             $model = $model->where('insulation_id', $request->insulation_id);
             $insulation = $insulation->where('insulation_id', $request->insulation_id);
         }
         $width_id = null;
         $length_id = null;
+        $diameter_id = null;
         $door_id = null;
         if ($request->has('widths')) {
             $product = $product->whereIn('width', $request->widths);
             $width = $width->whereIn('width', $request->widths);
             $length = $length->whereIn('width', $request->widths);
+            $diameter = $diameter->whereIn('width', $request->widths);
             $door = $door->whereIn('width', $request->widths);
             $model = $model->whereIn('width', $request->widths);
             $insulation = $insulation->whereIn('width', $request->widths);
@@ -161,15 +168,27 @@ class MainController extends Controller
             $product = $product->whereIn('length', $request->lengths);
             $width = $width->whereIn('length', $request->lengths);
             $length = $length->whereIn('length', $request->lengths);
+            $diameter = $diameter->whereIn('length', $request->lengths);
             $door = $door->whereIn('length', $request->lengths);
             $model = $model->whereIn('length', $request->lengths);
             $insulation = $insulation->whereIn('length', $request->lengths);
             $length_id = $request->lengths;
         }
+        if ($request->has('diameters')) {
+            $product = $product->whereIn('diameter', $request->diameters);
+            $width = $width->whereIn('diameter', $request->diameters);
+            $length = $length->whereIn('diameter', $request->diameters);
+            $diameter = $diameter->whereIn('diameter', $request->diameters);
+            $door = $door->whereIn('diameter', $request->diameters);
+            $model = $model->whereIn('diameter', $request->diameters);
+            $insulation = $insulation->whereIn('diameter', $request->diameters);
+            $diameter_id = $request->diameters;
+        }
         if ($request->has('doors')) {
             $product = $product->whereIn('door', $request->doors);
             $width = $width->whereIn('door', $request->doors);
             $length = $length->whereIn('door', $request->doors);
+            $diameter = $diameter->whereIn('door', $request->doors);
             $door = $door->whereIn('door', $request->doors);
             $model = $model->whereIn('door', $request->doors);
             $insulation = $insulation->whereIn('door', $request->doors);
@@ -178,6 +197,7 @@ class MainController extends Controller
 
         $width = $width->where('width', '!=', null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
         $length = $length->where('length', '!=', null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
+        $diameter = $diameter->where('diameter', '!=', null)->select('diameter')->distinct('diameter')->orderByRaw('diameter+0 asc')->get();
         $door = $door->where('door', '!=', null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
         $model = $model->select('types.*')->distinct('types.name')->get();
 
@@ -193,6 +213,7 @@ class MainController extends Controller
             'view_models' => view('frontpage.models', compact('model', 'model_id'))->render(),
             'view_widths' => view('frontpage.widths', compact('width', 'width_id'))->render(),
             'view_lengths' => view('frontpage.lengths', compact('length', 'length_id'))->render(),
+            'view_diameters' => view('frontpage.diameters', compact('diameter', 'diameter_id'))->render(),
             'view_insulations' => view('frontpage.insulations', compact('insulation', 'insulation_id'))->render(),
             'view_doors' => view('frontpage.doors', compact('door', 'door_id'))->render()
         ]);
