@@ -28,7 +28,7 @@
                     <a class="box_topic" href="#0">
                         <i class="ti-wallet"></i>
                         <h3>__('Payments')</h3>
-                        <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus.</p>
+                        <p>Id mea congue dictas, nec et summo mazim a. Vim te audiam impetus.</p>
                     </a>
                 </div>
                 <div class="col-lg-4 col-md-6">
