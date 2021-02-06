@@ -6,8 +6,8 @@
             <div class="page_header">
                 <div class="breadcrumbs">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Category</a></li>
+                        <li><a href="#">{{__('Home')}}</a></li>
+                        <li><a href="#">{{__('Category')}}</a></li>
                         <li>{{$product->type['name']}}</li>
                     </ul>
                 </div>
@@ -27,7 +27,7 @@
                                data-id="{{$product->id}}"
                                data-category="{{$product->type['name']}}"
                                data-toggle="modal" data-target="#size-modal"
-                               class="getInfo btn">Get Info</btn>
+                               class="getInfo btn">{{__('Get Info')}}</btn>
                         </div>
                         <!-- /item -->
                     {{--                        <div class="item">--}}
@@ -127,7 +127,7 @@
                             <h5 class="mb-0">
                                 <a class="collapsed" data-toggle="collapse" href="#collapse-A" aria-expanded="false"
                                    aria-controls="collapse-A">
-                                    Description
+                                    {{__('Description')}}
                                 </a>
                             </h5>
                         </div>
@@ -136,63 +136,63 @@
                             <div class="card-body">
                                 <div class="row justify-content-between">
                                     <div class="col-lg-6">
-                                        <h3>Details</h3>
+                                        <h3>{{__('Details')}}</h3>
                                         {!! $product->description!!}
                                     </div>
 
                                     <div class="col-lg-5">
-                                        <h3>Specifications</h3>
+                                        <h3>{{__('Specifications')}}</h3>
                                         <div class="table-responsive">
                                             <table class="table table-sm table-striped">
                                                 <tbody>
 
 
                                                 <tr>
-                                                    <td><strong>Price</strong></td>
+                                                    <td><strong>{{__('Price')}}</strong></td>
                                                     <td>{{$product->price}} €</td>
                                                 </tr>
-                                                <td><strong>Width</strong></td>
+                                                <td><strong>{{__('Width')}}</strong></td>
                                                 <td>{{$product->width}} m</td>
 
                                                 <tr>
-                                                    <td><strong>Length</strong></td>
+                                                    <td><strong>{{__('Length')}}</strong></td>
                                                     <td>{{$product->length}} m</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Price/m²</strong></td>
+                                                    <td><strong>{{__('Price/m²')}}</strong></td>
                                                     <td>{{$product->price_m2}} €</td>
                                                 </tr>
                                                 @if($product->insulation)
                                                     <tr>
-                                                        <td><strong>Insulation</strong></td>
+                                                        <td><strong>{{__('Insulation')}}</strong></td>
                                                         <td>{{$product->insulation->name}}</td>
                                                     </tr>
                                                 @endif
                                                 <tr>
-                                                    <td><strong>Door</strong></td>
+                                                    <td><strong>{{__('Door')}}</strong></td>
                                                     <td>{{$product->door}} m</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Steep height</strong></td>
+                                                    <td><strong>{{__('Steep height')}}</strong></td>
                                                     <td>{{$product->steep_height}} m</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Height middle area</strong></td>
+                                                    <td><strong>{{__('Height middle area')}}</strong></td>
                                                     <td>{{$product->height_middle}} m</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Square meters</strong></td>
+                                                    <td><strong>{{__('Square meters')}}</strong></td>
                                                     <td>{{$product->square_meters}} m²</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Foot height</strong></td>
+                                                    <td><strong>{{__('Foot height')}}</strong></td>
                                                     <td>{{$product->foot_height}} m</td>
                                                 </tr>
                                                 <tr>
-                                                    <td><strong>Foot count</strong></td>
+                                                    <td><strong>{{__('Foot count')}}</strong></td>
                                                     <td>{{$product->foot_count}}</td>
                                                 </tr>
-                                                <td><strong>Diameter</strong></td>
+                                                <td><strong>{{__('Diameter')}}</strong></td>
                                                 <td>{{$product->diameter}}</td>
                                                 </tr>
 

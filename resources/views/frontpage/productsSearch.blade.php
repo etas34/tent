@@ -8,12 +8,12 @@
                     <div class="container">
                         <div class="breadcrumbs">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Category</a></li>
-                                <li>Page active</li>
+                                <li><a href="#">{{__('Home')}}</a></li>
+                                <li><a href="#">{{__('Category')}}</a></li>
+                                <li>{{__('Page active')}}</li>
                             </ul>
                         </div>
-                        <h1>Search Result</h1>
+                        <h1>{{__('Search Result')}}</h1>
                     </div>
                 </div>
                 <img src="{{ asset('assets/img/bg_cat_shoes.jpg') }}" class="img-fluid" alt="">

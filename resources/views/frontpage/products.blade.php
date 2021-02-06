@@ -8,9 +8,9 @@
                     <div class="container">
                         <div class="breadcrumbs">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Category</a></li>
-                                <li>Page active</li>
+                                <li><a href="#">{{__('Home')}}</a></li>
+                                <li><a href="#">{{__('Category')}}</a></li>
+                                <li>{{__('Page active')}}</li>
                             </ul>
                         </div>
                         <h1>{{$category->name ?? ''}}</h1>
@@ -37,7 +37,7 @@
                         <li></li>
                         <li>
                             <a href="#0" class="open_filters">
-                                <i class="ti-filter"></i><span>Filters</span>
+                                <i class="ti-filter"></i><span>{{__('Filters')}}</span>
                             </a>
                         </li>
                     </ul>
@@ -56,7 +56,7 @@
 
                             <div class="inner_bt"><a href="#" class="open_filters"><i class="ti-close"></i></a></div>
 
-                            <h6>Models</h6>
+                            <h6>{{__('Models')}}</h6>
                             <div class="row">
                                 <div class="col-md-12 form-group" id="model">
                                     @include('frontpage.models')
@@ -64,7 +64,7 @@
                             </div>
                             <!-- /filter_type -->
                             <div class="filter_type version_2">
-                                <h4><a href="#filter_3" data-toggle="collapse" class="opened">Width</a></h4>
+                                <h4><a href="#filter_3" data-toggle="collapse" class="opened">{{__('Width')}}</a></h4>
                                 <div class="collapse show" id="filter_3">
                                     <div class="row" id="result_widths">
 
@@ -74,7 +74,7 @@
                             </div>
                             <!-- /filter_type -->
                             <div class="filter_type version_2">
-                                <h4><a href="#filter_4" data-toggle="collapse" class="opened">Length</a></h4>
+                                <h4><a href="#filter_4" data-toggle="collapse" class="opened">{{__('Length')}}</a></h4>
                                 <div class="collapse show" id="filter_4">
                                     <div class="row" id="result_lengths">
 
@@ -86,7 +86,7 @@
 
                             <!-- /filter_type -->
                             <div class="filter_type version_2 diameter_show">
-                                <h4><a href="#filter_4" data-toggle="collapse" class="opened">Diameter</a></h4>
+                                <h4><a href="#filter_4" data-toggle="collapse" class="opened">{{__('Diameter')}}</a></h4>
                                 <div class="collapse show" id="filter_4">
                                     <div class="row" id="result_diameters">
 
@@ -96,7 +96,7 @@
                             </div>
 
 
-                            <h6 class="ins_group">Insulation</h6>
+                            <h6 class="ins_group">{{__('Insulation')}}</h6>
                             <div class="row ins_group" >
                                 <div class="col-md-12 form-group">
 
@@ -107,7 +107,7 @@
 
                             <!-- /filter_type -->
                             <div class="filter_type version_2 ins_group">
-                                <h4><a href="#filter_5" data-toggle="collapse" class="opened">Door</a></h4>
+                                <h4><a href="#filter_5" data-toggle="collapse" class="opened">{{__('Door')}}</a></h4>
                                 <div class="collapse show" id="filter_5">
                                     <div class="row" id="result_doors">
 
@@ -119,7 +119,7 @@
 
                             <!-- /filter_type -->
                             <div class="buttons">
-                                <a href="#0" class="btn_1 open_filters">Filter</a>
+                                <a href="#0" class="btn_1 open_filters">{{__('Filter')}}</a>
                             </div>
                         </div>
 

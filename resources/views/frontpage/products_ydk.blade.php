@@ -8,12 +8,12 @@
                     <div class="container">
                         <div class="breadcrumbs">
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Category</a></li>
-                                <li>Page active</li>
+                                <li><a href="#">{{__('Home')}}</a></li>
+                                <li><a href="#">{{__('Category')}}</a></li>
+                                <li>{{__('Page active')}}</li>
                             </ul>
                         </div>
-                        <h1>Selected Category</h1>
+                        <h1>{{__('Selected Category')}}</h1>
                     </div>
                 </div>
                 <img src="{{ asset('assets/img/bg_cat_shoes.jpg') }}" class="img-fluid" alt="">
@@ -40,7 +40,7 @@
                         </li>
                         <li>
                             <a href="#0" class="open_filters">
-                                <i class="ti-filter"></i><span>Filters</span>
+                                <i class="ti-filter"></i><span>{{__('Filters')}}</span>
                             </a>
                         </li>
                     </ul>
@@ -60,7 +60,7 @@
                                 <div class="col-md-12 form-group">
                                     <div class="custom-select-form">
                                         <select class="wide add_bottom_15 filter-item" id="category">
-                                            <option value="0" selected>All</option>
+                                            <option value="0" selected>{{__('All')}}</option>
                                             @foreach($category as $key=>$value)
                                                 <option value="{{$value->id}}">{{$value->name}}</option>
                                             @endforeach
@@ -70,7 +70,7 @@
                             </div>
 
 
-                            <h6>Models</h6>
+                            <h6>{{__('Models')}}</h6>
                             <div class="row">
                                 <div class="col-md-12 form-group" id="model">
                                     @include('frontpage.models')
@@ -78,7 +78,7 @@
                             </div>
                             <!-- /filter_type -->
                             <div class="filter_type version_2">
-                                <h4><a href="#filter_3" data-toggle="collapse" class="opened">Width</a></h4>
+                                <h4><a href="#filter_3" data-toggle="collapse" class="opened">{{__('Width')}}</a></h4>
                                 <div class="collapse show" id="filter_3">
                                     <ul id="result_widths">
 
@@ -88,7 +88,7 @@
                             </div>
                             <!-- /filter_type -->
                             <div class="filter_type version_2">
-                                <h4><a href="#filter_4" data-toggle="collapse" class="opened">Length</a></h4>
+                                <h4><a href="#filter_4" data-toggle="collapse" class="opened">{{__('Length')}}</a></h4>
                                 <div class="collapse show" id="filter_4">
                                     <ul id="result_lengths">
 
@@ -98,7 +98,7 @@
                             </div>
 
 
-                            <h6 class="ins_group">Insulation</h6>
+                            <h6 class="ins_group">{{__('Insulation')}}</h6>
                             <div class="row ins_group" >
                                 <div class="col-md-12 form-group">
 
@@ -109,7 +109,7 @@
 
                             <!-- /filter_type -->
                             <div class="filter_type version_2 ins_group">
-                                <h4><a href="#filter_5" data-toggle="collapse" class="opened">Door</a></h4>
+                                <h4><a href="#filter_5" data-toggle="collapse" class="opened">{{__('Door')}}</a></h4>
                                 <div class="collapse show" id="filter_5">
                                     <ul id="result_doors">
 
