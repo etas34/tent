@@ -3,7 +3,8 @@
         <div id="carousel-home">
             <div class="owl-carousel owl-theme">
                 @foreach($slider as $key=>$value)
-                    <div class="owl-slide cover"
+                    <a href="{{$value->url}}">
+                    <div  class="owl-slide cover"
                          style="background-image: url({{ asset("storage/images/slider_images/$value->image") }});">
                         <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0)">
                             <div class="container">
@@ -14,9 +15,11 @@
                                             {{--                                            <p class="owl-slide-animated owl-slide-subtitle">--}}
                                             {{--                                                {{$value->description}}--}}
                                             {{--                                            </p>--}}
-                                            <div class="owl-slide-animated owl-slide-cta"><a class="btn_1"
-                                                                                             href="{{$value->url}}"
-                                                                                             role="button">{{__('Shop Now')}}</a>
+                                            <div class="owl-slide-animated owl-slide-cta">
+{{--                                                <a class="btn_1"--}}
+{{--                                                                                             href="{{$value->url}}"--}}
+{{--                                                                                             role="button">{{__('Shop Now')}}</a>--}}
+
                                             </div>
                                         </div>
                                     </div>
@@ -24,7 +27,7 @@
                             </div>
                         </div>
                     </div>
-
+                    </a>
                 @endforeach
 
 
