@@ -40,8 +40,8 @@ Route::group(['prefix' => '{locale}',
     Route::get('/contact', [MainController::class, 'contact'])->name('contact');
     Route::get('/about', [MainController::class, 'about'])->name('about');
     Route::get('/page/{page}', [MainController::class, 'page'])->name('page');
-    Route::get('/products/{category}', [MainController::class, 'products'])->name('frontpage.products');
-    Route::get('/products/{category}/{type}', [MainController::class, 'productsmodel'])->name('frontpage.productsmodel');
+    Route::get('/category/{category}', [MainController::class, 'products'])->name('frontpage.products');
+    Route::get('/category/{category}/{type}', [MainController::class, 'productsmodel'])->name('frontpage.productsmodel');
     Route::get('/product/detail/{product}', [MainController::class, 'productdetail'])->name('frontpage.productdetail');
 
     Route::get('/products/filter', [MainController::class, 'products']);
