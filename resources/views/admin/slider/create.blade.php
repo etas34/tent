@@ -63,6 +63,14 @@
                                     </div>
                                     <!-- ./card -->
                                 </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="url">Redirect Url</label>
+                                        <input type="text" class="form-control" id="url" name="url">
+                                    </div>
+                                </div>
+
                                 <!-- /.col -->
                             </div>
                             <!-- /.row -->

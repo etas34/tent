@@ -4,31 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Tent') }}</title>
-
-
     <!-- Favicons-->
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon">
-
-
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
-
     <!-- BASE CSS -->
     <link href="{{ asset('assets/css/bootstrap.custom.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
     <!-- SPECIFIC CSS -->
     <link href="{{ asset('assets/css/home_1.css') }}" rel="stylesheet">
-
-
     <link href="{{ asset('assets/css/listing.css')}}" rel="stylesheet">
-
     <link href="{{ asset('assets/css/product_page.css')}}" rel="stylesheet">
-
     <link href="{{ asset('assets/css/faq.css')}}" rel="stylesheet">
-
     <link href="{{ asset('assets/css/about.css')}}" rel="stylesheet">
 
 
@@ -49,7 +37,7 @@
                     <div class="col-xl-3 col-lg-3 d-lg-flex align-items-center">
                         <div id="logo">
                             <a href="{{route('home', app()->getLocale())}}"><img
-                                    src="{{ asset('assets/img/logo.svg') }}" alt="" width="100" height="35"></a>
+                                    src="{{ asset('assets/img/moonzelt.svg') }}" alt="" width="100" height="35"></a>
                         </div>
                     </div>
                     <nav class="col-xl-6 col-lg-7">
@@ -293,23 +281,15 @@
                     <h3 data-target="#collapse_3">{{__('Contacts')}}</h3>
                     <div class="collapse dont-collapse-sm contacts" id="collapse_3">
                         <ul>
-                            <li><i class="ti-home"></i>{{__('97845 Baker st. 567')}}<br>{{__('Los Angeles - US')}}</li>
+                            <li><i class="ti-home"></i>{{__('Baker st. 567')}}<br>{{__('Los Angeles - US')}}</li>
                             <li><i class="ti-headphone-alt"></i>{{__('+94 423-23-221')}}</li>
                             <li><i class="ti-email"></i><a href="#0">{{__('info@allaia.com')}}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h3 data-target="#collapse_4">{{('Keep in touch')}}</h3>
                     <div class="collapse dont-collapse-sm" id="collapse_4">
-                        <div id="newsletter">
-                            <div class="form-group">
-                                <input type="email" name="email_newsletter" id="email_newsletter" class="form-control"
-                                       placeholder="Your email">
-                                <button type="submit" id="submit-newsletter"><i class="ti-angle-double-right"></i>
-                                </button>
-                            </div>
-                        </div>
+
                         <div class="follow_us">
                             <h5>{{__('Follow Us')}}</h5>
                             <ul>
@@ -353,12 +333,7 @@
                         {{--                            </div>--}}
                         {{--                        </li>--}}
                         <li>
-                            <div class="styled-select currency-selector">
-                                <select>
-                                    <option value="US Dollars" selected>US Dollars</option>
-                                    <option value="Euro">Euro</option>
-                                </select>
-                            </div>
+
                         </li>
                         <li><img
                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="

@@ -16,6 +16,7 @@
                 <!-- form start -->
                 <form action="{{route('admin.slider.update',[app()->getLocale(),$slider])}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                     {{csrf_field()}}
+
                     <div class="card-body">
                         <div class="form-group">
                             @if($slider->image)
@@ -75,6 +76,14 @@
                                         </div>
                                         <!-- ./card -->
                                     </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="url">Redirect Url</label>
+                                            <input type="text" class="form-control" value="{{$slider->url}}" id="url" name="url">
+                                        </div>
+                                    </div>
+
                                     <!-- /.col -->
                                 </div>
                                 <!-- /.row -->

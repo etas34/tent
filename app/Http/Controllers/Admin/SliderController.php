@@ -56,6 +56,7 @@ class SliderController extends Controller
             $slider->image = ($imageName);
 
         }
+        $slider->url = $request->url;
 
         $saved = $slider->save();
 
@@ -111,6 +112,7 @@ class SliderController extends Controller
             $slider->image = ($imageName);
 
         }
+        $slider->url = $request->url;
         $saved = $slider->save();
         if ($saved)
             toastr()->success('Record Is Successfully Saved');
