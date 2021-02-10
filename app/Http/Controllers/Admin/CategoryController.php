@@ -19,8 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::where('status',1)
-        ->get();
+        $category = Category::where('status', 1)
+            ->get();
         return view('admin.category.index', compact('category'));
     }
 
@@ -60,7 +60,7 @@ class CategoryController extends Controller
 //        dd();
         $category = new Category();
 
-        $category->name =$request->cat_name;
+        $category->name = $request->cat_name;
         $category->sira = $request->sira;
 
         if ($request->file('image')) {
@@ -69,8 +69,6 @@ class CategoryController extends Controller
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             ]);
-
-
 
 
 //                $belge->image = url('/public/images') . "/" . $fileName;
@@ -83,6 +81,28 @@ class CategoryController extends Controller
 
         }
 
+        if ($request->file('banner')) {
+
+            if ($category->banner and file_exists(public_path("storage\\images\\banner_images\\$category->banner")))
+                unlink(public_path("storage\\images\\banner_images\\$category->banner"));
+
+            $request->validate([
+
+                'banner' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = time() . '.' . $request->banner->extension();
+            $request->file('banner')->move(public_path('storage/images/banner_images/'), $imageName);
+//            Storage::disk('public')->put($imageName,$request->image);
+//            $request->image->storeAs('/public/storage/images/cat_images', $imageName);
+            $category->banner = $imageName;
+
+        }
+
+
+
         $saved = $category->save();
 
         if ($saved)
@@ -90,7 +110,7 @@ class CategoryController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route( 'admin.category.index', app()->getLocale());
+        return redirect()->route('admin.category.index', app()->getLocale());
     }
 
     /**
@@ -112,7 +132,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.category.edit',compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -149,6 +169,26 @@ class CategoryController extends Controller
 
         }
 
+        if ($request->file('banner')) {
+
+            if ($category->banner and file_exists(public_path("storage\\images\\banner_images\\$category->banner")))
+                unlink(public_path("storage\\images\\banner_images\\$category->banner"));
+
+            $request->validate([
+
+                'banner' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = time() . '.' . $request->banner->extension();
+            $request->file('banner')->move(public_path('storage/images/banner_images/'), $imageName);
+//            Storage::disk('public')->put($imageName,$request->image);
+//            $request->image->storeAs('/public/storage/images/cat_images', $imageName);
+            $category->banner = $imageName;
+
+        }
+
         $saved = $category->save();
 
         if ($saved)
@@ -172,7 +212,7 @@ class CategoryController extends Controller
             unlink(asset("public\\storage\\images\\cat_images\\$category->image"));
         $category->status = 0;
         $type = $category->type;
-        foreach ($type as $types){
+        foreach ($type as $types) {
             $types->status = 0;
             $category->type()->save($types);
         }
@@ -184,12 +224,12 @@ class CategoryController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.category.index' , app()->getLocale());
+        return redirect()->route('admin.category.index', app()->getLocale());
     }
 
     public function getsubcat(Request $request)
     {
-        $sub_cat=Type::where('status',1)->where('category_id',$request->cat_id)->get();
+        $sub_cat = Type::where('status', 1)->where('category_id', $request->cat_id)->get();
 
 
         return response()->json($sub_cat);

@@ -19,6 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('image');
             $table->unsignedTinyInteger('sira')->nullable();
             $table->tinyInteger('status')->default(1);
+            $table->string('banner')->nullable();
             $table->timestamps();
         });
     }

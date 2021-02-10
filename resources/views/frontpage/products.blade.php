@@ -16,7 +16,9 @@
                         <h1>{{$category->name ?? ''}}</h1>
                     </div>
                 </div>
-                <img src="{{ asset('assets/img/bg_cat_shoes.jpg') }}" class="img-fluid" alt="">
+
+                <img src="{{asset("storage/images/banner_images/$category->banner")}}" class="img-fluid" alt="">
+
             </div>
             <!-- /top_banner -->
             <div id="stick_here"></div>

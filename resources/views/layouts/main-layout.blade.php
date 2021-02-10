@@ -206,7 +206,7 @@
                                                         @foreach($value->type as $type)
                                                             @if($type->status != 0)
                                                                 <li>
-                                                                    <a href="{{url(app()->getLocale().'/products/'.$value->id."/".$type->id)}}">{{$type->name}}</a>
+                                                                    <a href="{{url(app()->getLocale().'/category/'.$value->id."/".$type->id)}}">{{$type->name}}</a>
                                                                 </li>
                                                             @endif
                                                         @endforeach

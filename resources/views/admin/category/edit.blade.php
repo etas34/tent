@@ -35,6 +35,22 @@
 
                                 </div>
                             </div>
+                                @if($category->banner)
+                                    <div class="form-group">
+                                        <label for="file">Selected Image:</label>
+                                        <div id="file"> <img src="{{asset("storage/images/banner_images/$category->banner")}}" width="300"  alt="..."></div>
+                                    </div>
+                                @endif
+                                <div class="form-group">
+                                <label for="exampleInputFile">Banner Image (1350 X 500)</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="banner" accept="image/*" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+
+                                </div>
+                            </div>
                                 <div class="form-group">
                                     <label for="rank">Homepage rank place</label>
                                     <div class="input-group">
