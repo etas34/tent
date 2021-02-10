@@ -22,6 +22,9 @@
 {{--                            <th>Product Image</th>--}}
                             <th>Product Category</th>
                             <th>Product Model</th>
+                            <th>Width</th>
+                            <th>Length</th>
+                            <th>Price</th>
                             <th>Edit</th>
                             <th>Delete</th>
 
@@ -35,6 +38,9 @@
 {{--                            <td><img src="{{asset("storage/images/prds_images/$value->image")}}" height="100px" width="100px"></td>--}}
                             <td>{{$value->category->name}}</td>
                             <td>{{$value->type->name}}</td>
+                            <td>{{$value->width}}</td>
+                            <td>{{$value->length}}</td>
+                            <td>{{$value->price}}</td>
 
                             <td><a href="{{route('admin.product.edit',[app()->getLocale(), $value])}}"><span class="badge bg-warning p-2">Edit</span></a></td>
                             <td><a href="{{route('admin.product.destroy',[app()->getLocale(), $value])}}" onclick="return confirm('Are you sure you want to delete this record?')"><span class="badge bg-danger p-2">Delete</span></a></td>

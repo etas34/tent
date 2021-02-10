@@ -21,7 +21,7 @@
                         <tr>
 {{--                            <th>Product Image</th>--}}
                             <th>Header</th>
-                            <th>Visibility</th>
+                            <th>Menu Visibility</th>
                             <th>Edit</th>
                             <th>Delete</th>
 
