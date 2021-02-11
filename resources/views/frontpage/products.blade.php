@@ -8,9 +8,10 @@
                     <div class="container">
                         <div class="breadcrumbs">
                             <ul>
-                                <li><a href="#">{{__('Home')}}</a></li>
-                                <li><a href="#">{{__('Category')}}</a></li>
-                                <li>{{__('Page active')}}</li>
+                                <li><a href="{{route('home',app()->getLocale())}}">{{__('Home')}}</a></li>
+                                <li><a href="{{route('frontpage.products',[app()->getLocale(),$category->id])}}">{{$category->name}}</a></li>
+                                {{--                                <li>{{$secili_model}}</li>--}}
+                                <li>{{$secili_model->name ?? ''}}</li>
                             </ul>
                         </div>
                         <h1>{{$category->name ?? ''}}</h1>
