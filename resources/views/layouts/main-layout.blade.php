@@ -373,53 +373,54 @@
                         <tbody>
 
 
-                        <tr>
+                        <tr id="priceQ">
                             <td><strong>{{__('Price')}}</strong></td>
                             <td id="price">null</td>
                         </tr>
-                        <td><strong>{{__('Width')}}</strong></td>
-                        <td id="width">null</td>
-
-                        <tr>
+                        <tr id="widthQ">
+                            <td><strong>{{__('Width')}}</strong></td>
+                            <td id="width">null</td>
+                        </tr>
+                        <tr id="lengthQ">
                             <td><strong>{{__('Length')}}</strong></td>
                             <td id="length">null</td>
                         </tr>
 
-                        <tr>
+                        <tr id="pricem2Q">
                             <td><strong>{{__('Price/m²')}}</strong></td>
                             <td id="pricem2">null</td>
                         </tr>
 
-                        <tr>
+                        <tr id="doorQ">
                             <td><strong>{{__('Door')}}</strong></td>
                             <td id="door">null</td>
                         </tr>
-                        <tr>
+                        <tr id="insulationQ">
                             <td><strong>{{__('Insulation')}}</strong></td>
                             <td id="insulation">null</td>
                         </tr>
-                        <tr>
+                        <tr id="steepHQ">
                             <td><strong>{{__('Steep height')}}</strong></td>
                             <td id="steepH">null</td>
                         </tr>
-                        <tr>
+                        <tr id="heigthMAQ">
                             <td><strong>{{__('Height middle area')}}</strong></td>
                             <td id="heigthMA">null</td>
                         </tr>
-                        <tr>
+                        <tr id="squareMQ">
                             <td><strong>{{__('Square meters')}}</strong></td>
                             <td id="squareM">null</td>
                         </tr>
-                        <tr>
+                        <tr id="footHQ">
                             <td><strong>{{__('Foot height')}}</strong></td>
                             <td id="footH">null</td>
                         </tr>
-                        <tr>
+                        <tr id="footCQ">
                             <td><strong>{{__('Foot count')}}</strong></td>
                             <td id="footC">null</td>
                         </tr>
 
-                        <tr>
+                        <tr id="diameterQ">
                             <td><strong>{{__('Diameter')}}</strong></td>
                             <td id="diameter">null</td>
                         </tr>
@@ -478,22 +479,9 @@
             cache: false,
 
             success: (response) => {
-                console.log(response)
+                console.log(response.product.width)
                 console.log(response.category.name["{{App::getLocale()}}"])
-                $('#price').text(response.product.price + ' €')
-                $('#width').text(response.product.width + ' m')
-                $('#length').text(response.product.length + ' m')
-                $('#door').text(response.product.door + ' m')
-                $('#pricem2').text(response.product.price_m2 + ' m')
-                $('#insulation').text(response.insulation)
-                $('#steepH').text(response.product.steep_height + ' m')
-                $('#heigthMA').text(response.product.height_middle + ' m')
-                $('#squareM').text(response.product.square_meters + ' m²')
-                $('#footH').text(response.product.foot_height + ' m')
-                $('#footC').text(response.product.foot_count)
-                $('#diameter').text(response.product.diameter)
-
-
+                null===response.product.price&&$("#priceQ").hide(),null===response.product.width&&$("#widthQ").hide(),null===response.product.length&&$("#lengthQ").hide(),null===response.product.door&&$("#pricem2Q").hide(),null===response.product.price_m2&&$("#doorQ").hide(),null===response.insulation&&$("#insulationQ").hide(),null===response.product.steep_height&&$("#steepHQ").hide(),null===response.product.height_middle&&$("#heigthMAQ").hide(),null===response.product.square_meters&&$("#squareMQ").hide(),null===response.product.foot_height&&$("#footHQ").hide(),null===response.product.foot_count&&$("#footCQ").hide(),null===response.product.diameter&&$("#diameterQ").hide(),$("#price").text(response.product.price+" €"),$("#width").text(response.product.width+" m"),$("#length").text(response.product.length+" m"),$("#door").text(response.product.door+" m"),$("#pricem2").text(response.product.price_m2+" m"),$("#insulation").text(response.insulation),$("#steepH").text(response.product.steep_height+" m"),$("#heigthMA").text(response.product.height_middle+" m"),$("#squareM").text(response.product.square_meters+" m²"),$("#footH").text(response.product.foot_height+" m"),$("#footC").text(response.product.foot_count),$("#diameter").text(response.product.diameter);
             },
 
 

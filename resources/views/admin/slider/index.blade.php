@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"></h3>
+                    <h3 class="card-title">Sliders</h3>
                     <a href="{{route('admin.slider.create', app()->getLocale())}}" class="btn btn-primary active" style="float: right !important;">
                         Add New Slider</a>
                 </div>
@@ -20,6 +20,7 @@
                         <thead>
                         <tr>
                             <th>Slider Image</th>
+                            <th>Rank</th>
 
                             <th>Edit</th>
                             <th>Delete</th>
@@ -32,6 +33,7 @@
                         <tr>
 
                             <td><img src="{{asset("storage/images/slider_images/$value->image")}}" height="60px" width="60px"></td>
+                            <td>{{$value->rank}}</td>
 
 
                             <td><a href="{{route('admin.slider.edit',[app()->getLocale(), $value])}}"><span class="badge bg-warning p-2">Edit</span></a></td>

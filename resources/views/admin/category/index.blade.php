@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"></h3>
+                    <h3 class="card-title">Categories </h3>
                     <a href="{{route('admin.category.create', app()->getLocale())}}" class="btn btn-primary active" style="float: right !important;">Add New
                         Category</a>
                 </div>

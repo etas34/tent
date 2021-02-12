@@ -66,6 +66,11 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->diameter = $request->diameter;
 
+        $product->verpackung = $request->verpackung;
+        $product->gewicht = $request->gewicht;
+        $product->fur_personen = $request->fur_personen;
+        $product->sub_title = $request->sub_title;
+
         if ($request->file('image')) {
             $request->validate([
 
@@ -78,6 +83,20 @@ class ProductController extends Controller
             $request->file('image')->move(public_path('storage/images/prds_images/'), $imageName);
 //            $request->image->storeAs('/public/images/prds_images', $imageName);
             $product->image = $imageName;
+
+        }
+        if ($request->file('image2')) {
+            $request->validate([
+
+                'image2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = time() . '.image2.' . $request->image2->extension();
+            $request->file('image2')->move(public_path('storage/images/prds_images/'), $imageName);
+//            $request->image->storeAs('/public/images/prds_images', $imageName);
+            $product->image2 = $imageName;
 
         }
 
@@ -146,6 +165,11 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->diameter = $request->diameter;
 
+        $product->verpackung = $request->verpackung;
+        $product->gewicht = $request->gewicht;
+        $product->fur_personen = $request->fur_personen;
+        $product->sub_title = $request->sub_title;
+
         if ($request->file('image')) {
 
             if ($product->image and file_exists(public_path("storage\\images\\prds_images\\$product->image")))
@@ -165,6 +189,20 @@ class ProductController extends Controller
             $product->image = $imageName;
 
         }
+        if ($request->file('image2')) {
+            $request->validate([
+
+                'image2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            ]);
+
+
+            $imageName = time() . '.image2.' . $request->image2->extension();
+            $request->file('image2')->move(public_path('storage/images/prds_images/'), $imageName);
+//            $request->image->storeAs('/public/images/prds_images', $imageName);
+            $product->image2 = $imageName;
+
+        }
 
 
         $saved = $product->save();
@@ -174,7 +212,7 @@ class ProductController extends Controller
         else
             toastr()->error('Oops! Something\'s Went Wrong');
 
-        return redirect()->route('admin.product.index' , app()->getLocale());
+        return back();
     }
 
     /**

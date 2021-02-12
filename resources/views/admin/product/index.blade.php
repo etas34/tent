@@ -22,6 +22,7 @@
 {{--                            <th>Product Image</th>--}}
                             <th>Product Category</th>
                             <th>Product Model</th>
+                            <th>Go Product</th>
                             <th>Width</th>
                             <th>Length</th>
                             <th>Price</th>
@@ -38,6 +39,8 @@
 {{--                            <td><img src="{{asset("storage/images/prds_images/$value->image")}}" height="100px" width="100px"></td>--}}
                             <td>{{$value->category->name}}</td>
                             <td>{{$value->type->name}}</td>
+                            <td>        <a
+                                  target="_blank"  href="{{route('frontpage.productdetail',[app()->getLocale(), $value])}}"><span   class="badge badge-primary" >Product ID: {{$value->id}}</span> </a></td>
                             <td>{{$value->width}}</td>
                             <td>{{$value->length}}</td>
                             <td>{{$value->price}}</td>

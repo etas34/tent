@@ -24,7 +24,7 @@ class MainController extends Controller
             ->orderByRaw('ISNULL(sira), sira ASC')
             ->take(6)
             ->get();
-        $slider = Slider::orderBy('id','asc')
+        $slider = Slider::orderBy('rank','asc')
             ->get();
         $product = Product::wherein('id', [1, 2, 3, 4, 5, 6])->paginate(99);
         return view('index', compact('category', 'slider', 'product'));

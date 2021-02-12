@@ -17,6 +17,7 @@ class CreateSlidersTable extends Migration
             $table->id();
             $table->text('image');
             $table->string('url')->nullable();
+            $table->string('rank')->nullable();
 
             $table->timestamps();
         });

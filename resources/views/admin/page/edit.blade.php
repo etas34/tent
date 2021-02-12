@@ -14,6 +14,10 @@
                   enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit Page</h3>
+
+                    </div>
                     <div class="card-body">
                 <div class="row">
                     <div class="col-md-12 form-group">

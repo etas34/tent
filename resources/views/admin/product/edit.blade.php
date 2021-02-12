@@ -15,7 +15,8 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{route('admin.product.update',[app()->getLocale(),$product])}}" method="post" autocomplete="off"
+                <form action="{{route('admin.product.update',[app()->getLocale(),$product])}}" method="post"
+                      autocomplete="off"
                       enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="card-body">
@@ -25,6 +26,17 @@
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" name="image" class="custom-file-input" accept="image/*"
+                                               id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="exampleInputFile">Product Image 2</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="image2" class="custom-file-input" accept="image/*"
                                                id="exampleInputFile">
                                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                     </div>
@@ -53,22 +65,38 @@
 
                                 </select>
                             </div>
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 <label>Choose a Insulation</label>
                                 <select name="ins_id" id="type" class="form-control">
                                     <option value="">No Insulation</option>
-                                @foreach($insulation as $key=>$value)
-                                        <option @if($product->insulation and $product->insulation->id == $value->id ) selected
-                                                @endif value="{{$value->id}}">{{ $value->name}}</option>
+                                    @foreach($insulation as $key=>$value)
+                                        <option
+                                            @if($product->insulation and $product->insulation->id == $value->id ) selected
+                                            @endif value="{{$value->id}}">{{ $value->name}}</option>
                                     @endforeach
 
                                 </select>
                             </div>
 
-                        </div>
-
-                        <div class="row">
-
+                            <div class="form-group col-md-6">
+                                <label>Sub Title</label>
+                                <input type="text" value="{{$product->sub_title}}" name="sub_title"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Verpackung</label>
+                                <input type="text" value="{{$product->verpackung}}" name="verpackung"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Gewicht</label>
+                                <input type="text" value="{{$product->gewicht}}" name="gewicht" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Für Personen</label>
+                                <input type="text" value="{{$product->fur_personen}}" name="fur_personen"
+                                       class="form-control">
+                            </div>
 
                             <div class="form-group col-md-6">
                                 <label>Width (m)</label>
@@ -128,18 +156,24 @@
                                        class="form-control">
                             </div>
 
+                            <div class="col-md-12"></div>
 
-                        </div>
-                        @if($product->image)
-                            <div class="form-group">
-                                <label for="file">Selected Image:</label>
-                                <div id="file"><img src="{{asset("storage/images/prds_images/$product->image")}}"
-                                                    width="300" alt="..."></div>
-                            </div>
-                        @endif
+                            @if($product->image)
+                                <div class="form-group col-md-6">
+                                    <label for="file">Selected Image:</label>
+                                    <div id="file"><img src="{{asset("storage/images/prds_images/$product->image")}}"
+                                                        width="300" alt="..."></div>
+                                </div>
+                            @endif
+                            @if($product->image2)
+                                <div class="form-group col-md-6">
+                                    <label for="file">Selected Image 2:</label>
+                                    <div id="file"><img src="{{asset("storage/images/prds_images/$product->image2")}}"
+                                                        width="300" alt="..."></div>
+                                </div>
+                            @endif
 
 
-                        <div class="row">
                             <div class="col-12">
                                 <!-- Custom Tabs -->
                                 <div class="card">

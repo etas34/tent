@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Products</h3>
+                    <h3 class="card-title">Pages</h3>
                     <a href="{{route('admin.page.create', app()->getLocale())}}" class="btn btn-primary active" style="float: right !important;">Add New
                         page</a>
                 </div>

@@ -11,7 +11,7 @@
             <!-- general form elements -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Models</h3>
+                    <h3 class="card-title">Create Model</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -28,12 +28,6 @@
                                 @endforeach
                             </select>
                         </div>
-
-
-
-
-
-
                         <div class="row">
                             <div class="col-12">
                                 <!-- Custom Tabs -->

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->integer('category_id');
             $table->integer('type_id');
             $table->string('image')->nullable();
+            $table->string('image2')->nullable();
             $table->string('price')->nullable();
             $table->string('width')->nullable();
             $table->string('length')->nullable();
@@ -30,6 +31,10 @@ class CreateProductsTable extends Migration
             $table->string('diameter')->nullable();
             $table->string('foot_height')->nullable();
             $table->string('foot_count')->nullable();
+            $table->string('sub_title')->nullable();
+            $table->string('verpackung')->nullable();
+            $table->string('gewicht')->nullable();
+            $table->string('fur_personen')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

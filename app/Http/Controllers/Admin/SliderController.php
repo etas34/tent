@@ -57,6 +57,7 @@ class SliderController extends Controller
 
         }
         $slider->url = $request->url;
+        $slider->rank = $request->rank;
 
         $saved = $slider->save();
 
@@ -113,6 +114,7 @@ class SliderController extends Controller
 
         }
         $slider->url = $request->url;
+        $slider->rank = $request->rank;
         $saved = $slider->save();
         if ($saved)
             toastr()->success('Record Is Successfully Saved');

@@ -5,12 +5,13 @@
 @endpush
 
     <div class="row">
+
         <!-- left column -->
         <div class="col-md-12">
             <!-- general form elements -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Category</h3>
+                    <h3 class="card-title">Edit Slider</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
@@ -18,7 +19,20 @@
                     {{csrf_field()}}
 
                     <div class="card-body">
-                        <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label> Rank Number </label>
+                                    <select name="rank" class="form-control">
+                                        <option>null</option>
+                                        @for($i = 1; $i < \App\Models\Slider::count()+1 ; $i++)
+                                            <option  @if($i == $slider->rank) selected @endif value="{{$i}}">{{$i}}</option>
+                                        @endfor
+                                    </select>
+
+                                </div>
+                            </div>
+
                             @if($slider->image)
                                 <div class="form-group">
                                     <label for="file">Selected Image:</label>
@@ -26,7 +40,8 @@
                                 </div>
                             @endif
 
-                                <div class="row">
+
+
                                     <div class="col-12">
                                         <!-- Custom Tabs -->
                                         <div class="card">
@@ -95,7 +110,6 @@
 
 
 
-                    </div>
                     <!-- /.card-body -->
 
                     <div class="card-footer">

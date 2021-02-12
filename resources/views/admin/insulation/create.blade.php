@@ -11,7 +11,7 @@
             <!-- general form elements -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Insulations</h3>
+                    <h3 class="card-title">Create an insulation</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->

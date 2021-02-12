@@ -10,7 +10,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">DataTable with default features</h3>
+                    <h3 class="card-title">Models</h3>
                     <a href="{{route('admin.model.create', app()->getLocale())}}" class="btn btn-primary active" style="float: right !important;">Add New
                         Model</a>
                 </div>
