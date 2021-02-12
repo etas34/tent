@@ -83,20 +83,7 @@
                                 <input type="text" value="{{$product->sub_title}}" name="sub_title"
                                        class="form-control">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label>Verpackung</label>
-                                <input type="text" value="{{$product->verpackung}}" name="verpackung"
-                                       class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Gewicht</label>
-                                <input type="text" value="{{$product->gewicht}}" name="gewicht" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Für Personen</label>
-                                <input type="text" value="{{$product->fur_personen}}" name="fur_personen"
-                                       class="form-control">
-                            </div>
+
 
                             <div class="form-group col-md-6">
                                 <label>Width (m)</label>
@@ -155,7 +142,21 @@
                                 <input type="text" name="diameter" value="{{$product->diameter}}"
                                        class="form-control">
                             </div>
+                            <div class="form-group col-md-6">
+                                <label>Verpackung</label>
+                                <input type="text" value="{{$product->verpackung}}" name="verpackung"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Gewicht</label>
+                                <input type="text" value="{{$product->gewicht}}" name="gewicht" class="form-control">
+                            </div>
 
+                            <div class="form-group col-md-6">
+                                <label>Für Personen</label>
+                                <input type="text" value="{{$product->fur_personen}}" name="fur_personen"
+                                       class="form-control">
+                            </div>
                             <div class="col-md-12"></div>
 
                             @if($product->image)

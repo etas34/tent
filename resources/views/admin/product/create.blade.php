@@ -75,18 +75,7 @@
                                 <label>Sub Title</label>
                                 <input type="text" name="sub_title" class="form-control">
                             </div>
-                             <div class="form-group col-md-6">
-                                <label>Verpackung</label>
-                                <input type="text" name="verpackung" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Gewicht</label>
-                                <input type="text" name="gewicht" class="form-control">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label>Für Personen</label>
-                                <input type="text" name="fur_personen" class="form-control">
-                            </div>
+
 
                             <div class="form-group col-md-6">
                                 <label>Width (m)</label>
@@ -137,7 +126,18 @@
                                 <label>Diameter</label>
                                 <input type="text" name="diameter" class="form-control">
                             </div>
-
+                            <div class="form-group col-md-6">
+                                <label>Verpackung</label>
+                                <input type="text" name="verpackung" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Gewicht</label>
+                                <input type="text" name="gewicht" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Für Personen</label>
+                                <input type="text" name="fur_personen" class="form-control">
+                            </div>
 
                         </div>
 

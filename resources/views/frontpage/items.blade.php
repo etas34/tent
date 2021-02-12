@@ -68,7 +68,7 @@
 
             </div>
             <a href="{{route('frontpage.productdetail',[app()->getLocale(), $value])}}">
-                <h3>{{$value->type['name']}}</h3>
+                <h3>{{$value->type['name']}} {{$value->sub_title ? "-$value->sub_title" :''}}</h3>
             </a>
             <div class="price_box">
                 <span class="new_price">{{$value->price}}€</span>

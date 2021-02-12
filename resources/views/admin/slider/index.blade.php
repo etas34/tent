@@ -21,7 +21,6 @@
                         <tr>
                             <th>Slider Image</th>
                             <th>Rank</th>
-
                             <th>Edit</th>
                             <th>Delete</th>
 

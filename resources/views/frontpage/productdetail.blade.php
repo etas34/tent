@@ -97,8 +97,21 @@
                                     <td><strong>{{__('Foot count')}}</strong></td>
                                     <td>{{$product->foot_count}}</td>
                                 </tr>
+                                <tr>
                                 <td><strong>{{__('Diameter')}}</strong></td>
                                 <td>{{$product->diameter}}</td>
+                                </tr>
+                                <tr>
+                                <td><strong>{{__('verpackung')}}</strong></td>
+                                <td>{{$product->verpackung}}</td>
+                                </tr>
+
+                                <td><strong>{{__('gewicht')}}</strong></td>
+                                <td>{{$product->gewicht}}</td>
+                                </tr>
+
+                                <td><strong>{{__('fur_personen')}}</strong></td>
+                                <td>{{$product->fur_personen}}</td>
                                 </tr>
 
 

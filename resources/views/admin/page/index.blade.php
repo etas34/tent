@@ -22,6 +22,7 @@
 {{--                            <th>Product Image</th>--}}
                             <th>Header</th>
                             <th>Menu Visibility</th>
+                            <th>Go To Page</th>
                             <th>Edit</th>
                             <th>Delete</th>
 
@@ -34,6 +35,7 @@
 {{--                            <td><img src="{{asset("storage/images/prds_images/$value->image")}}" height="100px" width="100px"></td>--}}
                             <td>{{$value->header}}</td>
                             <td>{{$value->visibility == 1 ? 'Yes' : 'No' }}</td>
+                            <td><a target="_blank" href="{{route('page',[App::getLocale(),$value->id])}}"><span   class="badge badge-primary" >Page ID: {{$value->id}}</span></a></td>
 
                             <td><a href="{{route('admin.page.edit',[app()->getLocale(), $value])}}"><span class="badge bg-warning p-2">Edit</span></a></td>
                             <td><a href="{{route('admin.page.destroy',[app()->getLocale(), $value])}}" onclick="return confirm('Are you sure you want to delete this record?')"><span class="badge bg-danger p-2">Delete</span></a></td>

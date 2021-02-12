@@ -425,6 +425,21 @@
                             <td id="diameter">null</td>
                         </tr>
 
+                        <tr id="verpackungQ">
+                            <td><strong>{{__('verpackung')}}</strong></td>
+                            <td id="verpackung">null</td>
+                        </tr>
+
+                        <tr id="gewichtQ">
+                            <td><strong>{{__('gewicht')}}</strong></td>
+                            <td id="gewicht">null</td>
+                        </tr>
+
+                        <tr id="fur_personenQ">
+                            <td><strong>{{__('für personen')}}</strong></td>
+                            <td id="fur_personen">null</td>
+                        </tr>
+
 
                         </tbody>
                     </table>
@@ -479,9 +494,57 @@
             cache: false,
 
             success: (response) => {
-                console.log(response.product.width)
-                console.log(response.category.name["{{App::getLocale()}}"])
-                null===response.product.price&&$("#priceQ").hide(),null===response.product.width&&$("#widthQ").hide(),null===response.product.length&&$("#lengthQ").hide(),null===response.product.door&&$("#pricem2Q").hide(),null===response.product.price_m2&&$("#doorQ").hide(),null===response.insulation&&$("#insulationQ").hide(),null===response.product.steep_height&&$("#steepHQ").hide(),null===response.product.height_middle&&$("#heigthMAQ").hide(),null===response.product.square_meters&&$("#squareMQ").hide(),null===response.product.foot_height&&$("#footHQ").hide(),null===response.product.foot_count&&$("#footCQ").hide(),null===response.product.diameter&&$("#diameterQ").hide(),$("#price").text(response.product.price+" €"),$("#width").text(response.product.width+" m"),$("#length").text(response.product.length+" m"),$("#door").text(response.product.door+" m"),$("#pricem2").text(response.product.price_m2+" m"),$("#insulation").text(response.insulation),$("#steepH").text(response.product.steep_height+" m"),$("#heigthMA").text(response.product.height_middle+" m"),$("#squareM").text(response.product.square_meters+" m²"),$("#footH").text(response.product.foot_height+" m"),$("#footC").text(response.product.foot_count),$("#diameter").text(response.product.diameter);
+                console.log(response)
+
+                if (response.product.price === null)
+                    $('#priceQ').hide()
+                if (response.product.width === null)
+                    $('#widthQ').hide()
+                if (response.product.length === null)
+                    $('#lengthQ').hide()
+                if (response.product.door === null)
+                    $('#pricem2Q').hide()
+                if (response.product.price_m2 === null)
+                    $('#doorQ').hide()
+                if (response.insulation === '')
+                    $('#insulationQ').hide()
+                if (response.product.steep_height === null)
+                    $('#steepHQ').hide()
+                if (response.product.height_middle === null)
+                    $('#heigthMAQ').hide()
+                if (response.product.square_meters === null)
+                    $('#squareMQ').hide()
+                if (response.product.foot_height === null)
+                    $('#footHQ').hide()
+                if (response.product.foot_count === null)
+                    $('#footCQ').hide()
+                if (response.product.diameter === null)
+                    $('#diameterQ').hide()
+                if (response.product.verpackung === null)
+                    $('#verpackungQ').hide()
+                if (response.product.gewicht === null)
+                    $('#gewichtQ').hide()
+                if (response.product.fur_personen === null)
+                    $('#fur_personenQ').hide()
+
+                $('#price').text(response.product.price + ' €')
+                $('#width').text(response.product.width + ' m')
+                $('#length').text(response.product.length + ' m')
+                $('#door').text(response.product.door + ' m')
+                $('#pricem2').text(response.product.price_m2 + ' m')
+                $('#insulation').text(response.insulation)
+                $('#steepH').text(response.product.steep_height + ' m')
+                $('#heigthMA').text(response.product.height_middle + ' m')
+                $('#squareM').text(response.product.square_meters + ' m²')
+                $('#footH').text(response.product.foot_height + ' m')
+                $('#footC').text(response.product.foot_count)
+                $('#diameter').text(response.product.diameter)
+                $('#verpackung').text(response.product.verpackung)
+                $('#gewicht').text(response.product.gewicht)
+                $('#fur_personen').text(response.product.fur_personen)
+
+
+
             },
 
 
