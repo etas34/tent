@@ -201,9 +201,9 @@ class ProductController extends Controller
     public function getInfo (Product $product)
     {
         $data = [
-            'category' => $product->category,
-            'product' => $product,
-            'insulation' => $product->insulation->name
+            'category' => $product->category ?? '',
+            'product' => $product ?? '',
+            'insulation' => $product->insulation->name ?? ''
 
         ];
         return response()->json($data,200);
