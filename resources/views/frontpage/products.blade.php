@@ -233,7 +233,7 @@ function filtre(page){
         $('.diameter_show').hide();
 
     }
-    else if(category_id==2)
+    else if(category_id==2 || category_id==7)
     {
         $('.ins_group').hide();
         $('.diameter_show').show();
@@ -249,13 +249,14 @@ function filtre(page){
 
 <script>
     $(document).ready(function(){
+
         if($("#category_id").val()==1)
         {
             $('.ins_group').show();
             $('.diameter_show').hide();
 
         }
-        else if($("#category_id").val()==2)
+        else if($("#category_id").val()==2 || $("#category_id").val()==7)
         {
             $('.ins_group').hide();
             $('.diameter_show').show();
@@ -265,6 +266,7 @@ function filtre(page){
         else{
             $('#insulationselectbox').val('0');
             $('.ins_group').hide();
+            $('.diameter_show').hide();
         }
     });
 
