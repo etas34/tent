@@ -444,24 +444,24 @@
                 <form class="mt-4" method="post" action="{{route('getInfo',app()->getLocale())}}">
                     @csrf
 
-                    <input type="text" id="product_id" hidden name="product_id">
+                    <input required type="text" id="product_id" hidden name="product_id">
 
                     <h5>Contact Us</h5>
                     <div class="form-group">
                         <label for="fullName">{{__('Full Name')}}</label>
-                        <input type="text" name="full_name" class="form-control" id="fullName">
+                        <input required type="text" name="full_name" class="form-control" id="fullName">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">{{__('Email address')}}</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                        <input required type="email" name="email" class="form-control" id="exampleInputEmail1"
                                aria-describedby="emailHelp">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">{{__('Message')}}</label>
-                        <textarea name="message" class="form-control"></textarea>
+                        <textarea required name="message" class="form-control"></textarea>
                     </div>
                     <div class="text-center form-group">
-                        <input type="submit" value="{{__('Get Info')}}" class="btn_1 full-width">
+                        <input required type="submit" value="{{__('Get Info')}}" class="btn_1 full-width">
                     </div>
                 </form>
 
