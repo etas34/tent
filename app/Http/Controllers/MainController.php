@@ -10,6 +10,8 @@ use App\Models\Slider;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use App\Mail\SendMail;
+use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
 {
@@ -24,7 +26,7 @@ class MainController extends Controller
             ->orderByRaw('ISNULL(sira), sira ASC')
             ->take(6)
             ->get();
-        $slider = Slider::orderBy('rank','asc')
+        $slider = Slider::orderBy('rank', 'asc')
             ->get();
         $product = Product::wherein('id', [1, 2, 3, 4, 5, 6])->paginate(99);
         return view('index', compact('category', 'slider', 'product'));
@@ -41,7 +43,7 @@ class MainController extends Controller
         $length = Product::where('category_id', $category->id)->where('length', '!=', null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
         $door = Product::where('category_id', $category->id)->where('door', '!=', null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
 
-        return view('frontpage.products', compact('category', 'product', 'model', 'width','diameter', 'length', 'insulation', 'door'));
+        return view('frontpage.products', compact('category', 'product', 'model', 'width', 'diameter', 'length', 'insulation', 'door'));
 
     }
 
@@ -57,7 +59,7 @@ class MainController extends Controller
         $diameter = Product::where('category_id', $category->id)->where('type_id', $type->id)->where('diameter', '!=', null)->select('diameter')->distinct('diameter')->orderByRaw('diameter+0 asc')->get();
         $door = Product::where('category_id', $category->id)->where('type_id', $type->id)->where('door', '!=', null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
 
-        return view('frontpage.products', compact('category', 'product', 'model', 'width', 'length', 'insulation', 'door', 'secili_model','diameter'));
+        return view('frontpage.products', compact('category', 'product', 'model', 'width', 'length', 'insulation', 'door', 'secili_model', 'diameter'));
 
     }
 
@@ -79,7 +81,7 @@ class MainController extends Controller
     public function page(Page $page)
     {
         $compact = compact('page');
-        return view('page',$compact);
+        return view('page', $compact);
     }
 
     public function contact()
@@ -222,7 +224,24 @@ class MainController extends Controller
 
     public function getinfo(Request $request)
     {
-        toastr()->success('Something Went -');
+
+//
+        $this->validate($request, [
+            'product_id' => 'required'
+        ]);
+
+        $data = array(
+            'fullname' => $request->full_name,
+            'email' => $request->email,
+            'product_id' => $request->product_id,
+            'message' => $request->message
+        );
+
+        Mail::to('mail@moonzelt.com')->send(new SendMail($data));
+//        return view('dynamic_email_template');
+
+        toastr()->success('Thanks for contacting us!');
+
         return back();
 //        dd($request);
     }

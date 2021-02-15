@@ -359,7 +359,6 @@
                 <h5 id="title" class="modal-title">
 
 
-
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="ti-close"></i>
@@ -445,7 +444,7 @@
                 <form class="mt-4" method="post" action="{{route('getInfo',app()->getLocale())}}">
                     @csrf
 
-                    <input type="text" name="id" hidden id="product_id">
+                    <input type="text" id="product_id" hidden name="product_id">
 
                     <h5>Contact Us</h5>
                     <div class="form-group">
@@ -454,7 +453,12 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">{{__('Email address')}}</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">{{__('Message')}}</label>
+                        <textarea name="message" class="form-control"></textarea>
                     </div>
                     <div class="text-center form-group">
                         <input type="submit" value="{{__('Get Info')}}" class="btn_1 full-width">
@@ -476,6 +480,7 @@
 
 @toastr_js
 @toastr_render
+
 
 <!-- SPECIFIC SCRIPTS -->
 {{--<script src="{{asset('assets/js/carousel-home.min.js')}}"></script>--}}
@@ -546,7 +551,6 @@
                 $('#verpackung').text(response.product.verpackung)
                 $('#gewicht').text(response.product.gewicht)
                 $('#fur_personen').text(response.product.fur_personen)
-
 
 
             },
