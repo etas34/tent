@@ -13,7 +13,7 @@
                         <li>{{$product->type['name']}}</li>
                     </ul>
                 </div>
-                <h1>{{$product->type['name']}}</h1>
+                <h1>{{$product->type['name']}} {{$product->sub_title ? ' - '.$product->sub_title : '' }}</h1>
             </div>
             <!-- /page_header -->
             <div class="row justify-content-center">
@@ -52,67 +52,99 @@
                                 <tbody>
 
 
-                                <tr>
-                                    <td><strong>{{__('Price')}}</strong></td>
-                                    <td>{{$product->price}} €</td>
-                                </tr>
-                                <td><strong>{{__('Width')}}</strong></td>
-                                <td>{{$product->width}} m</td>
-
-                                <tr>
-                                    <td><strong>{{__('Length')}}</strong></td>
-                                    <td>{{$product->length}} m</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>{{__('Price/m²')}}</strong></td>
-                                    <td>{{$product->price_m2}} €</td>
-                                </tr>
-                                @if($product->insulation)
+                                @if($product->price)
                                     <tr>
-                                        <td><strong>{{__('Insulation')}}</strong></td>
-                                        <td>{{$product->insulation->name}}</td>
+                                        <td><strong>{{__('Price')}}</strong></td>
+                                        <td>{{$product->price}} €
+                                        </td>
+
                                     </tr>
                                 @endif
-                                <tr>
-                                    <td><strong>{{__('Door')}}</strong></td>
-                                    <td>{{$product->door}} m</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>{{__('Steep height')}}</strong></td>
-                                    <td>{{$product->steep_height}} m</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>{{__('Height middle area')}}</strong></td>
-                                    <td>{{$product->height_middle}} m</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>{{__('Square meters')}}</strong></td>
-                                    <td>{{$product->square_meters}} m²</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>{{__('Foot height')}}</strong></td>
-                                    <td>{{$product->foot_height}} m</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>{{__('Foot count')}}</strong></td>
-                                    <td>{{$product->foot_count}}</td>
-                                </tr>
-                                <tr>
-                                <td><strong>{{__('Diameter')}}</strong></td>
-                                <td>{{$product->diameter}}</td>
-                                </tr>
-                                <tr>
-                                <td><strong>{{__('verpackung')}}</strong></td>
-                                <td>{{$product->verpackung}}</td>
-                                </tr>
+                                @if($product->width)
+                                    <td><strong>{{__('Width')}}</strong></td>
+                                    <td>{{$product->width}} m</td>
 
-                                <td><strong>{{__('gewicht')}}</strong></td>
-                                <td>{{$product->gewicht}}</td>
-                                </tr>
+                                @endif
+                                @if($product->length)
+                                    <tr>
+                                        <td><strong>{{__('Length')}}</strong></td>
+                                        <td>{{$product->length}} m</td>
+                                    </tr>
+                                @endif
+                                @if($product->price_m2)
+                                    <tr>
+                                        <td><strong>{{__('Price/m²')}}</strong></td>
+                                        <td>{{$product->price_m2}} €</td>
+                                    </tr>
+                                @endif
 
-                                <td><strong>{{__('fur_personen')}}</strong></td>
-                                <td>{{$product->fur_personen}}</td>
-                                </tr>
+                                    @if($product->insulation or $product->insulation->id ?? 0 !=0)
+                                        <tr>
+                                            <td><strong>{{__('Insulation')}}</strong></td>
+                                            <td>{{$product->insulation->name}}</td>
+                                        </tr>
+                                    @endif
+
+                                @if($product->door)
+                                    <tr>
+                                        <td><strong>{{__('Door')}}</strong></td>
+                                        <td>{{$product->door}} m</td>
+                                    </tr>
+                                @endif
+                                @if($product->steep_height)
+                                    <tr>
+                                        <td><strong>{{__('Steep height')}}</strong></td>
+                                        <td>{{$product->steep_height}} m</td>
+                                    </tr>
+                                @endif
+                                @if($product->height_middle)
+                                    <tr>
+                                        <td><strong>{{__('Height middle area')}}</strong></td>
+                                        <td>{{$product->height_middle}} m</td>
+                                    </tr>
+                                @endif
+                                @if($product->square_meters)
+                                    <tr>
+                                        <td><strong>{{__('Square meters')}}</strong></td>
+                                        <td>{{$product->square_meters}} m²</td>
+                                    </tr>
+                                @endif
+                                @if($product->foot_height)
+                                    <tr>
+                                        <td><strong>{{__('Foot height')}}</strong></td>
+                                        <td>{{$product->foot_height}} m</td>
+                                    </tr>
+                                @endif
+                                @if($product->foot_count)
+                                    <tr>
+                                        <td><strong>{{__('Foot count')}}</strong></td>
+                                        <td>{{$product->foot_count}}</td>
+                                    </tr>
+                                @endif
+                                @if($product->diameter)
+                                    <tr>
+                                        <td><strong>{{__('Diameter')}}</strong></td>
+                                        <td>{{$product->diameter}}</td>
+                                    </tr>
+                                @endif
+                                @if($product->verpackung)
+                                    <tr>
+                                        <td><strong>{{__('verpackung')}}</strong></td>
+                                        <td>{{$product->verpackung}}</td>
+                                    </tr>
+                                @endif
+                                @if($product->gewicht)
+                                    <tr>
+                                        <td><strong>{{__('gewicht')}}</strong></td>
+                                        <td>{{$product->gewicht}}</td>
+                                    </tr>
+                                @endif
+                                @if($product->fur_personen)
+                                    <tr>
+                                        <td><strong>{{__('fur_personen')}}</strong></td>
+                                        <td>{{$product->fur_personen}}</td>
+                                    </tr>
+                                @endif
 
 
                                 </tbody>

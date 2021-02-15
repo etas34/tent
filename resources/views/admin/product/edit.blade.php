@@ -68,7 +68,7 @@
                             <div class="form-group col-md-6">
                                 <label>Choose a Insulation</label>
                                 <select name="ins_id" id="type" class="form-control">
-                                    <option value="">No Insulation</option>
+                                    <option value="0">No Insulation</option>
                                     @foreach($insulation as $key=>$value)
                                         <option
                                             @if($product->insulation and $product->insulation->id == $value->id ) selected

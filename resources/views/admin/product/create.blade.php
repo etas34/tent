@@ -61,8 +61,9 @@
                             <div class="form-group col-md-6">
                                 <label>Choose a Insulation</label>
                                 <select name="ins_id" id="type" class="form-control" >
+                                    <option value="0">No Insulation</option>
                                     @foreach($insulation as $key=>$value)
-                                        <option value="">No Insulation</option>
+
                                         <option value="{{$value->id}}">{{ $value->name}}</option>
                                     @endforeach
 
