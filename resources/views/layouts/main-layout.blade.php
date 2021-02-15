@@ -18,7 +18,7 @@
     <link href="{{ asset('assets/css/product_page.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/css/faq.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/css/about.css')}}" rel="stylesheet">
-
+    @toastr_css
 
     @stack('styles')
 
@@ -358,7 +358,6 @@
             <div class="modal-header">
                 <h5 id="title" class="modal-title">
 
-                    Fachwerkbinder-Fünfeck 7-8-10-12-13m
 
 
                 </h5>
@@ -371,8 +370,6 @@
                 <div class="table-responsive">
                     <table class="table table-sm table-striped">
                         <tbody>
-
-
                         <tr id="priceQ">
                             <td><strong>{{__('Price')}}</strong></td>
                             <td id="price">null</td>
@@ -445,15 +442,19 @@
                     </table>
                     <!-- /table-responsive -->
                 </div>
-                <form class="py-4">
+                <form class="mt-4" method="post" action="{{route('getInfo',app()->getLocale())}}">
+                    @csrf
+
+                    <input type="text" name="id" hidden id="product_id">
+
                     <h5>Contact Us</h5>
                     <div class="form-group">
                         <label for="fullName">{{__('Full Name')}}</label>
-                        <input type="text" class="form-control" id="fullName">
+                        <input type="text" name="full_name" class="form-control" id="fullName">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">{{__('Email address')}}</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="text-center form-group">
                         <input type="submit" value="{{__('Get Info')}}" class="btn_1 full-width">
@@ -473,6 +474,9 @@
 <script src="{{asset('assets/js/common_scripts.min.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 
+@toastr_js
+@toastr_render
+
 <!-- SPECIFIC SCRIPTS -->
 {{--<script src="{{asset('assets/js/carousel-home.min.js')}}"></script>--}}
 
@@ -485,7 +489,7 @@
     //ajax
     $(document).on("click", ".getInfo", function () {
         var id = $(this).data('id');
-
+        $('#product_id').val(id)
         console.log(`api/getInfo/${id}`)
         $('#title').text($(this).data('category'))
         $.get({

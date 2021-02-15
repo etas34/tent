@@ -84,7 +84,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="url">Redirect Url</label>
-                                    <input type="text" class="form-control" id="url" name="url">
+                                    <input type="text" placeholder="/category/1" class="form-control" id="url" name="url">
                                 </div>
                             </div>
 

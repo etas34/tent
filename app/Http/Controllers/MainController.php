@@ -220,5 +220,10 @@ class MainController extends Controller
         ]);
     }
 
-
+    public function getinfo(Request $request)
+    {
+        toastr()->success('Something Went -');
+        return back();
+//        dd($request);
+    }
 }

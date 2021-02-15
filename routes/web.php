@@ -44,6 +44,9 @@ Route::group(['prefix' => '{locale}',
     Route::get('/category/{category}/{type}', [MainController::class, 'productsmodel'])->name('frontpage.productsmodel');
     Route::get('/product/detail/{product}', [MainController::class, 'productdetail'])->name('frontpage.productdetail');
 
+
+    Route::post('/get-info', [MainController::class, 'getinfo'])->name('getInfo');
+
     Route::get('/products/filter', [MainController::class, 'products']);
     Route::post('/products/filter', [MainController::class, 'filtre'])->name('filtre');
 

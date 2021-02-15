@@ -3,30 +3,30 @@
         <div id="carousel-home">
             <div class="owl-carousel owl-theme">
                 @foreach($slider as $key=>$value)
-                    <a href="{{$value->url}}">
-                    <div  class="owl-slide cover"
-                         style="background-image: url({{ asset("storage/images/slider_images/$value->image") }});">
-                        <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0)">
-                            <div class="container">
-                                <div class="row justify-content-center justify-content-md-end">
-                                    <div class="col-lg-6 static">
-                                        <div class="slide-text text-right white">
-                                            {{--                                            <h2 class="owl-slide-animated owl-slide-title">{{$value->header}}</h2>--}}
-                                            {{--                                            <p class="owl-slide-animated owl-slide-subtitle">--}}
-                                            {{--                                                {{$value->description}}--}}
-                                            {{--                                            </p>--}}
-                                            <div class="owl-slide-animated owl-slide-cta">
-{{--                                                <a class="btn_1"--}}
-{{--                                                                                             href="{{$value->url}}"--}}
-{{--                                                                                             role="button">{{__('Shop Now')}}</a>--}}
+                    <a href="{{$value->url ? app()->getLocale().$value->url : '#'}}">
+                        <div class="owl-slide cover"
+                             style="background-image: url({{ asset("storage/images/slider_images/$value->image") }});">
+                            <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0)">
+                                <div class="container">
+                                    <div class="row justify-content-center justify-content-md-end">
+                                        <div class="col-lg-6 static">
+                                            <div class="slide-text text-right white">
+                                                {{--                                            <h2 class="owl-slide-animated owl-slide-title">{{$value->header}}</h2>--}}
+                                                {{--                                            <p class="owl-slide-animated owl-slide-subtitle">--}}
+                                                {{--                                                {{$value->description}}--}}
+                                                {{--                                            </p>--}}
+                                                <div class="owl-slide-animated owl-slide-cta">
+                                                    {{--                                                <a class="btn_1"--}}
+                                                    {{--                                                                                             href="{{$value->url}}"--}}
+                                                    {{--                                                                                             role="button">{{__('Shop Now')}}</a>--}}
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </a>
                 @endforeach
 
@@ -103,12 +103,12 @@
         <ul id="banners_grid" class="clearfix">
             @foreach($category as $key=>$value)
                 <li>
-                    <a  href="{{route('frontpage.products',[app()->getLocale(),$value])}}" class="img_container">
+                    <a href="{{route('frontpage.products',[app()->getLocale(),$value])}}" class="img_container">
                         <img src="{{ asset('assets/img/banners_cat_placeholder.jpg') }}"
                              data-src="{{asset("storage/images/cat_images/$value->image")}}" alt="" class="lazy">
                         <div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                             <h3>{{$value->name}}</h3>
-{{--                            <div><span class="btn_1">{{__('Shop Now')}}</span></div>--}}
+                            {{--                            <div><span class="btn_1">{{__('Shop Now')}}</span></div>--}}
                         </div>
                     </a>
                 </li>
