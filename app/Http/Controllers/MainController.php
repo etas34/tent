@@ -37,7 +37,7 @@ class MainController extends Controller
 
         $model = Type::where('category_id', $category->id)->where('status', 1)->get();
         $insulation = Insulation::where('status', 1)->get();
-        $product = Product::where('category_id', $category->id)->where('category_id', $category->id)->paginate(9);
+        $product = Product::where('category_id', $category->id)->where('category_id', $category->id)->paginate(12);
         $width = Product::where('category_id', $category->id)->where('width', '!=', null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
         $diameter = Product::where('category_id', $category->id)->where('diameter', '!=', null)->select('diameter')->distinct('diameter')->orderByRaw('diameter+0 asc')->get();
         $length = Product::where('category_id', $category->id)->where('length', '!=', null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
@@ -53,7 +53,7 @@ class MainController extends Controller
         $secili_model = $type;
         $model = Type::where('category_id', $category->id)->where('status', 1)->get();
         $insulation = Insulation::where('status', 1)->get();
-        $product = Product::where('category_id', $category->id)->where('type_id', $type->id)->paginate(9);
+        $product = Product::where('category_id', $category->id)->where('type_id', $type->id)->paginate(12);
         $width = Product::where('category_id', $category->id)->where('type_id', $type->id)->where('width', '!=', null)->select('width')->distinct('width')->orderByRaw('width+0 asc')->get();
         $length = Product::where('category_id', $category->id)->where('type_id', $type->id)->where('length', '!=', null)->select('length')->distinct('length')->orderByRaw('length+0 asc')->get();
         $diameter = Product::where('category_id', $category->id)->where('type_id', $type->id)->where('diameter', '!=', null)->select('diameter')->distinct('diameter')->orderByRaw('diameter+0 asc')->get();
@@ -100,7 +100,7 @@ class MainController extends Controller
             $types_id_array[] = $value->id;
         }
 
-        $product = Product::whereIn('type_id', $types_id_array)->paginate(9);
+        $product = Product::whereIn('type_id', $types_id_array)->paginate(12);
 
         return view('frontpage.productsSearch', compact('product'));
 
@@ -204,7 +204,7 @@ class MainController extends Controller
         $door = $door->where('door', '!=', null)->select('door')->distinct('door')->orderByRaw('door+0 asc')->get();
         $model = $model->select('types.*')->distinct('types.name')->get();
 
-        $product = $product->paginate(9);
+        $product = $product->paginate(12);
         $model_id = $request->type_id;
         $insulation = $insulation->get();
         $insulation_id = $request->insulation_id;
