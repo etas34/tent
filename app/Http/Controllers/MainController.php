@@ -240,9 +240,16 @@ class MainController extends Controller
         Mail::to('mail@moonzelt.com')->send(new SendMail($data));
 //        return view('dynamic_email_template');
 
-        toastr()->success('Thanks for contacting us!');
+//        toastr()->success('Thanks for contacting us!');
 
-        return back();
+        return redirect()->route('emailsuccess',app()->getLocale());
 //        dd($request);
     }
+
+
+    public function emailsuccess()
+    {
+        return view('email_success');
+    }
+
 }

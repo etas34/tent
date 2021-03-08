@@ -4,7 +4,7 @@
 
         <main>
             <div class="top_banner">
-                <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.3)">
+                <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgb(27 35 66)">
                     <div class="container">
                         <div class="breadcrumbs">
                             <ul>
@@ -40,7 +40,7 @@
                         <li></li>
                         <li>
                             <a href="#0" class="open_filters">
-                                <i class="ti-filter"></i><span>{{__('Filters')}}</span>
+                                <i class="ti-filter">{{__('Filters')}}</i>
                             </a>
                         </li>
                     </ul>
@@ -157,7 +157,7 @@
         e.preventDefault();
         var url = $(this).attr('href');
         var page = url.split('page=')[1];
-        window.history.pushState("", "", url);
+        // window.history.pushState("", "", url);
         filtre(page);
     });
 var xhr = new XMLHttpRequest();

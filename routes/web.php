@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::get('/reset', function () {
     Artisan::call('config:cache');
 
@@ -43,6 +45,7 @@ Route::group(['prefix' => '{locale}',
     Route::get('/category/{category}', [MainController::class, 'products'])->name('frontpage.products');
     Route::get('/category/{category}/{type}', [MainController::class, 'productsmodel'])->name('frontpage.productsmodel');
     Route::get('/product/detail/{product}', [MainController::class, 'productdetail'])->name('frontpage.productdetail');
+    Route::get('/email-success', [MainController::class, 'emailsuccess'])->name('emailsuccess');
 
 
     Route::post('/get-info', [MainController::class, 'getinfo'])->name('getInfo');
