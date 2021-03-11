@@ -12,7 +12,10 @@ class Category extends Model
 
     use HasTranslations;
 
-    public $translatable = ['name'];
+    public $translatable = [
+        'name',
+        'description'
+    ];
     /**
      * Get the comments for the blog post.
      *
