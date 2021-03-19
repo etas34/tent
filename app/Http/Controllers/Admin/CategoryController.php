@@ -47,7 +47,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
 
-//        dd($request->cat_name);
+//        dd($request->description);
 //
 //        $category->image= 'denemeurl';
 //        $category->save();
@@ -59,6 +59,7 @@ class CategoryController extends Controller
 //            echo($key.'=>'.$item."\r\n");
 //        dd();
         $category = new Category();
+        $category->description = $request->description;
 
         $category->name = $request->cat_name;
         $category->sira = $request->sira;
@@ -145,6 +146,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
 
+        $category->description = $request->description;
         $category->name = $request->cat_name;
 
         $category->sira = $request->sira;

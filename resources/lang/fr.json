@@ -1,3 +1,19 @@
 {
-    "title2": "French Title"
+    "title2": "French Title",
+	"contact_number": "+32 467 623829",
+	"contact_mail": "info@moonzelt.com",
+	"Address": "Français - Belgique",
+	"social_media": "Social Media",
+	"facebook_link": "https://www.facebook.com/Moonzelt_FR-101227148684593",
+	"Slovenia": "Slovenia",
+	"CZECH REPUBLIC AND SLOVAKIA": "Česká - Slovensko",
+	"IRELAND AND UK": "Ireland AND UK",
+	"GERMANY, AUSTRIA": "Deutschland und Österreich",
+	"ROMANIA": "Romania",
+	"CROATIA SERBIA AND BOSNIA": "Hrvatska - Србија - Bosna",
+	"SPAIN": "España",
+	"BELGIUM FRANCE": "Belgique et France",
+	"ITALY": "Italia",
+	"NETHERLAND": "Nederland",
+	"PORTUGAL": "Portugal"
 }

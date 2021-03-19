@@ -281,11 +281,7 @@ src="https://www.facebook.com/tr?id=2710081195762018&ev=PageView&noscript=1"
                     <h3 data-target="#collapse_1">{{__('Quick Links')}}</h3>
                     <div class="collapse dont-collapse-sm links" id="collapse_1">
                         <ul>
-                            <li><a href="{{route('about', app()->getLocale())}}">{{__('About us')}}</a></li>
-                            <li><a href="help.html">{{__('Faq')}}</a></li>
-                            <li><a href="{{route('help', app()->getLocale())}}">{{__('Help')}}</a></li>
-                            <li><a href="account.html">{{__('My account')}}</a></li>
-                            <li><a href="blog.html">{{__('Blog')}}</a></li>
+                            <li><a href="{{route('contact', app()->getLocale())}}">{{__('Help')}}</a></li>
                             <li><a href="{{route('contact', app()->getLocale())}}">{{__('Contacts')}}</a></li>
                         </ul>
                     </div>
@@ -306,9 +302,9 @@ src="https://www.facebook.com/tr?id=2710081195762018&ev=PageView&noscript=1"
                     <h3 data-target="#collapse_3">{{__('Contacts')}}</h3>
                     <div class="collapse dont-collapse-sm contacts" id="collapse_3">
                         <ul>
-                            <li><i class="ti-home"></i>{{__('Baker st. 567')}}<br>{{__('Los Angeles - US')}}</li>
-                            <li><i class="ti-headphone-alt"></i>{{__('+94 423-23-221')}}</li>
-                            <li><i class="ti-email"></i><a href="#0">{{__('info@allaia.com')}}</a></li>
+                            <li><i class="ti-home"></i>{{__('Address')}}</li>
+                            <li><i class="ti-headphone-alt"></i>{{__('contact_number')}}</li>
+                            <li><i class="ti-email"></i><a href="#0">{{__('contact_mail')}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -316,24 +312,12 @@ src="https://www.facebook.com/tr?id=2710081195762018&ev=PageView&noscript=1"
                     <div class="collapse dont-collapse-sm" id="collapse_4">
 
                         <div class="follow_us">
-                            <h5>{{__('Follow Us')}}</h5>
+                            <h5>{{__('social_media')}}</h5>
                             <ul>
-                                <li><a href="#0"><img
-                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                            data-src="{{ asset('assets/img/twitter_icon.svg') }}" alt=""
-                                            class="lazy"></a></li>
-                                <li><a href="#0"><img
+                                <li><a href="{{__('facebook_link')}}" target="_blank"><img
                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
                                             data-src="{{ asset('assets/img/facebook_icon.svg') }}" alt="" class="lazy"></a>
                                 </li>
-                                <li><a href="#0"><img
-                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                            data-src="{{ asset('assets/img/instagram_icon.svg') }}" alt="" class="lazy"></a>
-                                </li>
-                                <li><a href="#0"><img
-                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                            data-src="{{ asset('assets/img/youtube_icon.svg') }}" alt=""
-                                            class="lazy"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -360,10 +344,10 @@ src="https://www.facebook.com/tr?id=2710081195762018&ev=PageView&noscript=1"
                         <li>
 
                         </li>
-                        <li><img
-                                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                data-src="{{ asset('assets/img/cards_all.svg') }}" alt="" width="198" height="30"
-                                class="lazy"></li>
+                        <li>{{-- <img--}}
+                            {{--     src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="--}}
+                            {{--     data-src="{{ asset('assets/img/cards_all.svg') }}" alt="" width="198" height="30"--}}
+                            {{--     class="lazy"></li>--}}
                     </ul>
                 </div>
                 <div class="col-lg-6">

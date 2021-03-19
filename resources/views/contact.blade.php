@@ -8,40 +8,81 @@
                 <h2>{{__('Contact')}}</h2>
                 <p>{{__('Contact description')}}</p>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4">
-                    <div class="box_contacts">
-                        <i class="ti-support"></i>
-                        <h2>{{__('Help Center')}}</h2>
-                        <a href="#0">{{__('+94 423-23-221')}}</a> - <a href="#0">{{__('help@allaia.com')}}</a>
-                        <small>{{__('MON to FRI 9am-6pm SAT 9am-2pm')}}</small>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="box_contacts">
-                        <i class="ti-map-alt"></i>
-                        <h2>{{__('Showroom')}}</h2>
-                        <div>{{__('6th Forrest Ray, London - 10001 UK')}}</div>
-                        <small>{{__('MON to FRI 9am-6pm SAT 9am-2pm')}}</small>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="box_contacts">
-                        <i class="ti-package"></i>
-                        <h2>Allaia {{__('Orders')}}</h2>
-                        <a href="#0">{{__('+94 423-23-221')}}</a> - <a href="#0">{{__('order@allaia.com')}}</a>
-                        <small>{{__('MON to FRI 9am-6pm SAT 9am-2pm')}}</small>
-                    </div>
-                </div>
-            </div>
             <!-- /row -->
         </div>
         <!-- /container -->
         <div class="bg_white">
-            <div class="container margin_60_35">
+
+				<div class="container margin_60">
+
+		<div class="row">
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('Slovenia')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Alenka FIREDER<br>moonsotori@gmail.com</br><a href="https://wa.me/38631523043">+38 631523043</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('CZECH REPUBLIC AND SLOVAKIA')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">John KINGSLEY<br>zvirecistan@gmail.com</br><a href="https://wa.me/420775077406">+42 0775077406</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('IRELAND AND UK')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Sorin MILEA<br>moonshelteruki@gmail.com</br><a href="https://wa.me/353899407909">+35 3899407909</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('GERMANY, AUSTRIA')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Jan Peter Warnick	<br>info@moonzelt.com</br><a href="https://wa.me/4915233879942">+49 15233879942</a></span>
+			</div></div>
+			<div class="row" style="margin-top:20px">
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('GERMANY, AUSTRIA')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Kemal Aydemir<br>info@moonzelt.com</br><a href="https://wa.me/491639531955">+49 1639531955</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('ROMANIA')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Adrian Negoteiu	<br>corturianimale@gmail.com</br><a href="https://wa.me/40729132501">+40 729132501</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('CROATIA SERBIA AND BOSNIA')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Mia Spasenic<br>stocarskisatorihrvatska@gmail.com	</br><a href="https://wa.me/38598632980">+38 598632980</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('SPAIN')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Isabel Torrecilla<br>mooncarpas@gmail.com</br><a href="https://wa.me/34642718185">+34 642718185</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('BELGIUM FRANCE')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Louis Dias<br>moonzelt.fr@gmail.com</br><a href="https://wa.me/32467623829">+32 467 62 38 29</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('ITALY')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Marina Torresi<br>moontenda@gmail.com</br><a href="https://wa.me/393518986780">+39 351 898 6780</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('NETHERLAND')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Angel van Kruijsdijk<br>moonzelt.nl@gmail.com</br><a href="https://wa.me/34642718185">+34 642718185</a></span>
+			</div>
+			<div class="col-lg-3 contactinfo">
+				<i class="ti-user"></i>
+				<h2 style="text-align: center;font-weight: 600;color: #1b2342;">{{__('PORTUGAL')}}</h2>
+				<span style="font-size: 16px;text-align: center;display:block;">Marina Ramalho<br>moonzelt.pr@gmail.com</br><a href="https://wa.me/34642718185">+34 642718185</a></span>
+			</div>
+		</div>
+		</div>
+            <div class="container">
                 <h4 class="pb-3">{{__('Drop Us a Line')}}</h4>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 add_bottom_25">
+                    <div class="col-lg-12 col-md-12 add_bottom_25">
                         <div class="form-group">
                             <input class="form-control" type="text" placeholder="{{__('Name')}} *">
                         </div>
@@ -54,9 +95,6 @@
                         <div class="form-group">
                             <input class="btn_1 full-width" type="submit" value="{{__('Submit')}}">
                         </div>
-                    </div>
-                    <div class="col-lg-8 col-md-6 add_bottom_25">
-                        <iframe class="map_contact" src="{{__('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39714.47749917409!2d-0.13662037019554393!3d51.52871971170425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondra%2C+Regno+Unito!5e0!3m2!1sit!2ses!4v1557824540343!5m2!1sit!2ses')}}" style="border: 0" allowfullscreen></iframe>
                     </div>
                 </div>
                 <!-- /row -->

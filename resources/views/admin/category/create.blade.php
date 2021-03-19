@@ -84,6 +84,15 @@
                                                                class="form-control" id="cat_name"
                                                                placeholder="Enter Category Name">
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label>Category Description ({{$value}})</label>
+                                                        <textarea class="summernote" id="summernote_{{$key}}"  name="description[{{$key}}]">
+
+
+
+                                                        </textarea>
+
+                                                    </div>
 
                                                 </div>
                                             @endforeach
@@ -114,7 +123,13 @@
 
 
     @push('scripts')
-
+            <script>
+                $(() => {
+                    $('.summernote').summernote({
+                        height:300
+                    })
+                })
+            </script>
 
     @endpush
 </x-admin-app>
