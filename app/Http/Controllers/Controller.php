@@ -28,6 +28,8 @@ class Controller extends BaseController
             "cs" => "český",
             "es" => "español",
             "nl" => "nederlands",
+            "it" => "italiano",
+            "fr" => "français",
         );
 
         // Sharing is caring
