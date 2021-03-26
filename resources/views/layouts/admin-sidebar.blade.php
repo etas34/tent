@@ -1,4 +1,3 @@
-
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('admin.dashboard', app()->getLocale()) }}" class="brand-link">
@@ -26,40 +25,6 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
-{{--                <li class="nav-item @if(request()->routeIs('admin.form.*')) menu-open @endif">--}}
-{{--                    <a href="#" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-tachometer-alt"></i>--}}
-{{--                        <p>--}}
-{{--                            Form--}}
-{{--                            <i class="right fas fa-angle-left"></i>--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                    <ul class="nav nav-treeview">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('admin.form.create')}}" class="nav-link @if(request()->routeIs('admin.form.create')) active @endif ">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>Form Create</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('admin.form.index')}}" class="nav-link  @if(request()->routeIs('admin.form.index')) active @endif ">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>Form List</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a href="#" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-th"></i>--}}
-{{--                        <p>--}}
-{{--                            Simple Link--}}
-{{--                            <span class="right badge badge-danger">New</span>--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
 
 
                 <li class="nav-item">
@@ -67,7 +32,7 @@
                         <i class="nav-icon fas fa-sliders-h"></i>
                         <p>
                             Sliders
-                            {{--                            <span class="right badge badge-danger">New</span>--}}
+
                         </p>
                     </a>
                 </li>
@@ -76,7 +41,7 @@
                         <i class="nav-icon fas fa-paperclip"></i>
                         <p>
                             Pages
-                            {{--                            <span class="right badge badge-danger">New</span>--}}
+
                         </p>
                     </a>
                 </li>
@@ -86,8 +51,8 @@
                     <a href="{{route('admin.category.index', app()->getLocale())}}" class="nav-link">
                         <i class="nav-icon fas fa-list"></i>
                         <p>
-                          Categories
-{{--                            <span class="right badge badge-danger">New</span>--}}
+                            Categories
+
                         </p>
                     </a>
                 </li>
@@ -95,8 +60,8 @@
                     <a href="{{route('admin.model.index', app()->getLocale())}}" class="nav-link">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Models
-{{--                            <span class="right badge badge-danger">New</span>--}}
+                            Models
+
                         </p>
                     </a>
                 </li>
@@ -105,19 +70,60 @@
                         <i class="nav-icon fas fa-circle"></i>
                         <p>
                             Insulations
-{{--                            <span class="right badge badge-danger">New</span>--}}
+
                         </p>
                     </a>
                 </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.product.index', app()->getLocale())}}" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-cart-plus"></i>--}}
+{{--                        <p>--}}
+{{--                            Products--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+
+
+{{--                <li class="nav-header">Products split by categories </li>--}}
                 <li class="nav-item">
-                    <a href="{{route('admin.product.index', app()->getLocale())}}" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-cart-plus"></i>
                         <p>
-                          Products
-{{--                            <span class="right badge badge-danger">New</span>--}}
+                            Products
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+
+                        @foreach(($categories = \App\Models\Category::all() ) as $category_key=>$category)
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>
+                                        {{$category->name}}
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    @foreach(($types = $category->type)  as $type_key => $type)
+                                        <li class="nav-item">
+                                            <a href="{{route('admin.product.bringByType',[app()->getLocale(), $type])}}" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>
+                                                    {{$type->name}}
+                                                </p>
+                                            </a>
+                                        </li>
+                                    @endforeach
+
+                                </ul>
+                            </li>
+                        @endforeach
+
+                    </ul>
                 </li>
+
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

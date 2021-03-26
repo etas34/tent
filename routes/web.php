@@ -94,6 +94,7 @@ Route::group(['prefix' => '{locale}',
         });
         Route::group(['prefix' => 'product', 'as' => 'product.', 'middleware' => 'auth'], function () {
             Route::get('/', [ProductController::class, 'index'])->name('index');
+            Route::get('/bring-by-type/{type}', [ProductController::class, 'bringByType'])->name('bringByType');
             Route::get('/create', [ProductController::class, 'create'])->name('create');
             Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('edit');
             Route::get('/destroy/{product}', [ProductController::class, 'destroy'])->name('destroy');

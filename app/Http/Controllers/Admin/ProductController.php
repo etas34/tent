@@ -28,6 +28,20 @@ class ProductController extends Controller
     }
 
     /**
+     * Bring Products records by Type.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function bringByType(Type $type)
+    {
+        $product = $type->product;
+
+        return view('admin.product.index', compact(
+            'product'
+        ));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
