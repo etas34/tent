@@ -46,13 +46,13 @@
         <div class="grid_item">
             {{--                                    <span class="ribbon hot">Hot</span>--}}
             <div class="con">
+
                 <a
                     href="{{route('frontpage.productdetail',[app()->getLocale(), $value])}}">
 
                     <img class="img-fluid lazy image"
-                         height="400" width="400"
-                         src="{{asset("storage/images/prds_images/$value->image")}}"
-                         data-src="{{asset("storage/images/prds_images/$value->image")}}"
+                      @if(file_exists(public_path("storage/images/prds_images/$value->image")))   src="{{\Intervention\Image\Facades\Image::make(public_path("storage/images/prds_images/$value->image"))->resize(200,200)->encode('data-url') }}" @endif
+{{--                         data-src="{{asset("storage/images/prds_images/$value->image")}}"--}}
                          alt="">
 
                 </a>
