@@ -37,7 +37,7 @@
                     @endif
                     <!-- /item -->
                     {{--                        <div class="item">--}}
-                    {{--                            <a href="img/products/shoes/product_detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/products/product_placeholder_detail_2.jpg" data-src="img/products/shoes/product_detail_2.jpg" alt="" class="owl-lazy"></a>--}}
+                    {{--<a href="img/products/shoes/product_detail_2.jpg" title="Photo title" data-effect="mfp-zoom-in"><img src="img/products/product_placeholder_detail_2.jpg" data-src="img/products/shoes/product_detail_2.jpg" alt="" class="owl-lazy"></a>--}}
                     {{--                        </div>--}}
                     <!-- /item -->
                     </div>

@@ -1,8 +1,5 @@
 <x-main-layout>
     <main>
-{{--        {{asset('adminlte/dist/img/avatar.png')}}--}}
-
-
         <div id="carousel-home">
             <div class="owl-carousel owl-theme">
                 @foreach($slider as $key=>$value)
