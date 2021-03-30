@@ -20,8 +20,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product = Product::all();
-
+        $product = Product::with(['type','category'])
+            ->get();
         return view('admin.product.index', compact(
             'product'
         ));
@@ -34,7 +34,9 @@ class ProductController extends Controller
      */
     public function bringByType(Type $type)
     {
-        $product = $type->product;
+        $product = Product::where('type_id',$type->id)
+            ->with(['type','category'])
+            ->get();
 
         return view('admin.product.index', compact(
             'product'
