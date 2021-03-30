@@ -39,6 +39,7 @@
         background-color: black;
     }
 
+
 </style>
 
 @foreach($product as $key=>$value)

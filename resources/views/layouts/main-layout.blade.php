@@ -470,7 +470,7 @@ src="https://www.facebook.com/tr?id=2710081195762018&ev=PageView&noscript=1"
                         <textarea required name="message" class="form-control"></textarea>
                     </div>
                     <div class="text-center form-group">
-                        <input required type="submit" value="{{__('Get Info')}}" class="btn_1 full-width">
+                        <input required type="submit" value="{{__('Get Info')}}" class="buton-form-gonder">
                     </div>
                 </form>
 

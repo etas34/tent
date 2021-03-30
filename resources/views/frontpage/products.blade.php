@@ -110,11 +110,24 @@
   text-decoration: none;
   cursor: pointer;
 }
+#mobile_adjustment {
+    display: none;
+}
+
+
+
     @media only screen and (max-width: 650px) {
         .modal-content {
             margin: 25% auto !important;
             width: 90% !important;
         }
+
+    }
+    @media only screen and (max-width: 992px) {
+        #mobile_adjustment {
+            display: block;
+        }
+
     }
             </style>
             <script>
@@ -143,7 +156,7 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }</script>
-            
+
             <!-- END MODAL BUTTON -->
 
             <div class="container margin_30">
@@ -219,8 +232,8 @@ window.onclick = function(event) {
 
 
                             <!-- /filter_type -->
-                            <div class="buttons">
-                                <a href="#0" class="btn_1 open_filters">{{__('Filter')}}</a>
+                            <div class="buttons" >
+                                <a href="#0" id="mobile_adjustment" class="btn_1 open_filters ">{{__('Filter')}}</a>
                             </div>
                         </div>
 

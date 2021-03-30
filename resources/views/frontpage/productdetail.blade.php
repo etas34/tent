@@ -78,12 +78,12 @@
                                     </tr>
                                 @endif
 
-                                    @if($product->insulation or $product->insulation->id ?? 0 !=0)
-                                        <tr>
-                                            <td><strong>{{__('Insulation')}}</strong></td>
-                                            <td>{{$product->insulation->name}}</td>
-                                        </tr>
-                                    @endif
+                                @if($product->insulation or $product->insulation->id ?? 0 !=0)
+                                    <tr>
+                                        <td><strong>{{__('Insulation')}}</strong></td>
+                                        <td>{{$product->insulation->name}}</td>
+                                    </tr>
+                                @endif
 
                                 @if($product->door)
                                     <tr>
@@ -155,12 +155,13 @@
                             data-category="{{$product->type['name']}}"
                             data-toggle="modal" data-target="#size-modal"
                             class="getInfo btn" style="background: #1b2342;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: 20px;
-    margin: 0 auto;
-    display: block;
-    text-align: center;">{{__('Get Info')}}</btn>
+                            cursor: pointer;
+                            padding: 10px 20px;
+                            color: #fff;
+                            font-size: 20px;
+                            margin: 0 auto;
+                            display: block;
+                            text-align: center;">{{__('Get Info')}}</btn>
                     </div>
                 </div>
             </div>
