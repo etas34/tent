@@ -74,54 +74,54 @@
                         </p>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.product.index', app()->getLocale())}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-cart-plus"></i>--}}
-{{--                        <p>--}}
-{{--                            Products--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-
-
-{{--                <li class="nav-header">Products split by categories </li>--}}
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('admin.product.index', app()->getLocale())}}" class="nav-link">
                         <i class="nav-icon fas fa-cart-plus"></i>
                         <p>
                             Products
-                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-
-                        @foreach(($categories = \App\Models\Category::all() ) as $category_key=>$category)
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>
-                                        {{$category->name}}
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    @foreach(($types = $category->type)  as $type_key => $type)
-                                        <li class="nav-item">
-                                            <a href="{{route('admin.product.bringByType',[app()->getLocale(), $type])}}" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>
-                                                    {{$type->name}}
-                                                </p>
-                                            </a>
-                                        </li>
-                                    @endforeach
-
-                                </ul>
-                            </li>
-                        @endforeach
-
-                    </ul>
                 </li>
+
+
+{{--                <li class="nav-header">Products split by categories </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-cart-plus"></i>--}}
+{{--                        <p>--}}
+{{--                            Products--}}
+{{--                            <i class="right fas fa-angle-left"></i>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                    <ul class="nav nav-treeview">--}}
+
+{{--                        @foreach(($categories = \App\Models\Category::all() ) as $category_key=>$category)--}}
+{{--                            <li class="nav-item">--}}
+{{--                                <a href="#" class="nav-link">--}}
+{{--                                    <i class="far fa-circle nav-icon"></i>--}}
+{{--                                    <p>--}}
+{{--                                        {{$category->name}}--}}
+{{--                                        <i class="right fas fa-angle-left"></i>--}}
+{{--                                    </p>--}}
+{{--                                </a>--}}
+{{--                                <ul class="nav nav-treeview">--}}
+{{--                                    @foreach(($types = $category->type)  as $type_key => $type)--}}
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a href="{{route('admin.product.bringByType',[app()->getLocale(), $type])}}" class="nav-link">--}}
+{{--                                                <i class="far fa-dot-circle nav-icon"></i>--}}
+{{--                                                <p>--}}
+{{--                                                    {{$type->name}}--}}
+{{--                                                </p>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                    @endforeach--}}
+
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                        @endforeach--}}
+
+{{--                    </ul>--}}
+{{--                </li>--}}
 
 
             </ul>

@@ -21,6 +21,47 @@
     @toastr_css
 
     @stack('styles')
+
+    <style>.con {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .con img {
+            width: 100%;
+            height: auto;
+        }
+
+        .con .btn {
+            background-color: #004dda;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .con:hover .image {
+            opacity: 0.9;
+        }
+
+        .con:hover .middle {
+            opacity: 1;
+        }
+
+        .con .btn:hover {
+            background-color: black;
+        }</style>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGLXBWLMYZ"></script>
 <script>

@@ -211,13 +211,16 @@ class MainController extends Controller
 
 
 //        return view('frontpage.items', compact( 'product'))->render();
+
+
         return response()->json([
-            'view_products' => view('frontpage.items', compact('product'))->render(),
+
+            'view_products' => $this->sanitize_output(view('frontpage.items', compact('product'))->render()),
             'view_models' => view('frontpage.models', compact('model', 'model_id'))->render(),
             'view_widths' => view('frontpage.widths', compact('width', 'width_id'))->render(),
             'view_lengths' => view('frontpage.lengths', compact('length', 'length_id'))->render(),
             'view_diameters' => view('frontpage.diameters', compact('diameter', 'diameter_id'))->render(),
-            'view_insulations' => view('frontpage.insulations', compact('insulation', 'insulation_id'))->render(),
+//            'view_insulations' => view('frontpage.insulations', compact('insulation', 'insulation_id'))->render(),
             'view_doors' => view('frontpage.doors', compact('door', 'door_id'))->render()
         ]);
     }
@@ -242,7 +245,7 @@ class MainController extends Controller
 
 //        toastr()->success('Thanks for contacting us!');
 
-        return redirect()->route('emailsuccess',app()->getLocale());
+        return redirect()->route('emailsuccess', app()->getLocale());
 //        dd($request);
     }
 
@@ -252,4 +255,33 @@ class MainController extends Controller
         return view('email_success');
     }
 
+    /**
+     * Minify HTML
+     *
+     * @param $buffer
+     *
+     * @return string|string[]|null
+     */
+    function sanitize_output($buffer)
+    {
+
+        $search = array(
+            '/\>[^\S ]+/s',     // strip whitespaces after tags, except space
+            '/[^\S ]+\</s',     // strip whitespaces before tags, except space
+            '/(\s)+/s',         // shorten multiple whitespace sequences
+            '/<!--(.|\s)*?-->/' // Remove HTML comments
+        );
+
+        $replace = array(
+            '>',
+            '<',
+            '\\1',
+            ''
+        );
+
+        $buffer = preg_replace($search, $replace, $buffer);
+
+        return $buffer;
+
+    }
 }
